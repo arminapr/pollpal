@@ -25,11 +25,11 @@ def get_campaign_site_survey():
     the_response.mimetype = 'application/json'
     return the_response
 
-@data_analyst.route('/campaign-site-survey', methods=['GET'])
+@data_analyst.route('/voter-site-survey', methods=['GET'])
 def get_voter_site_survey():
-    current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
+    current_app.logger.info('data_analyst_routes.py: GET /voter-site-survey')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT * FROM  voterSiteSurvey')
+    cursor.execute('SELECT * FROM voterSiteSurvey')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
@@ -95,10 +95,10 @@ def delete_minor_data():
     cursor = db.get_db().cursor()
     cursor.execute('DELETE FROM voter v WHERE v.age < 18')
     db.get_db().commit()
-    affected_rows = cursor.rowcount
-    response_data = {'message': f'Deleted {affected_rows} rows'}
-    the_response = make_response(jsonify(response_data))
+    the_response = make_response(jsonify({"message": "Data deleted"}))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+
 
