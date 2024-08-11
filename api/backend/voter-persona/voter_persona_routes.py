@@ -114,9 +114,9 @@ def add_voter():
     db.get_db().commit()
     return 'voter added!'
 
-@voter_persona.route('/voter-info', methods=['PUT'])
-def update_customer(voter_id):
-    current_app.logger.info('PUT /update_voter/{0}'.format(voter_id))
+@voter_persona.route('/voter-info/<voterId>', methods=['PUT'])
+def update_customer(voterId):
+    current_app.logger.info('PUT /voter-info/{0}'.format(voterId))
     voter_info = request.json
     political_affiliation = voter_info['politicalAffiliation']
     state = voter_info['state']
@@ -129,14 +129,14 @@ def update_customer(voter_id):
     query = 'UPDATE voter SET politicalAffiliation = %s, state = %s, county = %s \
         age = %s, incomeLevel = %s, ethnicity = %s, gender = %s, candidateId = %s \
         WHERE voterId = %s'
-    data = (political_affiliation, state, county, age, income, ethnicity, gender, candidateId, voter_id)
+    data = (political_affiliation, state, county, age, income, ethnicity, gender, candidateId, voterId)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'voter updated!'
 
-@voter_persona.route('/voter-site-survey', methods=['POST'])
-def add_voter_site_survey():
+@voter_persona.route('/voter-site-survey/<voterId>', methods=['POST'])
+def add_voter_site_survey(voterId):
     current_app.logger.info('POST /voter-site-survey route')
     site_survey = request.json
     # current_app.logger.info(cust_info)
@@ -146,8 +146,7 @@ def add_voter_site_survey():
     neededInfo = site_survey['foundNeededInfo']
     informed = site_survey['informedAboutCandidate']
     where = site_survey['discoveredWhere']
-    voterId = site_survey['voterId']
-
+    
     query = 'INSERT INTO voter VALUES (%s, %s, %s, %s, %s, %s)'
     data = (foundCenter, isFriendly, neededInfo, informed, where, voterId)
     cursor = db.get_db().cursor()
