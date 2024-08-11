@@ -1,3 +1,5 @@
+use fontevote;
+
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (1, 'Thekla', 'Dillinton', 'Democrat', 'Female', 38, 'Post Graduate', 'Georgia');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (2, 'Brit', 'Hallard', 'Democrat', 'Female', 42, 'No Education', 'New York');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (3, 'Benoite', 'Tattersall', 'Republican', 'Female', 46, 'High School', 'New York');
