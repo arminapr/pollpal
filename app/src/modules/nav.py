@@ -35,11 +35,15 @@ def PolicyNav():
 def VoterFeedbackNav():
     st.sidebar.page_link("pages/15_Site_Survey.py", label="Feedback", icon='😊')
 
-#### ------------------------ System Admin Role ------------------------
-def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon='🖥️')
-    st.sidebar.page_link("pages/21_delete_inavlid_data.py", label='ML Model Management', icon='🏢')
+#### ------------------------ Data Analyst Role ------------------------
+def InvalidDataNav():
+    st.sidebar.page_link("pages/21_Clean_Inavlid_Data.py", label='Data Cleanup', icon='🏢')
 
+def DemographicDataNav():
+    st.sidebar.page_link("pages/22_Demographic_Data.py", label='Demographic Data', icon='📊')
+
+def SurveyResponsesNav():
+    st.sidebar.page_link("pages/23_User_Site_Surveys.py", label="User Feedback", icon='🧐')
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
@@ -78,7 +82,9 @@ def SideBarLinks(show_home=False):
         
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state['role'] == 'data_analyst':
-            AdminPageNav()
+            InvalidDataNav()
+            DemographicDataNav()
+            SurveyResponsesNav()
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()

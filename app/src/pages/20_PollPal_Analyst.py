@@ -17,14 +17,14 @@ st.write('### What would you like to do today?')
 if st.button('Delete Invalid User Data',
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/21_delete_invalid_data.py')
+  st.switch_page('pages/21_Clean_Inavlid_Data.py')
 
 if st.button('View Voter Data By Demographic',
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/22_voter_demographics.py')
+  st.switch_page('pages/22_Demographic_Data.py')
 
 if st.button("View User Site Surveys",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/23_user_site_survey.py')
+  st.switch_page('pages/23_User_Site_Surveys.py')
