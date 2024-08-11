@@ -25,11 +25,11 @@ def get_campaign_site_survey():
     the_response.mimetype = 'application/json'
     return the_response
 
-@data_analyst.route('/campaign-site-survey', methods=['GET'])
+@data_analyst.route('/voter-site-survey', methods=['GET'])
 def get_voter_site_survey():
-    current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
+    current_app.logger.info('data_analyst_routes.py: GET /voter-site-survey')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT * FROM  voterSiteSurvey')
+    cursor.execute('SELECT * FROM voterSiteSurvey')
     row_headers = [x[0] for x in cursor.description]
     json_data = []
     theData = cursor.fetchall()
