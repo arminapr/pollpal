@@ -3,7 +3,7 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-# Return a realtime ratio of voters to candidates for the current election
+# Return a realtime ratio of voters to candidates for the current election g
 @data_analyst.route('/voting/ratio', methods=['GET'])
 def get_voter_to_candidate_ratio():
     current_app.logger.info('data_analyst_routes.py: GET /voting/ratio')
@@ -28,12 +28,6 @@ def get_voter_to_candidate_ratio():
     the_response.mimetype = 'application/json'
     return the_response
 
-    voter_count = theData[0]
-    candidate_count = theData[1]
-
-
-    ratio = voter_count / candidate_count
-    return jsonify({"voter_to_candidate_ratio": ratio})
 
 
 # Return swing states based on the state’s popular vote ratio across a period of years (from 2.
