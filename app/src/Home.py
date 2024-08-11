@@ -37,7 +37,7 @@ if st.button('Act as Michelle, a PollPal Data Analyst',
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'Data Analyst'
     st.session_state['first_name'] = 'Michelle'
-    st.switch_page('pages/30_PollPal_Analyst.py')
+    st.switch_page('pages/20_PollPal_Analyst.py')
 
 
 
