@@ -1,0 +1,106 @@
+########################################################
+# Sample customers blueprint of endpoints
+# Remove this file if you are not using it in your project
+########################################################
+from flask import Blueprint, request, jsonify, make_response, current_app
+import json
+from backend.db_connection import db
+from backend.ml_models.model01 import predict
+
+data_analyst = Blueprint('data_analyst', __name__)
+
+# Get all campaign site surveys from the DB
+@data_analyst.route('/campaign-site-survey', methods=['GET'])
+def get_campaign_site_survey():
+    current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM campaignManagerSiteSurvey')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@data_analyst.route('/campaign-site-survey', methods=['GET'])
+def get_voter_site_survey():
+    current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM  voterSiteSurvey')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@data_analyst.route('/voter-info-ethnicity', methods=['GET'])
+def get_voter_ethnicity():
+    current_app.logger.info('data_analyst_routes.py: GET /voter-info')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT ethnicity, COUNT(voterId) as userCount\
+    FROM voter v GROUP BY ethnicity ORDER BY userCount ASC LIMIT 5')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@data_analyst.route('/voter-info-age', methods=['GET'])
+def get_voter_age():
+    current_app.logger.info('data_analyst_routes.py: GET /voter-info')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT age, COUNT(voterId) as userCount\
+    FROM voter v GROUP BY age ORDER BY userCount ASC LIMIT 5')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@data_analyst.route('/voter-info-gender', methods=['GET'])
+def get_voter_gender():
+    current_app.logger.info('data_analyst_routes.py: GET /voter-info')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT gender, COUNT(voterId) as userCount\
+    FROM voter v GROUP BY gender ORDER BY userCount ASC LIMIT 5')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
+@data_analyst.route('/voter-info', methods=['DELETE'])
+def delete_minor_data():
+    current_app.logger.info('data_analyst_routes.py: DELETE /voter-info route')
+    cursor = db.get_db().cursor()
+    cursor.execute('DELETE FROM voter v WHERE v.age < 18')
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
