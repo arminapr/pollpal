@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS fontevote;
 USE fontevote;
 
 CREATE TABLE IF NOT EXISTS candidate (
-    candidateId INT PRIMARY KEY,
+    candidateId INT AUTO-INCREMENT PRIMARY KEY,
     firstName VARCHAR(255) NOT NULL,
     lastName VARCHAR(255) NOT NULL,
     politicalAffiliation VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS candidate (
 );
 
 CREATE TABLE IF NOT EXISTS votingCenter (
-    votingCenterId INT PRIMARY KEY,
+    votingCenterId INT AUTO-INCREMENT PRIMARY KEY,
     street VARCHAR(255) NOT NULL,
     city VARCHAR(255) NOT NULL,
     state VARCHAR(255) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS voter (
 );
 
 CREATE TABLE IF NOT EXISTS campaign (
-    campaignId INTEGER PRIMARY KEY,
+    campaignId INTEGER AUTO-INCREMENT PRIMARY KEY,
     newVotersRegistered INTEGER NOT NULL,
     dateLaunched DATE,
     candidateId INTEGER NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS campaign (
 );
 
 CREATE TABLE IF NOT EXISTS campaignManagerSiteSurvey (
-    campaignSurveyId INT PRIMARY KEY,
+    campaignSurveyId INT AUTO-INCREMENT PRIMARY KEY,
     discoveredWhere VARCHAR(255) NOT NULL,-- how did you discover us?
     addAdditionalData TEXT NOT NULL,      -- what additional data would have been helpful for PollPal to provide?
     isDataUseful BOOLEAN NOT NULL,        -- was the data provided by PollPal useful for your campaign efforts?
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS campaignFeaturesAccessed (
 );
 
 CREATE TABLE IF NOT EXISTS policy (
-    policyId INT PRIMARY KEY,
+    policyId INT AUTO-INCREMENT PRIMARY KEY,
     policyName VARCHAR(250) NOT NULL,
     stance VARCHAR(250)
 );
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS voterSiteSurvey
 );
 
 CREATE TABLE IF NOT EXISTS voterFeaturesAccessed (
-    surveyId INT AUTO_INCREMENT,
+    surveyId AUTO-INCREMENT INT,
     featureAccessed VARCHAR(255) UNIQUE NOT NULL,
     PRIMARY KEY (surveyId, featureAccessed),
     CONSTRAINT fk_voterFeature_survey
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS voterFeaturesAccessed (
 
 CREATE TABLE IF NOT EXISTS advertisement (
     campaignId INTEGER,
-    advertisementId INTEGER,
+    advertisementId AUTO-INCREMENT INTEGER,
     location VARCHAR(255) NOT NULL,
     cost INTEGER NOT NULL,
     interactions INTEGER,
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS advertisement (
 
 CREATE TABLE IF NOT EXISTS rally (
     campaignId INTEGER,
-    rallyId INTEGER,
+    rallyId AUTO-INCREMENT INTEGER,
     cost INTEGER NOT NULL,
     state VARCHAR(255) NOT NULL,
     volunteerCount INTEGER NOT NULL,
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS rally (
 );
 
 CREATE TABLE IF NOT EXISTS election (
-    electionId INT PRIMARY KEY,
+    electionId INT AUTO-INCREMENT PRIMARY KEY,
     year INT NOT NULL,
     winnerId INT,
     electoralVoteDifference INT,
