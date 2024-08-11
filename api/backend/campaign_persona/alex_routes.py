@@ -10,12 +10,12 @@ def get_voter_to_candidate_ratio():
     cursor = db.get_db().cursor()
 
     cursor.execute('
-        SELECT 
-            (SELECT COUNT(*) FROM voter WHERE election_id = e.id) AS voter_count, 
-            (SELECT COUNT(*) FROM candidate WHERE election_id = e.id) AS candidate_count 
-        FROM election e 
-        WHERE e.active = TRUE 
-        LIMIT 1
+        SELECT candidateId, COUNT(voterID)as votes
+        FROM voter v JOIN candidate c ON v.candidateId=c.candidateId
+            JOIN ranIn r on r.candidateId=c.candidateId
+            JOIN election e on e.electionId =r.electionId
+            WHERE e.year = 2024
+            GROUP BY candidateID;
     ')
 
     row_headers = [x[0] for x in cursor.description]
@@ -47,14 +47,9 @@ def get_swing_states():
     end_year = request.args.get('end_year')
 
     cursor.execute('
-        SELECT 
-            s.name, 
-            AVG(er.popular_vote_ratio) as avg_ratio 
-        FROM state s 
-        JOIN election_result er ON er.state_id = s.id 
-        WHERE er.year BETWEEN %s AND %s 
-        GROUP BY s.name 
-        HAVING AVG(er.popular_vote_ratio) BETWEEN 0.45 AND 0.55
+        SELECT DISTINCT stateAbbr 
+        FROM election e JOIN stateResult s ON e.electionID=s.electionId
+        WHERE e.year > 2000 AND s.popularVoteRatio > 0.45 AND s.popularVoteRatio < 0.55;
     , (start_year, end_year))
 
     row_headers = [x[0] for x in cursor.description]
@@ -75,27 +70,16 @@ def get_campaign_details(campaign_id):
     cursor = db.get_db().cursor()
 
     cursor.execute('
-        SELECT 
-            c.name as campaign_name, 
-            c.description as campaign_description, 
-            COALESCE(ct.cost_details, '[]') as costs, 
-            COALESCE(it.interaction_details, '[]') as interactions 
-        FROM campaign c
-        LEFT JOIN (
-            SELECT campaign_id, 
-            JSON_AGG(JSON_BUILD_OBJECT('description', description, 'amount', amount)) as cost_details 
-            FROM cost 
-            WHERE campaign_id = %s 
-            GROUP BY campaign_id
-        ) ct ON ct.campaign_id = c.id
-        LEFT JOIN (
-            SELECT campaign_id, 
-            JSON_AGG(JSON_BUILD_OBJECT('type', type, 'date', date)) as interaction_details 
-            FROM interaction 
-            WHERE campaign_id = %s 
-            GROUP BY campaign_id
-        ) it ON it.campaign_id = c.id
-        WHERE c.id = %s
+        SELECT SUM(a.interactions) as totalInteractions,
+    
+    SUM(a.cost) as advertisementsCost,
+    
+    SUM(r.actualAttendance) as totalAttendees,
+    
+    SUM(r.cost) as ralliesCost
+    FROM campaign c JOIN advertisement a ON c.campaignId=a.campaignId
+               JOIN rally r ON r.campaignId=c.campaignId
+               WHERE c.campaignId = 1; -- user input?
     , (campaign_id, campaign_id, campaign_id))
 
     row_headers = [x[0] for x in cursor.description]
@@ -122,9 +106,8 @@ def add_campaign_feedback(campaign_id):
     feedback_date = feedback_data.get('date')
 
     cursor.execute('
-        INSERT INTO feedback (campaign_id, manager_name, feedback_text, date) 
-        VALUES (%s, %s, %s, %s)
-    , (campaign_id, manager_name, feedback_text, feedback_date))
+        INSERT INTO campaignManagerSiteSurvey(discoveredWhere, addAdditionalData, isDataUseful, foundNeededInfo, isUserFriendly, createdAt, updatedAt, campaignId, campaignSurveyid)
+VALUES ('friend', 'more campaign cost info', TRUE, 6, 3, 5, 3, 2);
 
     db.get_db().commit()
 
