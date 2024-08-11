@@ -23,7 +23,7 @@ if st.button("Act as Alex Smith, a Campaign Manager",
     st.session_state['first_name'] = 'Alex'
     st.switch_page('pages/00_Campaign_Manager.py')
 
-if st.button('Act as Sarah Sullivan, a voter', 
+if st.button('Act as Sarah Sullivan, a Voter', 
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
@@ -35,7 +35,7 @@ if st.button('Act as Michelle, a PollPal Data Analyst',
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'Data Analyst'
+    st.session_state['role'] = 'data_analyst'
     st.session_state['first_name'] = 'Michelle'
     st.switch_page('pages/20_PollPal_Analyst.py')
 

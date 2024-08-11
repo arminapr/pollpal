@@ -9,14 +9,9 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("""
-# Simple Iris Flower Prediction App
+st.write("# Voter Opinion/Demographic Survey")
 
-This example is borrowed from [The Data Professor](https://github.com/dataprofessor/streamlit_freecodecamp/tree/main/app_7_classification_iris)
-         
-This app predicts the **Iris flower** type!
-""")
-
+# Good example for user input we could use elsewhere
 st.sidebar.header('User Input Parameters')
 
 def user_input_features():
