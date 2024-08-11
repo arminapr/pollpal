@@ -15,13 +15,13 @@ st.title('The Profs App')
 st.write('\n\n')
 st.write('### HI! As which user would you like to log in?')
 
-if st.button("Act as John, a Political Strategy Advisor", 
+if st.button("Act as Alex Smith, a Campaign Manager",
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'pol_strat_advisor'
-    st.session_state['first_name'] = 'John'
-    st.switch_page('pages/00_Pol_Strat_Home.py')
+    st.session_state['role'] = 'campaign_manager'
+    st.session_state['first_name'] = 'Alex'
+    st.switch_page('pages/00_Campaign_Manager.py')
 
 if st.button('Act as Mohammad, an USAID worker', 
             type = 'primary', 
@@ -31,13 +31,13 @@ if st.button('Act as Mohammad, an USAID worker',
     st.session_state['first_name'] = 'Mohammad'
     st.switch_page('pages/10_USAID_Worker_Home.py')
 
-if st.button('Act as System Administrator', 
+if st.button('Act as Michelle, a PollPal Data Analyst',
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'administrator'
-    st.session_state['first_name'] = 'SysAdmin'
-    st.switch_page('pages/20_Admin_Home.py')
+    st.session_state['role'] = 'Data Analyst'
+    st.session_state['first_name'] = 'Michelle'
+    st.switch_page('pages/30_PollPal_Analyst.py')
 
 
 
