@@ -115,13 +115,14 @@ for q_id, question in questions.items():
     elif q_id in dropdown_questions:
         selected_option = st.selectbox(
             question,
-            options=choices.get(q_id, []),
+            options=[""] + choices.get(q_id, []),  
             key=f"q{q_id}"
         )
     elif q_id in numeric_questions:
         input_text = st.text_input(
             question,
-            key=f"q{q_id}"
+            key=f"q{q_id}",
+            value="" 
         )
     
     if q_id in choice_values and selected_option in choices.get(q_id, []):
