@@ -10,19 +10,11 @@ SideBarLinks()
 
 st.title('Site Survey Responses Page')
 
-st.write('\n\n')
-st.write('## Model 1 Maintenance')
+data = {} 
+try:
+  data = requests.get('http://api:4000/d/voter-site-survey').json()
+except:
+  st.write("**Important**: Could not connect to sample api, so using dummy data.")
+  data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
 
-st.button("Train Model 01", 
-            type = 'primary', 
-            use_container_width=True)
-
-st.button('Test Model 01', 
-            type = 'primary', 
-            use_container_width=True)
-
-if st.button('Model 1 - get predicted value for 10, 25', 
-             type = 'primary',
-             use_container_width=True):
-  results = requests.get('http://api:4000/c/prediction/10/25').json()
-  st.dataframe(results)
+st.dataframe(data)
