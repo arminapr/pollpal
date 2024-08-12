@@ -3,7 +3,7 @@ import json
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-campaign_manager = Blueprint('data_analyst', __name__)
+campaign_manager = Blueprint('campaign_manager', __name__)
 
 # Return a realtime ratio of voters to candidates for the current election g
 @campaign_manager.route('/polling-data', methods=['GET'])
