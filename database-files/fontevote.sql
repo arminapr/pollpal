@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS campaignManagerSiteSurvey (
 
 CREATE TABLE IF NOT EXISTS campaignFeaturesAccessed (
     surveyId INT,
-    featureAccessed VARCHAR(255),
+    featureAccessed VARCHAR(255) NOT NULL,
     PRIMARY KEY (surveyId, featureAccessed),
     FOREIGN KEY(surveyId) REFERENCES campaignManagerSiteSurvey(campaignSurveyId)
         ON UPDATE CASCADE ON DELETE CASCADE
@@ -111,8 +111,8 @@ CREATE TABLE IF NOT EXISTS voterSiteSurvey
 );
 
 CREATE TABLE IF NOT EXISTS voterFeaturesAccessed (
-    surveyId INT AUTO_INCREMENT,
-    featureAccessed VARCHAR(255) UNIQUE NOT NULL,
+    surveyId INT,
+    featureAccessed VARCHAR(255) NOT NULL,
     PRIMARY KEY (surveyId, featureAccessed),
     CONSTRAINT fk_voterFeature_survey
         FOREIGN KEY (surveyId)
