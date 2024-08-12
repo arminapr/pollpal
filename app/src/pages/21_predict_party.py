@@ -2,13 +2,12 @@ import logging
 logger = logging.getLogger()
 
 import streamlit as st
-from modules.nav import SideBarLinks
 import requests
 import logging
 logger = logging.getLogger()
 
-SideBarLinks()
 
+# Predefined questions and choices
 questions = {
     1: "How satisfied are you with the current state of the economy?",
     2: "Do you support the current government policies?",
@@ -39,11 +38,9 @@ st.write("Please answer the following questions:")
 # Collect user responses
 user_inputs = []
 for q_id, question in questions.items():
-    st.write(f"**{question}**")
-    
-    # Display the answer choices and create a selection input
-    selected_option = st.selectbox(
-        f"Select your answer for Question {q_id}",
+    # Display the question as the label for the radio buttons
+    selected_option = st.radio(
+        question,
         options=choices[q_id],
         key=f"q{q_id}"
     )
