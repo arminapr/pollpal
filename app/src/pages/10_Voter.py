@@ -39,26 +39,9 @@ if st.button("Give PollPal some feedback!",
              use_container_width=True):
   st.switch_page('pages/15_Site_Survey.py')
 
-
-  def VoterTurnoutNav():
-    st.sidebar.page_link("pages/11_Voter_Turnout.py", label="Voter Turnout", icon='📈')
-
-def VoterDemographicsNav():
-    st.sidebar.page_link("pages/12_Demographics.py", label="Voter Demographics", icon='🛜')
-
-def SurveyNav():
-    st.sidebar.page_link("pages/13_Voter_Survey.py", label="Voter Survey", icon='📖')
-
-def PolicyNav():
-    st.sidebar.page_link("pages/14_Candidate_Policies.py", label="Explore Policies", icon='💅')
-
-def VoterFeedbackNav():
-    st.sidebar.page_link("pages/15_Site_Survey.py", label="Feedback", icon='😊')
+if st.button("Take a quiz to find your political party",
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/16_Predict_Party.py')
 
 
-if st.session_state['role'] == 'voter':
-            VoterTurnoutNav()
-            VoterDemographicsNav() 
-            SurveyNav()
-            PolicyNav()
-            VoterFeedbackNav()

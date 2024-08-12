@@ -35,6 +35,9 @@ def PolicyNav():
 def VoterFeedbackNav():
     st.sidebar.page_link("pages/15_Site_Survey.py", label="Feedback", icon='😊')
 
+def PredictPartyNav():
+    st.sidebar.page_link("pages/16_Predict_Party.py", label="Party Quiz", icon='🤔')
+
 #### ------------------------ Data Analyst Role ------------------------
 def InvalidDataNav():
     st.sidebar.page_link("pages/21_Clean_Inavlid_Data.py", label='Data Cleanup', icon='🏢')
@@ -79,6 +82,8 @@ def SideBarLinks(show_home=False):
             SurveyNav()
             PolicyNav()
             VoterFeedbackNav()
+            PredictPartyNav()
+
         
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state['role'] == 'data_analyst':
