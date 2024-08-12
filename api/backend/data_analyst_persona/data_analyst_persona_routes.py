@@ -5,7 +5,6 @@
 from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from backend.db_connection import db
-from backend.ml_models.model01 import predict
 
 data_analyst = Blueprint('data_analyst', __name__)
 
@@ -15,12 +14,8 @@ def get_campaign_site_survey():
     current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT * FROM campaignManagerSiteSurvey')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -30,12 +25,9 @@ def get_voter_site_survey():
     current_app.logger.info('data_analyst_routes.py: GET /voter-site-survey')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT * FROM voterSiteSurvey')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
+    current_app.logger.info(theData)
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
