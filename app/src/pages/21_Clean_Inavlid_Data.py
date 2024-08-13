@@ -16,7 +16,6 @@ polling_data = {}
 try:
   polling_data = requests.get('http://api:4000/d/voter-info').json()
 except Exception as e:
-  # st.write("**Important**: Could not connect to sample api, so using dummy data.")
   st.write("Could not connect to sample api, so using dummy data.")
 
   polling_data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
@@ -27,10 +26,4 @@ st.dataframe(polling_data)
 st.button('Delete polling data where age < 18',
             type = 'primary',
             use_container_width=True)
-
-if st.button('Cleaned Polling Data',
-             type = 'primary',
-             use_container_width=True):
-  results = requests.delete('http://api:4000/d/voter-info').json()
-  st.dataframe(results)
 

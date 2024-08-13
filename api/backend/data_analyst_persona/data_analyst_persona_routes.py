@@ -37,13 +37,9 @@ def get_voter_ethnicity():
     current_app.logger.info('data_analyst_routes.py: GET /voter-info')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT ethnicity, COUNT(voterId) as userCount\
-    FROM voter v GROUP BY ethnicity ORDER BY userCount ASC LIMIT 5')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
+    FROM voter v GROUP BY ethnicity ORDER BY userCount ASC')
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -54,12 +50,8 @@ def get_voter_age():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT age, COUNT(voterId) as userCount\
     FROM voter v GROUP BY age ORDER BY userCount ASC LIMIT 5')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -70,12 +62,8 @@ def get_voter_gender():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT gender, COUNT(voterId) as userCount\
     FROM voter v GROUP BY gender ORDER BY userCount ASC LIMIT 5')
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -84,7 +72,7 @@ def get_voter_gender():
 def get_invalid_data():
     current_app.logger.info('data_analyst_persona_routes.py: GET /voter-info')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT * FROM voter')
+    cursor.execute('SELECT * FROM voter ORDER BY age')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
