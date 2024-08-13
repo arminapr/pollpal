@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 import json
 
+# Define the Blueprint
 ml_models = Blueprint('ml_models', __name__)
 
 # Global variables to store the model and encoder
@@ -14,6 +15,7 @@ encoder = None
 
 # Function to train the model
 def train_party_model(csv_path):
+    global model, encoder
     columns_to_keep = [
         'V201228','V201014b', 'V201343', 'V201367','V201409', 
         'V201412', 'V201416', 'V201417', 'V201427', 'V201510', 'V201575', 
@@ -37,38 +39,49 @@ def train_party_model(csv_path):
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    return model, encoder, accuracy
+    return accuracy
 
 # Function to make predictions
-def predict_party(model, encoder, user_input):
-    user_input_df = pd.DataFrame([user_input], columns=model.feature_names_in_)
+def predict_party(user_input):
+    global model, encoder
+    user_input_df = pd.DataFrame([user_input], columns=encoder.get_feature_names_out())
     user_input_encoded = encoder.transform(user_input_df)
     prediction = model.predict(user_input_encoded)
     return prediction[0]
 
-# Prediction model route 3: political party prediction
-@ml_models.route('/ml_models/3/<user_input>', methods=['GET'])
-def get_m3(user_input):
+# Prediction route
+@ml_models.route('/ml_models/3/predict', methods=['POST'])
+def get_prediction():
     global model, encoder
-    user_input_list = json.loads(user_input)  # Assuming user_input is passed as a JSON string
-    predicted_code = predict_party(model, encoder, user_input_list)
-    party_mapping = {
-        -9: "Refused",
-        -8: "Don’t know",
-        -4: "Technical error",
-        0: "No preference",
-        1: "Democrat",
-        2: "Republican",
-        3: "Independent",
-        5: "Other party"
-    }
-    party_name = party_mapping.get(predicted_code, "Unknown")
-    return jsonify({'result': party_name})
+    try:
+        data = request.get_json()
+        user_input_list = data.get('variables')
+        if not user_input_list or len(user_input_list) != 28:
+            return jsonify({'error': 'Exactly 28 variables are required'}), 400
+        
+        predicted_code = predict_party(user_input_list)
+        party_mapping = {
+            -9: "Refused",
+            -8: "Don’t know",
+            -4: "Technical error",
+            0: "No preference",
+            1: "Democrat",
+            2: "Republican",
+            3: "Independent",
+            5: "Other party"
+        }
+        party_name = party_mapping.get(predicted_code, "Unknown")
+        return jsonify({'result': party_name})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-# Training model 3
-@ml_models.route('/ml_models/3/train', methods=['GET'])
-def train_m3():
+# Training route
+@ml_models.route('/ml_models/3/train', methods=['POST'])
+def train_model():
     global model, encoder
-    csv_path = '/Users/nalikapalayoor/Downloads/anes_timeseries_2020_csv_20220210/anes_timeseries_2020_csv_20220210.csv'
-    model, encoder, accuracy = train_party_model(csv_path)
-    return f'Success! Model trained with accuracy: {accuracy:.2f}'
+    csv_path = '/path/to/your/csv'  # Update this path
+    try:
+        accuracy = train_party_model(csv_path)
+        return jsonify({'message': f'Model trained successfully with accuracy: {accuracy:.2f}'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
