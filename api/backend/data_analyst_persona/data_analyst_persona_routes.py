@@ -49,7 +49,7 @@ def get_voter_age():
     current_app.logger.info('data_analyst_routes.py: GET /voter-info')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT age, COUNT(voterId) as userCount\
-    FROM voter v GROUP BY age ORDER BY userCount ASC LIMIT 5')
+    FROM voter v GROUP BY age ORDER BY userCount ASC')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
@@ -61,7 +61,7 @@ def get_voter_gender():
     current_app.logger.info('data_analyst_routes.py: GET /voter-info')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT gender, COUNT(voterId) as userCount\
-    FROM voter v GROUP BY gender ORDER BY userCount ASC LIMIT 5')
+    FROM voter v GROUP BY gender ORDER BY userCount ASC')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
