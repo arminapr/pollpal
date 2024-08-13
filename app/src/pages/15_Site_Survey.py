@@ -11,14 +11,9 @@ st.set_page_config(layout = 'wide')
 # Display the appropriate sidebar links for the role of the logged in user
 SideBarLinks()
 
-st.title('PollPal Feedback Survey')
-
-## Display the appropriate sidebar links for the role of the logged in user
-SideBarLinks()
-
 st.title('Site Feedback')
 
-with st.form(key='input_form'):
+with st.form(key='feedback_form'):
   foundVotingCenter = st.radio("Did you find a voting center?", ('True', 'False'))
   howUserFriendly = st.slider("On a scale of 1-10, how user friendly was the site?", min_value=1, max_value=10, step=1)
   isDataUseful = st.slider("on a scale of 1-10, how much of the info we provided met your needs?",  min_value=1, max_value=10, step=1)
