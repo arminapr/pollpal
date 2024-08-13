@@ -80,10 +80,20 @@ def get_voter_gender():
     the_response.mimetype = 'application/json'
     return the_response
 
+@data_analyst.route('/voter-info', methods=['GET'])
+def get_invalid_data():
+    current_app.logger.info('data_analyst_persona_routes.py: GET /voter-info')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM voter')
+    theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
 
 @data_analyst.route('/voter-info', methods=['DELETE'])
-def delete_minor_data():
-    current_app.logger.info('data_analyst_routes.py: DELETE /voter-info route')
+def delete_invalid_data():
+    current_app.logger.info('data_analyst_persona_routes.py: DELETE /voter-info')
     cursor = db.get_db().cursor()
     cursor.execute('DELETE FROM voter v WHERE v.age < 18')
     db.get_db().commit()

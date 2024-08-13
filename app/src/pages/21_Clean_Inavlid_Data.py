@@ -8,21 +8,29 @@ st.set_page_config(layout = 'wide')
 
 SideBarLinks()
 
-st.title('Data Cleaning Page')
+st.title('Removing Invalid Polling Data')
+"""
+Polling Data
+"""
+polling_data = {}
+try:
+  polling_data = requests.get('http://api:4000/d/voter-info').json()
+except Exception as e:
+  # st.write("**Important**: Could not connect to sample api, so using dummy data.")
+  st.write("Could not connect to sample api, so using dummy data.")
 
-st.write('\n\n')
-st.write('## Model 1 Maintenance')
+  polling_data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
+  print(e)
 
-st.button("Train Model 01", 
-            type = 'primary', 
+st.dataframe(polling_data)
+
+st.button('Delete polling data where age < 18',
+            type = 'primary',
             use_container_width=True)
 
-st.button('Test Model 01', 
-            type = 'primary', 
-            use_container_width=True)
-
-if st.button('Model 1 - get predicted value for 10, 25', 
+if st.button('Cleaned Polling Data',
              type = 'primary',
              use_container_width=True):
-  results = requests.get('http://api:4000/c/prediction/10/25').json()
+  results = requests.delete('http://api:4000/d/voter-info').json()
   st.dataframe(results)
+
