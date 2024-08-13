@@ -12,28 +12,15 @@ st.set_page_config(layout = 'wide')
 SideBarLinks()
 
 st.title('Voter Turnout by Election Year')
-
-# create a 2 column layout
-col1, col2 = st.columns(2)
-
-# add one number input for variable 1 into column 1
-with col1:
-  var_01 = st.number_input('Variable 01:',
-                           step=1)
-
-# add another number input for variable 2 into column 2
-with col2:
-  var_02 = st.number_input('Variable 02:',
-                           step=1)
-
-logger.info(f'var_01 = {var_01}')
-logger.info(f'var_02 = {var_02}')
+year_options = [2024, 2020, 2016, 2012, 2008, 2004, 2000]
+year = st.selectbox('Select an election year', year_options, index=None)
+logger.info(f'var_01 = {year}')
 
 # add a button to use the values entered into the number field to send to the 
 # prediction function via the REST API
-if st.button('Calculate Prediction',
+if year != None and st.button('View voter turnout',
              type='primary',
              use_container_width=True):
-  results = requests.get(f'http://api:4000/c/prediction/{var_01}/{var_02}').json()
+  results = requests.get(f'http://api:4000/v/state-voters/{year}').json()
   st.dataframe(results)
   

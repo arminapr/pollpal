@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.ensemble import RandomForestClassifier
 
-# Define the mapping for prediction results
 party_mapping = {
     -9: "Refused",
     -8: "Don’t know",
@@ -15,7 +14,6 @@ party_mapping = {
     5: "Other party"
 }
 
-# Predefined questions and choices
 questions = {
     1: "1. What state do you reside in?",
     2: "2. Do you favor or oppose the death penalty for persons convicted of murder?",
@@ -94,64 +92,66 @@ choices = {
     28: ['Agree strongly','Agree somewhat','Neither agree nor disagree','Disagree somewhat','Disagree strongly']
 }
 
-# Define the numeric values for each choice
 choice_values = {key: list(range(1, len(value) + 1)) for key, value in choices.items()}
 
 
-# Define which questions are dropdowns and which are radio buttons
-radio_questions = [2,3,4,5,6,7,8,9,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28]
+radio_questions = [2,3,4,5,6,7,8,9,11,12,13,15,19,20,21,22,23,24,25,26,27,28]
 dropdown_questions = [1,10]
 numeric_questions = [14,16,17,18]
 
-# Streamlit app layout
 st.title("Political Party Predictor")
 
 st.write("Please answer the following questions:")
 
-# Collect user responses
 user_inputs = []
 for q_id, question in questions.items():
+    selected_option = None 
     if q_id in radio_questions:
-        # Display as radio buttons
         selected_option = st.radio(
             question,
-            options=choices.get(q_id, []),
+            options=["Choose one of the following"] + choices.get(q_id, []),
             key=f"q{q_id}"
         )
     elif q_id in dropdown_questions:
-        # Display as dropdown
         selected_option = st.selectbox(
             question,
-            options=choices.get(q_id, []),
+            options=[""] + choices.get(q_id, []),  
             key=f"q{q_id}"
         )
     elif q_id in numeric_questions:
-        # Display as text input for numeric questions
         input_text = st.text_input(
             question,
-            key=f"q{q_id}"
+            key=f"q{q_id}",
+            value="" 
         )
     
-    # Convert the selected option to the corresponding numeric value
     if q_id in choice_values and selected_option in choices.get(q_id, []):
         user_input_value = choice_values[q_id][choices[q_id].index(selected_option)]
     else:
-        user_input_value = None  # Handle the case where the option is not found
+        user_input_value = None  
 
     user_inputs.append(user_input_value)
 
 if st.button("Predict"):
-    # Convert user inputs to DataFrame
     num_questions = len(questions)
-    user_input_df = pd.DataFrame([user_inputs], columns=[f'Q{i+1}' for i in range(num_questions)])
+    user_input_df = pd.DataFrame([user_inputs], columns=[f'Q{i+1}' for i in range(num_questions-1)])
     
-    # One-hot encode the inputs
     user_input_encoded = encoder.transform(user_input_df)
     
-    # Predict
     prediction_code = model.predict(user_input_encoded)[0]
     
-    # Convert prediction code to party name
     party_name = party_mapping.get(prediction_code, "Unknown")
+
+    if len(user_inputs) == 28:
+        # Base URL
+        base_url = 'http://api:4000/p/ml_models/1'
     
-    st.write(f'Predicted Party: {party_name}')
+        # Create the query string by joining the inputs with '/'
+        query = f"{base_url}/" + "/".join(map(str, user_inputs))
+        
+    else:
+        raise ValueError("The user_inputs list must contain exactly 28 elements.")
+    
+results = requests.get(query).json()
+
+st.write(f'Predicted Party: {results}')
