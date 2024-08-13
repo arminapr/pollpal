@@ -141,5 +141,17 @@ if st.button("Predict"):
     prediction_code = model.predict(user_input_encoded)[0]
     
     party_name = party_mapping.get(prediction_code, "Unknown")
+
+    if len(user_inputs) == 28:
+        # Base URL
+        base_url = 'http://api:4000/p/ml_models/1'
     
-    st.write(f'Predicted Party: {party_name}')
+        # Create the query string by joining the inputs with '/'
+        query = f"{base_url}/" + "/".join(map(str, user_inputs))
+        
+    else:
+        raise ValueError("The user_inputs list must contain exactly 28 elements.")
+    
+results = requests.get(query).json()
+
+st.write(f'Predicted Party: {results}')

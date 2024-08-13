@@ -39,5 +39,11 @@ if st.button('Act as Michelle, a PollPal Data Analyst',
     st.session_state['first_name'] = 'Michelle'
     st.switch_page('pages/20_PollPal_Analyst.py')
 
+if st.button('System Admin', 
+            type = 'primary', 
+            use_container_width=True):
+    st.session_state['authenticated'] = True
+    st.switch_page('pages/40_SysAdmin.py')
+
 
 
