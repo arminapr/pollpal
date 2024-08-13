@@ -7,7 +7,7 @@ from backend.db_connection import db
 from backend.data_analyst_persona.data_analyst_persona_routes import data_analyst
 from backend.campaign_persona.campaign_persona_routes import campaign_manager
 from backend.voter_persona.voter_persona_routes import voter_persona
-
+from backend.ml_models.model_routes import ml_models
 import os
 from dotenv import load_dotenv
 
@@ -98,6 +98,7 @@ def create_app():
     app.register_blueprint(data_analyst, url_prefix='/d')
     app.register_blueprint(campaign_manager, url_prefix='/c')
     app.register_blueprint(voter_persona,   url_prefix='/v')
+    app.register_blueprint(ml_models, url_prefix = '/m')
 
 
     # Don't forget to return the app object

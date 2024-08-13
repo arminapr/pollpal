@@ -1,34 +1,22 @@
-from backend.ml_models.model import predict, train
+from backend.ml_models.model01 import predict, train_party_model
 from flask import Blueprint, request, jsonify, make_response
 
 ml_models = Blueprint('ml_models', __name__)
 
 # Prediction route for the ML model
-@ml_models.route('/ml_models/predict', methods=['POST'])
-def get_prediction():
-    try:
-        # Get JSON data from the request
-        data = request.get_json()
-        
-        # Extract the variables (assuming they are in a list)
-        variables = data.get('variables')
-        if len(variables) != 28:
-            return jsonify({'error': 'Exactly 28 variables are required'}), 400
-        
-        # Execute prediction
-        response = predict(*variables)
-        
-        # Return the result
-        return jsonify({'result': response}), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+@ml_models.route('/ml_model/<v1>/<v2>/<v3>/<v4>/<v5>/<v6>/<v7>/<v8>/<v9>/<v10>/<v11>/<v12>/<v13>/<v14>/<v15>/<v16>/<v17>/<v18>/<v19>/<v20>/<v21>/<v22>/<v23>/<v24>/<v25>/<v26>/<v27>/<v28>',methods = ['GET'])
+def get_m(v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28):
 
-# Training route for the ML model
-@ml_models.route('/ml_models/train', methods=['POST'])
-def train_model():
-    try:
-        # Execute training
-        train()
-        return jsonify({'message': 'Model trained successfully'}), 200
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
+    response = predict(v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28)
+
+
+    return_dict = {'result':response}
+    the_response = make_response(return_dict)
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return return_dict
+
+@ml_models.route('/ml_models/train',methods = ['GET'])
+def train_m():
+    response = train_party_model()
+    return 'Sucsess'

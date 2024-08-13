@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.ensemble import RandomForestClassifier
+import requests
 
 party_mapping = {
     -9: "Refused",
@@ -103,7 +104,7 @@ st.title("Political Party Predictor")
 
 st.write("Please answer the following questions:")
 
-user_inputs = []
+user_input = []
 for q_id, question in questions.items():
     selected_option = None 
     if q_id in radio_questions:
@@ -130,25 +131,26 @@ for q_id, question in questions.items():
     else:
         user_input_value = None  
 
-    user_inputs.append(user_input_value)
+    user_input.append(user_input_value)
+
+(var_01, var_02, var_03, var_04, var_05, var_06, var_07, var_08, var_09, var_10,
+ var_11, var_12, var_13, var_14, var_15, var_16, var_17, var_18, var_19, var_20,
+ var_21, var_22, var_23, var_24, var_25, var_26, var_27, var_28) = user_input
 
 if st.button("Predict"):
     num_questions = len(questions)
-    user_input_df = pd.DataFrame([user_inputs], columns=[f'Q{i+1}' for i in range(num_questions-1)])
+    user_input_df = pd.DataFrame([user_input], columns=[f'Q{i+1}' for i in range(num_questions-1)])
     
+    encoder = OneHotEncoder(handle_unknown='ignore')
     user_input_encoded = encoder.transform(user_input_df)
-    
+    model = RandomForestClassifier()
     prediction_code = model.predict(user_input_encoded)[0]
     
     party_name = party_mapping.get(prediction_code, "Unknown")
 
-    if len(user_inputs) == 28:
-        # Base URL
-        base_url = 'http://api:4000/p/ml_models/1'
-    
-        # Create the query string by joining the inputs with '/'
-        query = f"{base_url}/" + "/".join(map(str, user_inputs))
-        
+    if len(user_input) == 28:
+        query = f'http://web-api:4000/m/ml_models/1/{var_01}/{var_02}/{var_03}/{var_04}/{var_05}/{var_06}/{var_07}/{var_08}/{var_09}/{var_10}/{var_11}/{var_12}/{var_13}/{var_14}/{var_15}/{var_16}/{var_17}/{var_18}/{var_19}/{var_20}/{var_21}/{var_22}/{var_23}/{var_24}/{var_25}/{var_26}/{var_27}/{var_28}'
+
     else:
         raise ValueError("The user_inputs list must contain exactly 28 elements.")
     
