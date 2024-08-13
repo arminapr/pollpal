@@ -9,17 +9,15 @@ SideBarLinks()
 
 st.write("# Opinion Data by Voter Demographic")
 
-"""
-Simply retrieving data from a REST api running in a separate Docker Container.
+# add a button to use the values entered into the number field to send to the 
+# prediction function via the REST API
 
-If the container isn't running, this will be very unhappy.  But the Streamlit app 
-should not totally die. 
-"""
-data = {} 
-try:
-  data = requests.get('http://api:4000/data').json()
-except:
-  st.write("**Important**: Could not connect to sample api, so using dummy data.")
-  data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
-
-st.dataframe(data)
+""" By ethnicity """
+eResults = requests.get('http://api:4000/v/voter-info-ethnicity').json()
+st.dataframe(eResults)
+""" By gender """
+gResults = requests.get('http://api:4000/v/voter-info-gender').json()
+st.dataframe(gResults)
+""" By age """
+aResults = requests.get('http://api:4000/v/voter-info-age').json()
+st.dataframe(aResults)
