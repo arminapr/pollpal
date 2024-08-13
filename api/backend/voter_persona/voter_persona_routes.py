@@ -143,12 +143,9 @@ def get_customer(candidateId):
                    JOIN advocatesFor aF on c.candidateId = aF.candidateId \
                    JOIN policy p on aF.policyId = p.policyId \
                    WHERE c.candidateId = {0}'.format(candidateId))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
+    
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
