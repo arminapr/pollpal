@@ -8,32 +8,41 @@ import requests
 
 st.set_page_config(layout = 'wide')
 
+response = requests.get('http://api:4000/v/voter-id')
+
+if response.status_code == 200:
+    voter_ids_dict = response.json() 
+    voterIds = sorted([item['voterId'] for item in voter_ids_dict])
+else:
+    st.error(f"Failed to retrieve voter IDs. Status code: {response.status_code}")
+    voterIds = []
+
 # Display the appropriate sidebar links for the role of the logged in user
 SideBarLinks()
 
-st.title('PollPal Feedback Survey')
+st.title('Site Feedback')
 
-# create a 2 column layout
-col1, col2 = st.columns(2)
+with st.form(key='feedback_form'):
+  voterId = st.selectbox("Select Voter ID", voterIds)
+  foundVotingCenter = st.radio("Did you find a voting center through?", ('Yes', 'No'))
+  howUserFriendly = st.slider("On a scale of 1-10, how user friendly was the site?", min_value=1, max_value=10, step=1)
+  isDataUseful = st.slider("On a scale of 1-10, how much of the info we provided met your needs?",  min_value=1, max_value=10, step=1)
+  informedAboutCandidate = st.radio("Do you feel informed about the candidates?", ('Yes', 'No'))
+  discoveredWhere = st.text_area("How did you discover us?")
+  submitted = st.form_submit_button("Submit")
 
-# add one number input for variable 1 into column 1
-with col1:
-  var_01 = st.number_input('Variable 01:',
-                           step=1)
-
-# add another number input for variable 2 into column 2
-with col2:
-  var_02 = st.number_input('Variable 02:',
-                           step=1)
-
-logger.info(f'var_01 = {var_01}')
-logger.info(f'var_02 = {var_02}')
-
-# add a button to use the values entered into the number field to send to the 
-# prediction function via the REST API
-if st.button('Calculate Prediction',
-             type='primary',
-             use_container_width=True):
-  results = requests.get(f'http://api:4000/c/prediction/{var_01}/{var_02}').json()
-  st.dataframe(results)
+if submitted:
+  data = {}
+  data['voterId'] = voterId
+  data['foundVotingCenter'] = foundVotingCenter
+  data['isUserFriendly'] = howUserFriendly
+  data['foundNeededInfo'] = isDataUseful
+  data['informedAboutCandidate'] = informedAboutCandidate
+  data['discoveredWhere'] = discoveredWhere
+  st.write(data)
   
+  requests.post('http://api:4000/v/voter-site-survey', json=data)
+  if response.status_code == 200:
+    st.success('Voter Feedback survey response submitted!')
+  else:
+    st.error(f"Failed to submit survey. Status code: {response.status_code}")

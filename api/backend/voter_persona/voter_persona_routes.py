@@ -25,65 +25,50 @@ def get_voter_turnout(year):
 
 
 # Get voter info by demographics
-@voter_persona.route('/voter-info-ethnicity/<year>', methods=['GET'])
-def get_voter_ethnicity_info(year):
-    current_app.logger.info('voter_persona_routes.py: GET /voter-info-ethnicity/{0}'.format(year))
+@voter_persona.route('/voter-info-ethnicity', methods=['GET'])
+def get_voter_ethnicity_info():
+    current_app.logger.info('voter_persona_routes.py: GET /voter-info-ethnicity')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT c.firstName, \
             c.lastName, \
             v.ethnicity as voterEthnicity, \
         COUNT(voterId) as numVotersByEthnicity \
         FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
-        WHERE year = {0}} \
-        GROUP BY firstName, lastName,  ethnicity'.format(year))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
+        GROUP BY firstName, lastName, ethnicity')
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
 
-@voter_persona.route('/voter-info-gender/<year>', methods=['GET'])
-def get_voter_gen_info(year):
-    current_app.logger.info('voter_persona_routes.py: GET /voter-info-gender/{0}'.format(year))
+@voter_persona.route('/voter-info-gender', methods=['GET'])
+def get_voter_gen_info():
+    current_app.logger.info('voter_persona_routes.py: GET /voter-info-gender')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT c.firstName, \
             c.lastName, \
             v.gender as voterGender, \
         COUNT(voterId) as numVotersByGender \
         FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
-        WHERE year = {0} \
-        GROUP BY firstName, lastName, gender'.format(year))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
+        GROUP BY firstName, lastName, v.gender')
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
 
-@voter_persona.route('/voter-info-age/<year>', methods=['GET'])
-def get_voter_age_info(year):
-    current_app.logger.info('voter_persona_routes.py: GET /voter-info-age/{0}'.format(year))
+@voter_persona.route('/voter-info-age', methods=['GET'])
+def get_voter_age_info():
+    current_app.logger.info('voter_persona_routes.py: GET /voter-info-age')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT c.firstName, \
             c.lastName, \
             v.age as voterAge, \
         COUNT(voterId) as numVotersByAge \
         FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
-        WHERE year = {0} \
-        GROUP BY firstName, lastName,  age'.format(year))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
+        GROUP BY firstName, lastName, v.age')
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -131,19 +116,18 @@ def update_customer(voterId):
     db.get_db().commit()
     return 'voter updated!'
 
-@voter_persona.route('/voter-site-survey/<voterId>', methods=['POST'])
-def add_voter_site_survey(voterId):
+@voter_persona.route('/voter-site-survey', methods=['POST'])
+def add_voter_site_survey():
     current_app.logger.info('POST /voter-site-survey route')
     site_survey = request.json
-    # current_app.logger.info(cust_info)
-    # foundVotingCenter, isUserFriendly, foundNeededInfo, informedAboutCandidate, discoveredWhere, voterId)
-    foundCenter = site_survey['foundVotingCenter']
+    voterId = site_survey['voterId']
+    foundCenter = 1 if site_survey['foundVotingCenter'] else 0 
     isFriendly = site_survey['isUserFriendly']
     neededInfo = site_survey['foundNeededInfo']
-    informed = site_survey['informedAboutCandidate']
+    informed = 1 if site_survey['informedAboutCandidate'] else 0
     where = site_survey['discoveredWhere']
     
-    query = 'INSERT INTO voter VALUES (%s, %s, %s, %s, %s, %s)'
+    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, informedAboutCandidate, discoveredWhere, voterId) VALUES (%s, %s, %s, %s, %s, %s)'
     data = (foundCenter, isFriendly, neededInfo, informed, where, voterId)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
@@ -158,12 +142,34 @@ def get_customer(candidateId):
                    JOIN advocatesFor aF on c.candidateId = aF.candidateId \
                    JOIN policy p on aF.policyId = p.policyId \
                    WHERE c.candidateId = {0}'.format(candidateId))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
+    
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+
+# TODO: ask about including this in the api matrix
+@voter_persona.route('/voter-id', methods=['GET'])
+def get_campaign_ids():
+    current_app.logger.info('GET /voter-id')
+    query = 'SELECT voterId FROM voter'  
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    voter_ids = cursor.fetchall()
+    return jsonify(voter_ids)
+
+@voter_persona.route('/candidate-names', methods=['GET'])
+def get_candidate_name():
+    current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
+    cursor = db.get_db().cursor()
+    # selecting voter turnout per state in a particular year (for heatmap)
+    cursor.execute('SELECT firstName, lastName, candidateId\
+        FROM candidate c')
+    theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+

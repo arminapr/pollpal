@@ -10,29 +10,38 @@ st.set_page_config(layout = 'wide')
 # Display the appropriate sidebar links for the role of the logged in user
 SideBarLinks()
 
-st.title('Prediction with Regression')
+st.title('Site Feedback')
 
-# create a 2 column layout
-col1, col2 = st.columns(2)
+response = requests.get('http://api:4000/c/campaign-id')
 
-# add one number input for variable 1 into column 1
-with col1:
-  var_01 = st.number_input('Variable 01:',
-                           step=1)
+if response.status_code == 200:
+    campaign_ids_dict = response.json() 
+    campaignIds = sorted([item['campaignId'] for item in campaign_ids_dict])
+else:
+    st.error(f"Failed to retrieve campaign IDs. Status code: {response.status_code}")
+    campaignIds = []
 
-# add another number input for variable 2 into column 2
-with col2:
-  var_02 = st.number_input('Variable 02:',
-                           step=1)
+with st.form(key='input_form'):
+  campaignId = st.selectbox("Select Campaign ID", campaignIds)
+  discoveredWhere = st.text_input("Where did you discover our page?")
+  addAdditionalData = st.text_area("What additional data would have been helpful for PollPal to provide?")
+  isDataUseful = st.radio("Was the data provided by PollPal useful for your campaign efforts?", ('True', 'False'))
+  foundNeededInfo = st.slider("On a scale of 1-10, how user friendly was the site?", min_value=1, max_value=10, step=1)
+  isUserFriendly = st.slider("On a scale of 1-10, how much of the info we provided, met your needs?", min_value=1, max_value=10, step=1)
+  submitted = st.form_submit_button("Submit")
 
-logger.info(f'var_01 = {var_01}')
-logger.info(f'var_02 = {var_02}')
-
-# add a button to use the values entered into the number field to send to the 
-# prediction function via the REST API
-if st.button('Calculate Prediction',
-             type='primary',
-             use_container_width=True):
-  results = requests.get(f'http://api:4000/c/prediction/{var_01}/{var_02}').json()
-  st.dataframe(results)
+if submitted:
+  data = {}
+  data['campaignId'] = campaignId
+  data['discoveredWhere'] = discoveredWhere
+  data['addAdditionalData'] = addAdditionalData
+  data['isDataUseful'] = isDataUseful
+  data['foundNeededInfo'] = foundNeededInfo
+  data['isUserFriendly'] = isUserFriendly
+  st.write(data)
   
+  response = requests.post('http://api:4000/c/campaign-site-survey', json=data)
+  if response.status_code == 200:
+    st.success('Campaign survey response submitted!')
+  else:
+    st.error(f"Failed to submit survey. Status code: {response.status_code}")

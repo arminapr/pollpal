@@ -86,20 +86,31 @@ def get_campaign_details(campaign_id):
 # Adding campaign manager feedback onto the website.
 
 @campaign_manager.route('/campaign-site-survey', methods=['POST'])
-def add_campaign_feedback(campaign_id):
+def add_campaign_feedback():
     current_app.logger.info('POST /campaign-site-survey')
     campaign_survey = request.json
+    campaign_id = campaign_survey['campaignId']
     discoveredWhere = campaign_survey['discoveredWhere']
     addAdditionalData = campaign_survey['addAdditionalData']
-    isDataUseful = campaign_survey['isDataUseful']
+    isDataUseful = 1 if campaign_survey['isDataUseful'] == 'True' else 0    
     foundNeededInfo = campaign_survey['foundNeededInfo']
     isUserFriendly = campaign_survey['isUserFriendly']
     
     query = ' INSERT INTO campaignManagerSiteSurvey(discoveredWhere, addAdditionalData, isDataUseful, foundNeededInfo, \
                    isUserFriendly, campaignId) \
-                    VALUES (%s, %s, %d, %d, %d, %d, %d, %d)'
+                    VALUES (%s, %s, %s, %s, %s, %s)'
     data = (discoveredWhere, addAdditionalData, isDataUseful, foundNeededInfo, isUserFriendly, campaign_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'campaign survey response submitted!'
+
+# TODO: ask about including this in the api matrix
+@campaign_manager.route('/campaign-id', methods=['GET'])
+def get_campaign_ids():
+    current_app.logger.info('GET /campaign-id')
+    query = 'SELECT campaignId FROM campaign'  
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    campaign_ids = cursor.fetchall()
+    return jsonify(campaign_ids)
