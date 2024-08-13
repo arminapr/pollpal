@@ -109,7 +109,7 @@ for q_id, question in questions.items():
     if q_id in radio_questions:
         selected_option = st.radio(
             question,
-            options=choices.get(q_id, []),
+            options=["Choose one of the following"] + choices.get(q_id, []),
             key=f"q{q_id}"
         )
     elif q_id in dropdown_questions:
@@ -134,7 +134,7 @@ for q_id, question in questions.items():
 
 if st.button("Predict"):
     num_questions = len(questions)
-    user_input_df = pd.DataFrame([user_inputs], columns=[f'Q{i+1}' for i in range(num_questions)])
+    user_input_df = pd.DataFrame([user_inputs], columns=[f'Q{i+1}' for i in range(num_questions-1)])
     
     user_input_encoded = encoder.transform(user_input_df)
     
