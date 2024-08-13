@@ -39,7 +39,7 @@ def VoterFeedbackNav():
     st.sidebar.page_link("pages/15_Site_Survey.py", label="Feedback", icon='😊')
 
 def PredictPartyNav():
-    st.sidebar.page_link("pages/16_Predict_Party.py", label="Party Quiz", icon='🤔')
+    st.sidebar.page_link("pages/16_Predict_Party.py", label="Predict Political Party", icon='🤔')
 
 #### ------------------------ Data Analyst Role ------------------------
 def InvalidDataNav():

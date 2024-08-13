@@ -108,7 +108,7 @@ def add_campaign_feedback():
 # TODO: ask about including this in the api matrix
 @campaign_manager.route('/campaign-id', methods=['GET'])
 def get_campaign_ids():
-    current_app.logger.info('GET /campaign-ids')
+    current_app.logger.info('GET /campaign-id')
     query = 'SELECT campaignId FROM campaign'  
     cursor = db.get_db().cursor()
     cursor.execute(query)

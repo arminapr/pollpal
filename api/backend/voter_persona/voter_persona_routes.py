@@ -116,19 +116,18 @@ def update_customer(voterId):
     db.get_db().commit()
     return 'voter updated!'
 
-@voter_persona.route('/voter-site-survey/<voterId>', methods=['POST'])
-def add_voter_site_survey(voterId):
+@voter_persona.route('/voter-site-survey', methods=['POST'])
+def add_voter_site_survey():
     current_app.logger.info('POST /voter-site-survey route')
     site_survey = request.json
-    # current_app.logger.info(cust_info)
-    # foundVotingCenter, isUserFriendly, foundNeededInfo, informedAboutCandidate, discoveredWhere, voterId)
-    foundCenter = site_survey['foundVotingCenter']
+    voterId = site_survey['voterId']
+    foundCenter = 1 if site_survey['foundVotingCenter'] else 0 
     isFriendly = site_survey['isUserFriendly']
     neededInfo = site_survey['foundNeededInfo']
-    informed = site_survey['informedAboutCandidate']
+    informed = 1 if site_survey['informedAboutCandidate'] else 0
     where = site_survey['discoveredWhere']
     
-    query = 'INSERT INTO voter VALUES (%s, %s, %s, %s, %s, %s)'
+    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, informedAboutCandidate, discoveredWhere, voterId) VALUES (%s, %s, %s, %s, %s, %s)'
     data = (foundCenter, isFriendly, neededInfo, informed, where, voterId)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
@@ -149,3 +148,13 @@ def get_customer(candidateId):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+# TODO: ask about including this in the api matrix
+@voter_persona.route('/voter-id', methods=['GET'])
+def get_campaign_ids():
+    current_app.logger.info('GET /voter-id')
+    query = 'SELECT voterId FROM voter'  
+    cursor = db.get_db().cursor()
+    cursor.execute(query)
+    voter_ids = cursor.fetchall()
+    return jsonify(voter_ids)
