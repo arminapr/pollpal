@@ -149,6 +149,7 @@ def get_customer(candidateId):
     the_response.mimetype = 'application/json'
     return the_response
 
+
 # TODO: ask about including this in the api matrix
 @voter_persona.route('/voter-id', methods=['GET'])
 def get_campaign_ids():
@@ -158,3 +159,17 @@ def get_campaign_ids():
     cursor.execute(query)
     voter_ids = cursor.fetchall()
     return jsonify(voter_ids)
+
+@voter_persona.route('/candidate-names', methods=['GET'])
+def get_candidate_name():
+    current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
+    cursor = db.get_db().cursor()
+    # selecting voter turnout per state in a particular year (for heatmap)
+    cursor.execute('SELECT firstName, lastName, candidateId\
+        FROM candidate c')
+    theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+

@@ -1,52 +1,51 @@
 import logging
+import requests
 logger = logging.getLogger(__name__)
 import streamlit as st
 import pandas as pd
-from sklearn import datasets
-from sklearn.ensemble import RandomForestClassifier
-from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
+
 
 SideBarLinks()
 
-st.write("# Voter Opinion/Demographic Survey")
+st.write("# Voter Demographic Survey")
 
-# Good example for user input we could use elsewhere
-st.sidebar.header('User Input Parameters')
+response = requests.get('http://api:4000/v/candidate-names')
+if response.status_code == 200:
+    candidate_info = response.json()
+    candidate_names = sorted([item['firstName'] + " " + item['lastName'] for item in candidate_info])
+else:
+    st.error(f"Failed to retrieve campaign IDs. Status code: {response.status_code}")
+    candidate_names = []
 
-def user_input_features():
-    sepal_length = st.sidebar.slider('Sepal length', 4.3, 7.9, 5.4)
-    sepal_width = st.sidebar.slider('Sepal width', 2.0, 4.4, 3.4)
-    petal_length = st.sidebar.slider('Petal length', 1.0, 6.9, 1.3)
-    petal_width = st.sidebar.slider('Petal width', 0.1, 2.5, 0.2)
-    data = {'sepal_length': sepal_length,
-            'sepal_width': sepal_width,
-            'petal_length': petal_length,
-            'petal_width': petal_width}
-    features = pd.DataFrame(data, index=[0])
-    return features
 
-df = user_input_features()
+state_names = ["Alaska", "Alabama", "Arkansas", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"]
 
-st.subheader('User Input parameters')
-st.write(df)
+with st.form(key='feedback_form'):
+  politicalAffiliaton = st.selectbox("Which party do you affiliate with?", ('Democrat', 'Republican', 'Independent'))
+  state = st.selectbox("Which state are you a resident of?", state_names)
+  county = st.text_input("Which county do you reside in?")
+  age = st.text_input("How old are you?")
+  incomeLevel = st.selectbox("What is your approximate income level?", ('0-$30,000', '$30,000-$58,000', '$58,000-$94,000', '$94,000-$153,000', '> $153,000'))
+  ethnicity = st.selectbox("Which ethnicity do you identifiy by?", ('Native American or Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', 'White', 'Hispanic or Latino'))
+  gender= st.selectbox("Which gender do you identify by?", ('Male', 'Female', 'Other'))
+  candidateId = st.selectbox("Who are you voting for?", candidate_names)
+  submitted = st.form_submit_button("Submit")
 
-iris = datasets.load_iris()
-X = iris.data
-Y = iris.target
+if submitted:
+  data = {}
+  data['politicalAffiliation'] = politicalAffiliaton
+  data['state'] = state
+  data['county'] = county
+  data['age'] = age
+  data['incomeLevel'] = incomeLevel
+  data['ethnicity'] = ethnicity
+  data['gender'] = gender
+  data['candidateId'] = candidateId
+  st.write(data)
+  
+  requests.post(f'http://api:4000/v/voter-site-survey/', json=data)
 
-clf = RandomForestClassifier()
-clf.fit(X, Y)
 
-prediction = clf.predict(df)
-prediction_proba = clf.predict_proba(df)
 
-st.subheader('Class labels and their corresponding index number')
-st.write(iris.target_names)
 
-st.subheader('Prediction')
-st.write(iris.target_names[prediction])
-#st.write(prediction)
-
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
