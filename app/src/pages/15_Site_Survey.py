@@ -14,10 +14,10 @@ SideBarLinks()
 st.title('Site Feedback')
 
 with st.form(key='feedback_form'):
-  foundVotingCenter = st.radio("Did you find a voting center?", ('True', 'False'))
+  foundVotingCenter = st.radio("Did you find a voting center?", ('Yes', 'No'))
   howUserFriendly = st.slider("On a scale of 1-10, how user friendly was the site?", min_value=1, max_value=10, step=1)
   isDataUseful = st.slider("on a scale of 1-10, how much of the info we provided met your needs?",  min_value=1, max_value=10, step=1)
-  informedAboutCandidate = st.radio("do you feel informed about the candidates?", ('True', 'False'))
+  informedAboutCandidate = st.radio("do you feel informed about the candidates?", ('Yes', 'No'))
   discoveredWhere = st.text_area("how did you discover us?")
   submitted = st.form_submit_button("Submit")
 
