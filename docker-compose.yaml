@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app:
     build: ./app
-    container_name: front-end1
+    container_name: front-end
     volumes:
       - ./app/src:/appcode
     ports:
@@ -13,7 +13,7 @@ services:
 
   api:
     build: ./api
-    container_name: web-api1
+    container_name: web-api
     hostname: web-api
     volumes:
       - ./api:/apicode
@@ -26,7 +26,7 @@ services:
     env_file:
       - ./api/.env
     image: mysql:8
-    container_name: mysql_db1
+    container_name: mysql_db
     volumes:
       - ./database-files:/docker-entrypoint-initdb.d/:ro
     ports:
