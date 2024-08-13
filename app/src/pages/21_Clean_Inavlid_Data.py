@@ -8,6 +8,27 @@ st.set_page_config(layout = 'wide')
 
 SideBarLinks()
 
+# https://discuss.streamlit.io/t/how-to-change-the
+# -backgorund-color-of-button-widget/12103/25?page=2
+
+# https://discuss.streamlit.io/t/how-to-change-the
+# -backgorund-color-of-button-widget/12103/25?page=2
+m = st.markdown("""
+<style>
+
+div.stButton > button:first-child {
+    background-color: rgb(0, 104, 201);
+    border: 2px solid rgb(0, 104, 201)
+    color:#ffffff;
+    }
+
+div.stButton > button:hover {
+    background-color: rgb(255, 43, 43);
+    border: 2px solid rgb(255, 43, 43);
+    color: #ffffff;
+}
+
+</style>""", unsafe_allow_html=True)
 st.title('Removing Invalid Polling Data')
 """
 Polling Data
