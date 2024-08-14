@@ -6,21 +6,30 @@ from backend.db_connection import db
 import numpy as np
 import json
 
+
+# Global variables to store the model and encoder
 model = None
 encoder = None
 
+# Function to train the model
 def train_party_model():
+    # Fetch political party data
     cursor = db.get_db().cursor()
     cursor.execute("""SELECT V201228 FROM my_table""")
     rows = cursor.fetchall()
+    
+    if not rows:
+        raise ValueError("No data found for political party. Please check your database query.")
 
-    print("Fetched Political Party Rows:", rows)  
+    print("Political Party Data:", rows)  # Debug: Check if data is fetched correctly
 
     temp = [row['V201228'] for row in rows]
-    print("Political Party Array:", temp)  
+    print("Political Party Array:", temp)  # Debug: Check the array content
 
     y = np.array(temp)
 
+
+    # Fetch all questions data
     cursor = db.get_db().cursor()
     cursor.execute('''SELECT V201228, V201014b, V201343, V201367, V201409, 
     V201412, V201416, V201417, V201427, V201510, V201575, 
@@ -30,30 +39,47 @@ def train_party_model():
     V202265 FROM my_table''')
 
     rows = cursor.fetchall()
+    
+    if not rows:
+        raise ValueError("No data found for questions. Please check your database query.")
 
-    print("Fetched All Questions Rows:", rows)  # Debug: Check if data is fetched correctly
+    print("All Questions Data:", rows)  # Debug: Check if data is fetched correctly
 
     df = pd.DataFrame.from_dict(rows)
     print("DataFrame Shape:", df.shape)  # Debug: Check the shape of DataFrame
 
+    # Check if DataFrame is empty
+    if df.empty:
+        raise ValueError("The DataFrame is empty. Please check the data fetching process.")
+
     encoder = OneHotEncoder(handle_unknown='ignore')
     X_encoded = encoder.fit_transform(df)
 
-    print("Encoded Feature Shape:", X_encoded.shape)  # Debug: Check the shape of encoded features
+    # Ensure y and X_encoded have the same number of samples
+    if len(y) != X_encoded.shape[0]:
+        raise ValueError("Mismatch between the number of samples in X and y.")
 
+    # If you're not using X_test and y_test, you can remove them
     X_train, _, y_train, _ = train_test_split(X_encoded, y, test_size=0.2, random_state=42)
+    
+    # Ensure X_train is not empty
+    if X_train.shape[0] == 0:
+        raise ValueError("Training set is empty after train_test_split. Adjust the test_size or check the data.")
 
     model = RandomForestClassifier()
     model.fit(X_train, y_train)
 
+    # Get feature importances
     feature_importances = model.feature_importances_
+
     importances_json = json.dumps(feature_importances.tolist())
 
+    # Store feature importances
     cursor = db.get_db().cursor()
     cursor.execute("""
-    INSERT INTO feature_importances (importances)
-    VALUES (%s)
-""", (importances_json,))
+        INSERT INTO feature_importances (importances)
+        VALUES (%s)
+    """, (importances_json,))
 
     db.get_db().commit()
 
@@ -63,8 +89,8 @@ def train_party_model():
 # Function to make predictions
 def predict(user_input):
     global model, encoder
-        
     user_input_df = pd.DataFrame([user_input], columns=encoder.get_feature_names_out())
     user_input_encoded = encoder.transform(user_input_df)
     prediction = model.predict(user_input_encoded)
     return prediction[0]
+

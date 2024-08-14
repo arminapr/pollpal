@@ -6,14 +6,19 @@ services:
       - ./app/src:/appcode
     ports:
       - 8501:8501
+    networks:
+      - pollpal_app-network
 
   api:
     build: ./api
     container_name: web-api1
     hostname: web-api
-    volumes: ['./api:/apicode']
+    volumes:
+      - ./api:/apicode
     ports:
       - 4000:4000
+    networks:
+      - pollpal_app-network
 
   db:
     env_file:
@@ -25,4 +30,9 @@ services:
     ports:
       - 3200:3306
     restart: unless-stopped
-    
+    networks:
+      - pollpal_app-network
+
+networks:
+  pollpal_app-network:
+    driver: bridge
