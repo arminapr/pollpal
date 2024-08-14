@@ -1,24 +1,41 @@
+import logging
+logger = logging.getLogger(__name__)
+import pandas as pd
 import streamlit as st
-import requests
+from streamlit_extras.app_logo import add_logo
+import world_bank_data as wb
+import matplotlib.pyplot as plt
+import numpy as np
+import plotly.express as px
 from modules.nav import SideBarLinks
 
 # Call the SideBarLinks from the nav module in the modules directory
 SideBarLinks()
 
-# Set the header of the page
-st.header('Polling Data')
+# set the header of the page
+st.header('World Bank Data')
 
-# Fetch election years from API
-response = requests.get('http://api:4000/c/election-years').json()
-years = [item['year'] for item in response]
+# You can access the session state to make a more customized/personalized app experience
+st.write(f"### Hi, {st.session_state['first_name']}.")
 
-# Allow user to select a year
-selected_year = st.selectbox('Select Election Year', years)
+# get the countries from the world bank data
+with st.echo(code_location='above'):
+    countries:pd.DataFrame = wb.get_countries()
+   
+    st.dataframe(countries)
 
-# Fetch and display data for the selected year
-if selected_year != None:
-    if st.button(f'View polling data from {selected_year}',
-                 type='primary',
-                 use_container_width=True):
-        voter_data = requests.get(f'http://api:4000/c/polling-data/{selected_year}').json()
-        st.dataframe(voter_data)
+# the with statment shows the code for this block above it 
+with st.echo(code_location='above'):
+    arr = np.random.normal(1, 1, size=100)
+    test_plot, ax = plt.subplots()
+    ax.hist(arr, bins=20)
+
+    st.pyplot(test_plot)
+
+
+with st.echo(code_location='above'):
+    slim_countries = countries[countries['incomeLevel'] != 'Aggregates']
+    data_crosstab = pd.crosstab(slim_countries['region'], 
+                                slim_countries['incomeLevel'],  
+                                margins = False) 
+    st.table(data_crosstab)

@@ -14,22 +14,12 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-if st.button('View Polling Data', 
+if st.button('View World Bank Data Visualization', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_Polling_Data.py')
+  st.switch_page('pages/01_World_Bank_Viz.py')
 
-if st.button('Find Swing States', 
+if st.button('View World Map Demo', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/02_Swing_States.py')
-  
-if st.button('View Campaign Analytics', 
-            type='primary',
-            use_container_width=True):
-  st.switch_page('pages/03_Campaign_Resources.py')
-
-if st.button('Give PollPal some feedback!', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/04_Campaign_Survey.py')
+  st.switch_page('pages/02_Map_Demo.py')

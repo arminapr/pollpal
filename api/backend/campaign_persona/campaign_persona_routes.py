@@ -5,21 +5,25 @@ from backend.db_connection import db
 campaign_manager = Blueprint('campaign_manager', __name__)
 
 # Return a realtime ratio of voters to candidates for the current election g
-@campaign_manager.route('/polling-data/<year>', methods=['GET'])
-def get_voter_to_candidate_ratio(year):
-    current_app.logger.info(f'campaign_persona_routes.py: GET /polling-data/{year}')
+@campaign_manager.route('/polling-data', methods=['GET'])
+def get_voter_to_candidate_ratio():
+    current_app.logger.info('data_analyst_routes.py: GET /polling-data')
     cursor = db.get_db().cursor()
 
     cursor.execute(' \
-        SELECT v.candidateId, COUNT(voterID)as votes \
+        SELECT candidateId, COUNT(voterID)as votes \
         FROM voter v JOIN candidate c ON v.candidateId=c.candidateId \
             JOIN ranIn r on r.candidateId=c.candidateId \
             JOIN election e on e.electionId =r.electionId \
-            WHERE e.year = {0} \
-            GROUP BY candidateID'.format(year))
+            WHERE e.year = 2024 \
+            GROUP BY candidateID')
 
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
     theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -30,19 +34,24 @@ def get_voter_to_candidate_ratio(year):
 
 @campaign_manager.route('/swing-state', methods=['GET'])
 def get_swing_states():
-    current_app.logger.info('campaign_persona_routes.py: GET /swing-states')
+    current_app.logger.info('data_analyst_routes.py: GET /swing-states')
     cursor = db.get_db().cursor()
 
     start_year = request.args.get('start_year')
     end_year = request.args.get('end_year')
 
     cursor.execute(' \
-        SELECT DISTINCT stateName \
+        SELECT DISTINCT stateAbbr \
         FROM election e JOIN stateResult s ON e.electionID=s.electionId \
-        WHERE e.year > 1984 AND s.popularVoteRatio > 0.40 AND s.popularVoteRatio < 0.60')
+        WHERE e.year > 2000 AND s.popularVoteRatio > 0.45 AND s.popularVoteRatio < 0.55'
+    , (start_year, end_year))
 
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
     theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -51,7 +60,7 @@ def get_swing_states():
 # Return detailed info about cost and interactions for the specific campaign. 
 @campaign_manager.route('/campaign-data/<campaignId>', methods=['GET'])
 def get_campaign_details(campaign_id):
-    current_app.logger.info(f'campaign_persona_routes.py: GET /campaign/{campaign_id}/details')
+    current_app.logger.info(f'data_analyst_routes.py: GET /campaign/{campaign_id}/details')
     cursor = db.get_db().cursor()
 
     cursor.execute(' \
@@ -105,12 +114,3 @@ def get_campaign_ids():
     cursor.execute(query)
     campaign_ids = cursor.fetchall()
     return jsonify(campaign_ids)
-
-@campaign_manager.route('/election-years', methods=['GET'])
-def get_election_years():
-    current_app.logger.info('GET /election-years')
-    query = 'SELECT year FROM election'  
-    cursor = db.get_db().cursor()
-    cursor.execute(query)
-    election_years = cursor.fetchall()
-    return jsonify(election_years)

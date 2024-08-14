@@ -4,6 +4,8 @@ import streamlit as st
 import requests
 from modules.nav import SideBarLinks
 
+logger.info('In the broken function')
+
 st.title(f"Welcome System Administrator")
 st.write('')
 st.write('')
