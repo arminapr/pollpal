@@ -104,10 +104,10 @@ CREATE TABLE IF NOT EXISTS voterSiteSurvey
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     voterId INT NOT NULL,
     CONSTRAINT fk_voter_survey
-        FOREIGN KEY (voterId)
-            REFERENCES voter(voterId)
+       FOREIGN KEY (voterId)
+           REFERENCES voter(voterId)
                 ON UPDATE CASCADE
-                ON DELETE RESTRICT
+                ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS voterFeaturesAccessed (

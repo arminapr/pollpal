@@ -1,19 +1,39 @@
 import logging
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
-
 import streamlit as st
 from modules.nav import SideBarLinks
 
 st.set_page_config(layout = 'wide')
-
 st.session_state['authenticated'] = False
 SideBarLinks(show_home=True)
 
-st.title('The Profs App')
+# https://discuss.streamlit.io/t/how-to-change-the
+# -backgorund-color-of-button-widget/12103/25?page=2
+m = st.markdown("""
+<style>
+
+div.stButton > button:first-child {
+    background-color: rgb(0, 104, 201);
+    border: 2px solid rgb(0, 104, 201)
+    color:#ffffff;
+    }
+    
+div.stButton > button:hover {
+    background-color: rgb(255, 43, 43);
+    border: 2px solid rgb(255, 43, 43);
+    color: #ffffff;
+}
+
+</style>""", unsafe_allow_html=True)
+
+
+
+# https://discuss.streamlit.io/t/colored-text/34892
+st.title(':red[PollPal] - :blue[the Election Analysis App]')
 
 st.write('\n\n')
-st.write('### HI! As which user would you like to log in?')
+st.write('### Welcome! As which user would you like to log in?')
 
 if st.button("Act as Alex Smith, a Campaign Manager",
             type = 'primary', 
@@ -31,7 +51,7 @@ if st.button('Act as Sarah Sullivan, a Voter',
     st.session_state['first_name'] = 'Sarah'
     st.switch_page('pages/10_Voter.py')
 
-if st.button('Act as Michelle, a PollPal Data Analyst',
+if st.button('Act as Michelle, a Poll-Pal Data Analyst',
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True

@@ -13,9 +13,9 @@ st.write("# Voter Demographic Survey")
 response = requests.get('http://api:4000/v/candidate-names')
 if response.status_code == 200:
     candidate_info = response.json()
-    candidate_names = sorted([item['firstName'] + " " + item['lastName'] for item in candidate_info])
+    candidate_names = sorted([str(item['candidateId']) + " " +item['firstName'] + " " + item['lastName'] for item in candidate_info])
 else:
-    st.error(f"Failed to retrieve campaign IDs. Status code: {response.status_code}")
+    st.error(f"Failed to retrieve candidate info. Status code: {response.status_code}")
     candidate_names = []
 
 
@@ -29,7 +29,7 @@ with st.form(key='feedback_form'):
   incomeLevel = st.selectbox("What is your approximate income level?", ('0-$30,000', '$30,000-$58,000', '$58,000-$94,000', '$94,000-$153,000', '> $153,000'))
   ethnicity = st.selectbox("Which ethnicity do you identifiy by?", ('Native American or Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', 'White', 'Hispanic or Latino'))
   gender= st.selectbox("Which gender do you identify by?", ('Male', 'Female', 'Other'))
-  candidateId = st.selectbox("Who are you voting for?", candidate_names)
+  candidateId = st.radio("Who are you voting for?", candidate_names)
   submitted = st.form_submit_button("Submit")
 
 if submitted:
@@ -41,11 +41,7 @@ if submitted:
   data['incomeLevel'] = incomeLevel
   data['ethnicity'] = ethnicity
   data['gender'] = gender
-  data['candidateId'] = candidateId
+  data['candidateId'] = candidateId.split(" ")[0]
   st.write(data)
   
-  requests.post(f'http://api:4000/v/voter-site-survey/', json=data)
-
-
-
-
+  requests.post(f'http://api:4000/v/voter-info', json=data)

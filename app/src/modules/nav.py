@@ -20,7 +20,7 @@ def ResourceNav():
     st.sidebar.page_link("pages/03_Campaign_Resources.py", label="Campaign Resource Report", icon='📈')
     
 def CampaignFeedbackNav():
-    st.sidebar.page_link("pages/04_Campaign_Survey.py", label="Feedback", icon='😊')
+    st.sidebar.page_link("pages/04_Campaign_Survey.py", label="Share Feedback", icon='😊')
 
 ## ------------------------ Role of voter ------------------------
 def VoterTurnoutNav():
@@ -36,7 +36,7 @@ def PolicyNav():
     st.sidebar.page_link("pages/14_Candidate_Policies.py", label="Explore Policies", icon='💅')
 
 def VoterFeedbackNav():
-    st.sidebar.page_link("pages/15_Site_Survey.py", label="Feedback", icon='😊')
+    st.sidebar.page_link("pages/15_Site_Survey.py", label="Share Feedback", icon='😊')
 
 def PredictPartyNav():
     st.sidebar.page_link("pages/16_Predict_Party.py", label="Predict Political Party", icon='🤔')
@@ -105,6 +105,24 @@ def SideBarLinks(show_home=False):
     # Always show the About page at the bottom of the list of links
     AboutPageNav()
 
+    # https://discuss.streamlit.io/t/how-to-change-the
+    # -backgorund-color-of-button-widget/12103/25?page=2
+    m = st.markdown("""
+    <style>
+
+    div.stButton > button:first-child {
+        background-color: rgb(0, 104, 201);
+        border: 2px solid rgb(0, 104, 201)
+        color:#ffffff;
+        }
+
+    div.stButton > button:hover {
+        background-color: rgb(255, 43, 43);
+        border: 2px solid rgb(255, 43, 43);
+        color: #ffffff;
+    }
+
+    </style>""", unsafe_allow_html=True)
     if st.session_state["authenticated"]:
         # Always show a logout button if there is a logged in user
         if st.sidebar.button("Logout!"):

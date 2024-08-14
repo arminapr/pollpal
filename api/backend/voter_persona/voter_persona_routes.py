@@ -2,6 +2,7 @@
 # Sample customers blueprint of endpoints
 # Remove this file if you are not using it in your project
 ########################################################
+from datetime import datetime
 from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from backend.db_connection import db
@@ -14,7 +15,7 @@ def get_voter_turnout(year):
     current_app.logger.info(f'year = {year}')
     cursor = db.get_db().cursor()
     # selecting voter turnout per state in a particular year (for heatmap)
-    cursor.execute('SELECT year, stateName, voterTurnout from stateResult sR \
+    cursor.execute('SELECT stateName, round((voterTurnout * 100),2) as voterTurnout from stateResult sR \
         JOIN election e ON sR.electionId = e.electionId \
         WHERE year = {0}'.format(year))
     theData = cursor.fetchall()
@@ -78,7 +79,7 @@ def add_voter():
     current_app.logger.info('POST /voter-info route')
     voter_info = request.json
     # current_app.logger.info(cust_info)
-    # voter_id = voter_info['id'] ???
+    current_app.logger.info(voter_info)
     poliAff = voter_info['politicalAffiliation']
     state = voter_info['state']
     county = voter_info['county']
@@ -88,7 +89,9 @@ def add_voter():
     gender = voter_info['gender']
     candidateId = voter_info['candidateId']
 
-    query = 'INSERT INTO voter VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
+    query = 'INSERT INTO voter (politicalAffiliation, state, county, age, incomeLevel, \
+                ethnicity, gender, candidateId) \
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
     data = (poliAff, state, county, age, income, ethnicity, gender, candidateId)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
@@ -164,10 +167,28 @@ def get_campaign_ids():
 def get_candidate_name():
     current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
     cursor = db.get_db().cursor()
-    # selecting voter turnout per state in a particular year (for heatmap)
-    cursor.execute('SELECT firstName, lastName, candidateId\
-        FROM candidate c')
+    current_year = datetime.now().year
+    cursor.execute('SELECT firstName, lastName, c.candidateId \
+        FROM candidate c \
+        JOIN ranIn r ON c.candidateId = r.candidateId \
+        JOIN election e ON r.electionId = e.electionId \
+        WHERE year = {0}'.format(current_year))
     theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
+@voter_persona.route('/election-years', methods=['GET'])
+def get_election_year():
+    current_app.logger.info('voter_persona_routes.py: GET /election-years')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT DISTINCT year\
+                   FROM election e\
+                   ORDER BY year DESC')
+    theData = cursor.fetchall()
+    current_app.logger.info(f'Retrieved data: {theData}')
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
