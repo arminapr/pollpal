@@ -107,7 +107,7 @@ def update_customer(voterId):
     ethnicity = voter_info['ethnicity']
     gender = voter_info['gender']
     candidateId = voter_info['candidateId']
-    query = 'UPDATE voter SET politicalAffiliation = %s, state = %s, county = %s \
+    query = 'UPDATE voter SET politicalAffiliation = %s, state = %s, county = %s, \
         age = %s, incomeLevel = %s, ethnicity = %s, gender = %s, candidateId = %s \
         WHERE voterId = %s'
     data = (political_affiliation, state, county, age, income, ethnicity, gender, candidateId, voterId)
@@ -176,7 +176,6 @@ def get_candidate_name():
     the_response.mimetype = 'application/json'
     return the_response
 
-
 @voter_persona.route('/election-years', methods=['GET'])
 def get_election_year():
     current_app.logger.info('voter_persona_routes.py: GET /election-years')
@@ -191,3 +190,10 @@ def get_election_year():
     the_response.mimetype = 'application/json'
     return the_response
 
+@voter_persona.route('/last-voter-id', methods=['GET'])
+def get_last_voter_id():
+    current_app.logger.info('GET /last-voter-id route')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT MAX(voterId) FROM voter')
+    last_id = cursor.fetchall()
+    return jsonify({'lastVoterId': last_id})
