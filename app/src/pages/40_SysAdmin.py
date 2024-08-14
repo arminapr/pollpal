@@ -11,7 +11,7 @@ st.write('')
 st.write("## Train the ML Model:")
 
 if st.button('Train model',type='primary'):
-    pre_results = requests.get(f'http://web-api:4000/m/ml_models/train')
+    pre_results = requests.get(f'http://web-api1:4000/m/ml_models/train')
     logger.info(f'res = {pre_results}')
     if pre_results.status_code == 200:
         st.write('sucsess')
