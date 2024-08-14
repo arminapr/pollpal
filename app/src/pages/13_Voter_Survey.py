@@ -13,10 +13,9 @@ st.write("# Voter Demographic Survey")
 response = requests.get('http://api:4000/v/candidate-names')
 if response.status_code == 200:
     candidate_info = response.json()
-    logger.info(candidate_info)
     candidate_names = sorted([str(item['candidateId']) + " " +item['firstName'] + " " + item['lastName'] for item in candidate_info])
 else:
-    st.error(f"Failed to retrieve campaign IDs. Status code: {response.status_code}")
+    st.error(f"Failed to retrieve candidate info. Status code: {response.status_code}")
     candidate_names = []
 
 

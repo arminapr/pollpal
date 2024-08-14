@@ -15,7 +15,7 @@ def get_voter_turnout(year):
     current_app.logger.info(f'year = {year}')
     cursor = db.get_db().cursor()
     # selecting voter turnout per state in a particular year (for heatmap)
-    cursor.execute('SELECT year, stateName, voterTurnout from stateResult sR \
+    cursor.execute('SELECT stateName, round((voterTurnout * 100),2) as voterTurnout from stateResult sR \
         JOIN election e ON sR.electionId = e.electionId \
         WHERE year = {0}'.format(year))
     theData = cursor.fetchall()
@@ -174,6 +174,21 @@ def get_candidate_name():
         JOIN election e ON r.electionId = e.electionId \
         WHERE year = {0}'.format(current_year))
     theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+
+@voter_persona.route('/election-years', methods=['GET'])
+def get_election_year():
+    current_app.logger.info('voter_persona_routes.py: GET /election-years')
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT DISTINCT year\
+                   FROM election e\
+                   ORDER BY year DESC')
+    theData = cursor.fetchall()
+    current_app.logger.info(f'Retrieved data: {theData}')
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
