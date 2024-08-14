@@ -202,7 +202,7 @@ CREATE TABLE my_table (
 
 
 CREATE TABLE IF NOT EXISTS feature_importances (
-    id INT PRIMARY KEY, 
+    id INT PRIMARY KEY DEFAULT 0, 
     importances JSON
 );
 
