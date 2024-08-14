@@ -11,7 +11,7 @@ def get_voter_to_candidate_ratio(year):
     cursor = db.get_db().cursor()
 
     cursor.execute(' \
-        SELECT v.candidateId, COUNT(voterID)as votes \
+        SELECT c.candidateId, c. firstName, c.lastName, c.politicalAffiliation, COUNT(voterID)as votes \
         FROM voter v JOIN candidate c ON v.candidateId=c.candidateId \
             JOIN ranIn r on r.candidateId=c.candidateId \
             JOIN election e on e.electionId =r.electionId \
