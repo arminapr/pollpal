@@ -205,3 +205,6 @@ CREATE TABLE IF NOT EXISTS feature_importances (
     id INT PRIMARY KEY, 
     importances JSON
 );
+
+ALTER TABLE feature_importances
+MODIFY id INT AUTO_INCREMENT PRIMARY KEY;

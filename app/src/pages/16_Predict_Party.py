@@ -150,9 +150,6 @@ if st.button("Predict"):
 
     if len(user_input) == 28:
         query = f'http://web-api:4000/m/ml_models/1/{var_01}/{var_02}/{var_03}/{var_04}/{var_05}/{var_06}/{var_07}/{var_08}/{var_09}/{var_10}/{var_11}/{var_12}/{var_13}/{var_14}/{var_15}/{var_16}/{var_17}/{var_18}/{var_19}/{var_20}/{var_21}/{var_22}/{var_23}/{var_24}/{var_25}/{var_26}/{var_27}/{var_28}'
-
-    else:
-        raise ValueError("The user_inputs list must contain exactly 28 elements.")
     
 results = requests.get(query).json()
 
