@@ -30,12 +30,11 @@ def get_voter_turnout(year):
 def get_voter_ethnicity_info():
     current_app.logger.info('voter_persona_routes.py: GET /voter-info-ethnicity')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT c.firstName, \
-            c.lastName, \
+    cursor.execute('SELECT v.politicalAffiliation, \
             v.ethnicity as voterEthnicity, \
         COUNT(voterId) as numVotersByEthnicity \
         FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
-        GROUP BY firstName, lastName, ethnicity')
+        GROUP BY politicalAffiliation, ethnicity')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
@@ -46,12 +45,11 @@ def get_voter_ethnicity_info():
 def get_voter_gen_info():
     current_app.logger.info('voter_persona_routes.py: GET /voter-info-gender')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT c.firstName, \
-            c.lastName, \
+    cursor.execute('SELECT v.politicalAffiliation, \
             v.gender as voterGender, \
         COUNT(voterId) as numVotersByGender \
         FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
-        GROUP BY firstName, lastName, v.gender')
+        GROUP BY v.politicalAffiliation, v.gender')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
@@ -62,12 +60,11 @@ def get_voter_gen_info():
 def get_voter_age_info():
     current_app.logger.info('voter_persona_routes.py: GET /voter-info-age')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT c.firstName, \
-            c.lastName, \
+    cursor.execute('SELECT v.politicalAffiliation, \
             v.age as voterAge, \
         COUNT(voterId) as numVotersByAge \
         FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
-        GROUP BY firstName, lastName, v.age')
+        GROUP BY v.politicalAffiliation, v.age')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
