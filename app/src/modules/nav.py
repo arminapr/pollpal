@@ -30,7 +30,7 @@ def VoterDemographicsNav():
     st.sidebar.page_link("pages/12_Demographics.py", label="Voter Demographics", icon='🛜')
 
 def VotingCenter():
-   st.sidebar.page_link("pages/17_Voting_Center.py", label="Share Feedback", icon='🏢')
+   st.sidebar.page_link("pages/17_Voting_Center.py", label="Voting Center", icon='🏢')
 
 def SurveyNav():
     st.sidebar.page_link("pages/13_Voter_Survey.py", label="Voter Survey", icon='📖')
