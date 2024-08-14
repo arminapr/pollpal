@@ -4,6 +4,7 @@ import streamlit as st
 from modules.nav import SideBarLinks
 import requests
 
+
 st.set_page_config(layout = 'wide')
 
 SideBarLinks()
@@ -58,3 +59,4 @@ if st.button('Delete polling data where age < 18', type='primary', use_container
 
 # Display the updated data
 st.dataframe(st.session_state.polling_data)
+
