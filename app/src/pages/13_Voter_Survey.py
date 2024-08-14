@@ -10,12 +10,12 @@ SideBarLinks()
 
 st.write("# Voter Demographic Survey")
 
-response = requests.get('http://api:4000/v/candidate-names')
-if response.status_code == 200:
-    candidate_info = response.json()
+candidateResponse = requests.get('http://api:4000/v/candidate-names')
+if candidateResponse.status_code == 200:
+    candidate_info = candidateResponse.json()
     candidate_names = sorted([str(item['candidateId']) + " " +item['firstName'] + " " + item['lastName'] for item in candidate_info])
 else:
-    st.error(f"Failed to retrieve candidate info. Status code: {response.status_code}")
+    st.error(f"Failed to retrieve candidate info. Status code: {candidateResponse.status_code}")
     candidate_names = []
     
 def get_last_voter_id():

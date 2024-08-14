@@ -138,10 +138,12 @@ def add_voter_site_survey():
 def get_customer(candidateId):
     current_app.logger.info('GET /policies/<candidateId>')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT policyName, stance FROM candidate c \
-                   JOIN advocatesFor aF on c.candidateId = aF.candidateId \
-                   JOIN policy p on aF.policyId = p.policyId \
-                   WHERE c.candidateId = {0}'.format(candidateId))
+    cursor.execute('''
+            SELECT DISTINCT p.policyName, p.stance FROM policy p
+            JOIN advocatesFor aF on aF.policyId = p.policyId
+            JOIN candidate c on c.candidateId = aF.candidateId
+            WHERE c.candidateId = %s
+        ''', (candidateId))
     
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
@@ -170,6 +172,19 @@ def get_candidate_name():
         JOIN ranIn r ON c.candidateId = r.candidateId \
         JOIN election e ON r.electionId = e.electionId \
         WHERE year = {0}'.format(current_year))
+    theData = cursor.fetchall()
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@voter_persona.route('/all-candidate-names', methods=['GET'])
+def get_all_candidate_names():
+    current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
+    cursor = db.get_db().cursor()
+    current_year = datetime.now().year
+    cursor.execute('SELECT firstName, lastName, c.candidateId \
+        FROM candidate c')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
