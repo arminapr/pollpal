@@ -50,25 +50,21 @@ def get_swing_states():
 
 # Return detailed info about cost and interactions for the specific campaign. 
 @campaign_manager.route('/campaign-data/<campaignId>', methods=['GET'])
-def get_campaign_details(campaign_id):
-    current_app.logger.info(f'campaign_persona_routes.py: GET /campaign/{campaign_id}/details')
+def get_campaign_details(campaignId):
+    current_app.logger.info(f'campaign_persona_routes.py: GET /campaign/{campaignId}/details')
     cursor = db.get_db().cursor()
 
     cursor.execute(' \
         SELECT SUM(a.interactions) as totalInteractions, \
-    SUM(a.cost) as advertisementsCost, \
-    SUM(r.actualAttendance) as totalAttendees, \
-    SUM(r.cost) as ralliesCost \
-    FROM campaign c JOIN advertisement a ON c.campaignId=a.campaignId \
+            SUM(a.cost) as advertisementsCost, \
+            SUM(r.actualAttendance) as totalAttendees, \
+            SUM(r.cost) as ralliesCost \
+            FROM campaign c JOIN advertisement a ON c.campaignId=a.campaignId \
                JOIN rally r ON r.campaignId=c.campaignId \
-               WHERE c.campaignId = {0}'.format(campaign_id))
+               WHERE c.campaignId = {0}'.format(campaignId))
 
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -97,9 +93,9 @@ def add_campaign_feedback():
     return 'campaign survey response submitted!'
 
 # TODO: ask about including this in the api matrix
-@campaign_manager.route('/campaign-id', methods=['GET'])
+@campaign_manager.route('/campaign-ids', methods=['GET'])
 def get_campaign_ids():
-    current_app.logger.info('GET /campaign-id')
+    current_app.logger.info('GET /campaign-ids')
     query = 'SELECT campaignId FROM campaign'  
     cursor = db.get_db().cursor()
     cursor.execute(query)

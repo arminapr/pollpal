@@ -12,7 +12,7 @@ SideBarLinks()
 
 st.title('Site Feedback')
 
-response = requests.get('http://api:4000/c/campaign-id')
+response = requests.get('http://api:4000/c/campaign-ids')
 
 if response.status_code == 200:
     campaign_ids_dict = response.json() 
