@@ -37,17 +37,12 @@ def get_swing_states():
     end_year = request.args.get('end_year')
 
     cursor.execute(' \
-        SELECT DISTINCT stateAbbr \
+        SELECT DISTINCT stateName \
         FROM election e JOIN stateResult s ON e.electionID=s.electionId \
-        WHERE e.year > 2000 AND s.popularVoteRatio > 0.45 AND s.popularVoteRatio < 0.55'
-    , (start_year, end_year))
+        WHERE e.year > 1984 AND s.popularVoteRatio > 0.40 AND s.popularVoteRatio < 0.60')
 
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
     theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
+    the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
