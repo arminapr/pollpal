@@ -24,6 +24,11 @@ if st.button('View voter opinion by demographic',
              use_container_width=True):
   st.switch_page('pages/12_Demographics.py')
 
+if st.button('View voting centers near you',
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/17_Voting_Center.py')
+
 if st.button("Complete your voter information survey",
              type='primary',
              use_container_width=True):
