@@ -212,3 +212,17 @@ def get_last_voter_id():
     cursor.execute('SELECT MAX(voterId) FROM voter')
     last_id = cursor.fetchall()
     return jsonify({'lastVoterId': last_id})
+
+@voter_persona.route('/voting-center', methods=['GET'])
+def get_voting_center():
+   current_app.logger.info('voter_persona_routes.py: GET /voting-center')
+   cursor = db.get_db().cursor()
+   cursor.execute('SELECT c.street, \
+           c.city, \
+           c.state, c.zipcode \
+       FROM votingCenter c')
+   theData = cursor.fetchall()
+   the_response = make_response(jsonify(theData))
+   the_response.status_code = 200
+   the_response.mimetype = 'application/json'
+   return the_response
