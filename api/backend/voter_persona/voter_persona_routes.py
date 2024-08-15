@@ -75,7 +75,6 @@ def get_voter_age_info():
 def add_voter():
     current_app.logger.info('POST /voter-info route')
     voter_info = request.json
-    # current_app.logger.info(cust_info)
     current_app.logger.info(voter_info)
     poliAff = voter_info['politicalAffiliation']
     state = voter_info['state']
@@ -182,7 +181,6 @@ def get_candidate_name():
 def get_all_candidate_names():
     current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
     cursor = db.get_db().cursor()
-    current_year = datetime.now().year
     cursor.execute('SELECT firstName, lastName, c.candidateId \
         FROM candidate c')
     theData = cursor.fetchall()
@@ -199,7 +197,6 @@ def get_election_year():
                    FROM election e\
                    ORDER BY year DESC')
     theData = cursor.fetchall()
-    current_app.logger.info(f'Retrieved data: {theData}')
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
