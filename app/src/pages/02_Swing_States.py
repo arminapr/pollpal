@@ -8,6 +8,7 @@ SideBarLinks()
 
 # set up the page
 st.header("Identify Swing States")
+st.write("The data below reflects swing states since 1984")
 response = requests.get('http://api:4000/c/swing-state')
 
 # dictionary for state coordinates
@@ -67,15 +68,29 @@ state_coordinates = {
 if response.status_code == 200:
     if response.content:
         data = response.json()
-        st.dataframe(data)
         df = pd.DataFrame(data)
+        df.rename(columns={
+            'stateAbbr': 'State Abbreviation',
+            'stateName': 'State Name',
+            'popularVoteRatio': 'Popular Vote Ratio (Winning : Other)',
+            'partyRepresentative': 'Party Representative',
+            'numElectoralVotes': 'Electoral Votes',
+            'year': 'Year'
+        }, inplace=True)
+
+        # reordering the columns
+        df = df[['State Name', 'State Abbreviation', 'Year', 'Party Representative', 'Popular Vote Ratio (Winning : Other)', 'Electoral Votes']]
+        df['Year'] = df['Year'].astype(int).astype(str) 
+        df['Popular Vote Ratio (Winning : Other)'] = (df['Popular Vote Ratio (Winning : Other)'] * 100).map("{:.2f}%".format)
+        
+        st.dataframe(df)
         
         df['latitude'] = None
         df['longitude'] = None
 
         # the below code is to show a map of where the states are
         for index, row in df.iterrows():
-            state_name = row['stateName'].lower()
+            state_name = row['State Name'].lower()
             if state_name in state_coordinates:
                 df.at[index, 'latitude'], df.at[index, 'longitude'] = state_coordinates[state_name]
         

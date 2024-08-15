@@ -33,11 +33,8 @@ def get_swing_states():
     current_app.logger.info('campaign_persona_routes.py: GET /swing-states')
     cursor = db.get_db().cursor()
 
-    start_year = request.args.get('start_year')
-    end_year = request.args.get('end_year')
-
     cursor.execute(' \
-        SELECT DISTINCT stateName \
+        SELECT DISTINCT stateAbbr, stateName, popularVoteRatio, partyRepresentative, numElectoralVotes, year \
         FROM election e JOIN stateResult s ON e.electionID=s.electionId \
         WHERE e.year > 1984 AND s.popularVoteRatio > 0.40 AND s.popularVoteRatio < 0.60')
 
