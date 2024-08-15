@@ -1,19 +1,13 @@
-import logging
-logger = logging.getLogger(__name__)
 import streamlit as st
 from modules.nav import SideBarLinks
 import requests
+import pandas as pd
 
 
 st.set_page_config(layout = 'wide')
 
 SideBarLinks()
 
-# https://discuss.streamlit.io/t/how-to-change-the
-# -backgorund-color-of-button-widget/12103/25?page=2
-
-# https://discuss.streamlit.io/t/how-to-change-the
-# -backgorund-color-of-button-widget/12103/25?page=2
 m = st.markdown("""
 <style>
 
@@ -58,5 +52,17 @@ if st.button('Delete polling data where age < 18', type='primary', use_container
         st.write("Could not connect to sample API to delete data")
 
 # Display the updated data
-st.dataframe(st.session_state.polling_data)
+df = pd.DataFrame(st.session_state.polling_data)
+df = df[['voterId', 'age', 'votingCenterId', 'state', 'county', 'gender', 'politicalAffiliation']]
+df.rename(columns={
+            'voterId': 'PollPal Voter ID',
+            'age': 'Age',
+            'votingCenterId': 'Voting Center ID',
+            'state': 'State',
+            'county': 'County',
+            'gender': 'Gender',
+            'politicalAffiliation': 'Political Affiliation'
+        }, inplace=True)
+
+st.dataframe(df)
 
