@@ -8,12 +8,14 @@ st.write("# About this App")
 
 st.markdown (
     """
-    This is a demo app for the CS 3200 Course Project.  
+    This is a PollPal app for the CS 3200 Course Project.  
 
-    The goal of this demo is to navigate an application
-    catered towards three different personas. Each page
-    addresses a persona's user story.
-
-    Stay tuned for more information and features to come!
+    The goal of this application is to help users stay informed on current
+    election information and make informed decisions for managing campaings. 
+    This application relies on three users who take on the roles of campaign manager,
+    voter, and data analyst. Note that this application only uses mock data and 
+    should not be used for actual election information. 
+    
+    Thank you for visiting PollPal!
     """
         )

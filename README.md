@@ -1,52 +1,33 @@
-# Summer 2024 CS 3200 Project Template Repository
+# PollPal
 
 ## About
 
-This example project explores some features of Streamlit & Flask to build a comprehensive web app for your project.  You won't necessarily have to use all of the features in this example in your course project 
+As election season comes upon us, many voters face the difficult decision of choosing a presidential candidate who will best represent their values and address the pressing issues faced by our nation. Campaign offices also face the challenge of understanding opponents’ strategies and accessing detailed voter demographics. Data analysts, meanwhile, often struggle with sifting through vast amounts of information and finding unbiased sources to inform their analyses. 
 
-## Current Project Components
+Given the needs of these entities, the intended users include campaign managers, civic minded citizens and data analysts. For dedicated voters, our app, PollPal, offers an intuitive and user-friendly platform that organizes historical voter data, presents clear visualizations of voting patterns, and provides summaries of key trends. This empowers voters to stay informed and engage in meaningful discussions within their communities. Additionally, our app features a survey to track real-time updates of voter opinion and a map feature for visualizing data geographically, ensuring both voters and campaign managers have the information they need at their fingertips. For the lead marketing and data analyst at PollPal, the information offered by our product will allow them to pinpoint areas of limited data in order to improve data acquisition strategies. Note that all data used in this app relies on mock data. 
 
-Currently, there are three major components:
+## Features
+
+- User-friendly platform for voters to stay informed on many things election-related
+- Historical voter data and clear visualizations of voting patterns
+- Real-time updates of voter opinion through surveys
+- Geographical data visualization through map features
+- Role-based access control for different user roles, including Political Strategist, USAID Worker, and System Administrator
+
+## Project Directory
+
 - Streamlit App (in the `./app` directory)
 - Flask REST api (in the `./api` directory)
 - MySQL setup files (in the `./database-files` directory)
 
-## Getting Started for Personal Exploration
-1. Clone the repo to your computer. 
-1. Set up the `.env` file in the `api` folder based on the `.env.template` file.
-1. Start the docker containers. 
+## Role-Based Access Control (RBAC)
 
-## Getting Started For Team Project
-1. Each team member should make a GitHub account if you don't already have one.  This should be for the public GitHub, not Khoury's enterprise server. 
-1. One team member should fork this repository. They will be the repo owner. 
-1. Add your team members as Collaborators on the repository.  You can find Collaborators under the Settings tab in the repository.
-1. Each team member needs to accept the invitation to collaborate
-1. Each team member (including the repo owner) needs to clone the repository to their laptops. 
+Our app demonstrates a simple RBAC system in Streamlit, where different user roles have access to specific features and functionalities. The code is organized to accommodate three roles:
 
-## Handling User Role Access and Control
+- Campaign Manager
+- Voter
+- Data Analyst
 
-In most applications, when a user logs in, they assume a particular role.  For instance, when one logs in to a stock price prediction app, they may be a single investor, a portfolio manager, or a corporate executive (of a publicly traded company).  Each of those *roles* will likely present some similar features as well as some different features when compared to the other roles. So, how do you accomplish this in Streamlit?  This is sometimes called Role-based Access Control, or **RBAC** for short. 
+## Disclosure
 
-The code in this project demonstrates how to implement a simple RBAC system in Streamlit but without actually using user authentication (usernames and passwords).  The Streamlit pages from the original template repo are split up among 3 roles - Political Strategist, USAID Worker, and a System Administrator role (this is used for any sort of system tasks such as re-training ML model, etc.). It also demonstrates how to deploy an ML model. 
-
-Wrapping your head around this will take a little time and exploration of this code base.  Some highlights are below. 
-
-### Getting Started with the RBAC 
-1. We need to turn off the standard panel of links on the left side of the Streamlit app. This is done through the `app/src/.streamlit/config.toml` file.  So check that out. We are turning it off so we can control directly what links are shown. 
-1. Then I created a new python module in `app/src/modules/nav.py`.  When you look at the file, you will se that there are functions for basically each page of the application. The `st.sidebar.page_link(...)` adds a single link to the sidebar. We have a separate function for each page so that we can organize the links/pages by role. 
-1. Next, check out the `app/src/Home.py` file. Notice that there are 3 buttons added to the page and when one is clicked, it redirects via `st.switch_page(...)` to that Roles Home page in `app/src/pages`.  But before the redirect, I set a few different variables in the Streamlit `session_state` object to track role, first name of the user, and that the user is now authenticated.  
-1. Notice near the top of `app/src/Home.py` and all other pages, there is a call to `SideBarLinks(...)` from the `app/src/nav.py` module.  This is the function that will use the role set in `session_state` to determine what links to show the user in the sidebar. 
-1. The pages are organized by Role.  Pages that start with a `0` are related to the *Political Strategist* role.  Pages that start with a `1` are related to the *USAID worker* role.  And, pages that start with a `2` are related to The *System Administrator* role. 
-
-
-## Deploying An ML Model (Totally Optional for CS3200 Project)
-
-*Note*: This project only contains the infrastructure for a hypothetical ML model. 
-
-1. Build, train, and test your ML model in a Jupyter Notebook. 
-1. Once you're happy with the model's performance, convert your Jupyter Notebook code for the ML model to a pure python script.  You can include the `training` and `testing` functionality as well as the `prediction` functionality.  You may or may not need to include data cleaning, though. 
-1. Check out the  `api/backend/ml_models` module.  In this folder, I've put a sample (read *fake*) ML model in `model01.py`.  The `predict` function will be called by the Flask REST API to perform '*real-time*' prediction based on model parameter values that are stored in the database.  **Important**: you would never want to hard code the model parameter weights directly in the prediction function.  tl;dr - take some time to look over the code in `model01.py`.  
-1. The prediction route for the REST API is in `api/backend/customers/customer_routes.py`. Basically, it accepts two URL parameters and passes them to the `prediction` function in the `ml_models` module. The `prediction` route/function packages up the value(s) it receives from the model's `predict` function and send its back to Streamlit as JSON. 
-1. Back in streamlit, check out `app/src/pages/11_Prediction.py`.  Here, I create two numeric input fields.  When the button is pressed, it makes a request to the REST API URL `/c/prediction/.../...` function and passes the values from the two inputs as URL parameters.  It gets back the results from the route and displays them. Nothing fancy here. 
-
- 
+This application was made as a part of our final project for Introduction to Databases (CS 3200) at Northeastern University.
