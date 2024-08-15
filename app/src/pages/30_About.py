@@ -9,6 +9,7 @@ st.write("# About this App")
 st.markdown (
     """
     This is a PollPal app for the CS 3200 Course Project.  
+    Founded by Armina Parvaresh Rizi, Nalika Palayoor, Niki Anand, Celia Burrington & Sriya Vuppala.
 
     The goal of this application is to help users stay informed on current
     election information and make informed decisions for managing campaings. 

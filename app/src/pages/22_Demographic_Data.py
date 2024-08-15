@@ -56,7 +56,7 @@ max_possible_count = max(item['userCount'] for item in results)
 
 # Add an input for minimum category count
 min_count = st.number_input(
-    'Select the minimum category size to display:',
+    'Select the minimum number of people in each category to display:',
     min_value=1,
     max_value=max_possible_count,
     value=1

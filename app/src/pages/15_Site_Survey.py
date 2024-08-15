@@ -24,8 +24,8 @@ st.title('Site Feedback')
 
 with st.form(key='feedback_form'):
   voterId = st.selectbox("Select Voter ID", voterIds)
-  foundVotingCenter = st.radio("Did you find a voting center through?", ('Yes', 'No'))
-  howUserFriendly = st.slider("On a scale of 1-10, how user friendly was the site?", min_value=1, max_value=10, step=1)
+  foundVotingCenter = st.radio("Did you find a voting center through PollPal?", ('Yes', 'No'))
+  howUserFriendly = st.slider("On a scale of 1-10, how user friendly was PollPal?", min_value=1, max_value=10, step=1)
   isDataUseful = st.slider("On a scale of 1-10, how much of the info we provided met your needs?",  min_value=1, max_value=10, step=1)
   informedAboutCandidate = st.radio("Do you feel informed about the candidates?", ('Yes', 'No'))
   discoveredWhere = st.text_area("How did you discover us?")

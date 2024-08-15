@@ -14,6 +14,14 @@ Given the needs of these entities, the intended users include campaign managers,
 - Geographical data visualization through map features
 - Role-based access control for different user roles, including Political Strategist, USAID Worker, and System Administrator
 
+## Running the Project
+To run the project or run it after completing any changes the two following actions should be run in the terminal:
+- ```docker compose down ```
+- ```docker compose up -d ```
+If there any issues while running this action should be run:
+```docker compose build --no-cache ```
+and after that ``` docker compose up - d ``` to run the project again
+
 ## Project Directory
 
 - Streamlit App (in the `./app` directory)
