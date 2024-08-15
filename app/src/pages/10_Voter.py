@@ -44,7 +44,7 @@ if st.button("Give PollPal some feedback!",
              use_container_width=True):
   st.switch_page('pages/15_Site_Survey.py')
 
-if st.button("Take a quiz to find your political party",
+if st.button("Take a quiz to find which political party you most align with",
              type='primary',
              use_container_width=True):
   st.switch_page('pages/16_Predict_Party.py')
