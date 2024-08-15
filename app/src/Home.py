@@ -8,8 +8,6 @@ st.set_page_config(layout = 'wide')
 st.session_state['authenticated'] = False
 SideBarLinks(show_home=True)
 
-# https://discuss.streamlit.io/t/how-to-change-the
-# -backgorund-color-of-button-widget/12103/25?page=2
 m = st.markdown("""
 <style>
 

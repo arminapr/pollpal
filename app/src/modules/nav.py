@@ -59,7 +59,7 @@ def SystemAdminNav():
     st.sidebar.page_link("pages/40_SysAdmin.py", label="Admin Dashboard", icon='🔧')
 
 # --------------------------------Links Function -----------------------------------------------
-def SideBarLinks(show_home=False):
+def SideBarLinks(show_home=False, home_breadcrumb=False):
     """
     This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in. 
     """    
@@ -72,7 +72,7 @@ def SideBarLinks(show_home=False):
         st.session_state.authenticated = False
         st.switch_page('Home.py')
         
-    if show_home:
+    if show_home and not st.session_state["authenticated"]:
         # Show the Home page link (the landing page)
         HomeNav()
 
@@ -131,4 +131,3 @@ def SideBarLinks(show_home=False):
             del st.session_state['role']
             del st.session_state['authenticated']
             st.switch_page('Home.py')
-
