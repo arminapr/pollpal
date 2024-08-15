@@ -38,7 +38,6 @@ if submitted:
   data['isDataUseful'] = isDataUseful
   data['foundNeededInfo'] = foundNeededInfo
   data['isUserFriendly'] = isUserFriendly
-  st.write(data)
   
   response = requests.post('http://api:4000/c/campaign-site-survey', json=data)
   if response.status_code == 200:

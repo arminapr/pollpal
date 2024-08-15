@@ -39,7 +39,6 @@ if submitted:
   data['foundNeededInfo'] = isDataUseful
   data['informedAboutCandidate'] = informedAboutCandidate
   data['discoveredWhere'] = discoveredWhere
-  st.write(data)
   
   requests.post('http://api:4000/v/voter-site-survey', json=data)
   if response.status_code == 200:

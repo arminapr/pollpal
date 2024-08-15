@@ -57,7 +57,6 @@ if submitted:
   data['ethnicity'] = ethnicity
   data['gender'] = gender
   data['candidateId'] = candidateId.split(" ")[0]
-  st.write(data)
   
   if voter_id:
         update_response = requests.put(f'http://api:4000/v/voter-info/{voter_id}', json=data)
@@ -71,4 +70,4 @@ if submitted:
           last_voter_id = get_last_voter_id()
           st.success(f"Thank you for submitting the survey! Your PollPal Voter ID is {last_voter_id}. Please save this ID for future updates.")
       else:
-          st.error(f"Failed to submit the survey. Status code: {create_response.status_code}")
+          st.error(f"Failed to submit the survey. Make sure that you've answered all questions. Status code: {create_response.status_code}")
