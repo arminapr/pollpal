@@ -23,7 +23,6 @@ else:
 
 year = st.selectbox('Select an election year', year_options, index=None)
 logger.info(f'var_01 = {year}')
-logger.info(f'Retrieved data: {year_options}')
 
 # add a button to use the values entered into the number field to send to the 
 # prediction function via the REST API
@@ -36,7 +35,7 @@ if year != None and st.button('View voter turnout',
  # Convert results to a DataFrame
   df = pd.DataFrame(results)
 
-    # Check if data is available
+  # Check if data is available
   if not df.empty:
     df.columns = ['State', 'Voter Turnout']
     st.bar_chart(df.set_index('State'), y_label='% turnout of voters', x_label='state')
