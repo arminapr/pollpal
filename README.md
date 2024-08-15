@@ -12,7 +12,7 @@ Given the needs of these entities, the intended users include campaign managers,
 - Historical voter data and clear visualizations of voting patterns
 - Real-time updates of voter opinion through surveys
 - Geographical data visualization through map features
-- Role-based access control for different user roles, including Political Strategist, USAID Worker, and System Administrator
+- Role-based access control for different user roles, including voter, campaign manager, and data analyst.
 
 ## Running the Project
 To run the project or run it after completing any changes the two following actions should be run in the terminal:
