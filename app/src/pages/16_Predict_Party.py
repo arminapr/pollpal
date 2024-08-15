@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.ensemble import RandomForestClassifier
 import requests
+import pickle
 
 party_mapping = {
     -9: "Refused",
@@ -36,7 +37,7 @@ questions = {
     18:"18. Rate your feelings towards the Black Lives Matter movement from 1 to 100, 1 being feeling \"cold\" toward them and 100 feeling \"warm\" toward them.",
     19:"19. How important is it that more women be elected to political office?",
     20: "20. Do you favor, oppose, or neither favor nor oppose providing a path to citizenship for unauthorized immigrants who obey the law, pay a fine, and pass security checks?",
-    21: "21. hat about your opinion – are you for or against preferential hiring and promotion of blacks?",
+    21: "21. What about your opinion – are you for or against preferential hiring and promotion of blacks?",
     22: "22. Next, do you favor, oppose, or neither favor nor oppose the governmenttrying to reduce the difference in incomes between the richest and poorest households?",
     23: "23. ‘Our society should do whatever is necessary to make sure that everyone has an equal opportunity to succeed.",
     24: "24. ‘This country would be better off if we worried less about how equal people are.’",
@@ -100,6 +101,15 @@ radio_questions = [2,3,4,5,6,7,8,9,11,12,13,15,19,20,21,22,23,24,25,26,27,28]
 dropdown_questions = [1,10]
 numeric_questions = [14,16,17,18]
 
+encoder = OneHotEncoder()
+model = RandomForestClassifier()
+
+with open('/appcode/pages/model_files/encoder.pkl', 'wb') as f:
+    pickle.dump(encoder, f)
+
+with open('/appcode/pages/model_files/model.pkl', 'wb') as f:
+    pickle.dump(model, f)
+
 st.title("Political Party Predictor")
 
 st.write("Please answer the following questions:")
@@ -139,11 +149,15 @@ for q_id, question in questions.items():
 
 if st.button("Predict"):
     num_questions = len(questions)
-    user_input_df = pd.DataFrame([user_input], columns=[f'Q{i+1}' for i in range(num_questions-1)])
+    user_input_df = pd.DataFrame([user_input], columns=[f'Q{i+1}' for i in range(num_questions)])
+
+
+    with open('/appcode/pages/model_files/encoder.pkl', 'rb') as f:
+        encoder = pickle.load(f)
+    with open('/appcode/pages/model_files/model.pkl', 'rb') as f:
+        model = pickle.load(f)
     
-    encoder = OneHotEncoder(handle_unknown='ignore')
-    user_input_encoded = encoder.transform(user_input_df)
-    model = RandomForestClassifier()
+    user_input_encoded = encoder.fit(user_input_df)
     prediction_code = model.predict(user_input_encoded)[0]
     
     party_name = party_mapping.get(prediction_code, "Unknown")
@@ -152,8 +166,8 @@ if st.button("Predict"):
         query = f'http://web-api:4000/m/ml_models/1/{var_01}/{var_02}/{var_03}/{var_04}/{var_05}/{var_06}/{var_07}/{var_08}/{var_09}/{var_10}/{var_11}/{var_12}/{var_13}/{var_14}/{var_15}/{var_16}/{var_17}/{var_18}/{var_19}/{var_20}/{var_21}/{var_22}/{var_23}/{var_24}/{var_25}/{var_26}/{var_27}/{var_28}'
 
     else:
-        raise ValueError("The user_inputs list must contain exactly 28 elements.")
+        raise ValueError("list must contiand 28.")
     
-results = requests.get(query).json()
+    results = requests.get(query).json()
 
-st.write(f'Predicted Party: {results}')
+    st.write(f'Predicted Party: {results}')
