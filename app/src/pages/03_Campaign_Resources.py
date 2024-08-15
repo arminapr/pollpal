@@ -34,9 +34,16 @@ if selected_campaign_id is not None:
         df['Advertisments'] = df['advertisementsCost'] / df['totalInteractions']
         df['Rallies'] = df['ralliesCost'] / df['totalAttendees']
 
+        df.rename(columns={
+            'totalInteractions': 'Advertisement Interactions',
+            'advertisementsCost': 'Advertisement Cost',
+            'totalAttendees': 'Rally Attendance',
+            'ralliesCost': 'Rally Cost'
+        }, inplace=True)
+        
         # display campaign details
         st.write(f"### Campaign ID: {selected_campaign_id}")
-        st.write(df[['totalInteractions', 'advertisementsCost', 'totalAttendees', 'ralliesCost']])
+        st.write(df[['Advertisement Interactions', 'Advertisement Cost', 'Rally Attendance', 'Rally Cost']])
 
         # display ratios
         st.write(f"### Ratio of Total Cost per Total Interaction")
