@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS election (
     year INT NOT NULL,
     winnerId INT,
     electoralVoteDifference INT,
-    popularVoteDifference INT,
+    popularVoteDifference FLOAT,
     CONSTRAINT fk_wid
         FOREIGN KEY (winnerId) REFERENCES candidate(candidateId)
             ON UPDATE RESTRICT

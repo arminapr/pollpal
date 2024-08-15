@@ -14,7 +14,7 @@ def get_voter_turnout(year):
     current_app.logger.info('voter_persona_routes.py: GET /state-voters/<year>')
     current_app.logger.info(f'year = {year}')
     cursor = db.get_db().cursor()
-    # selecting voter turnout per state in a particular year (for heatmap)
+    # selecting voter turnout per state in a particular year
     cursor.execute('SELECT stateName, round((voterTurnout * 100),2) as voterTurnout from stateResult sR \
         JOIN election e ON sR.electionId = e.electionId \
         WHERE year = {0}'.format(year))
@@ -193,8 +193,10 @@ def get_all_candidate_names():
 def get_election_year():
     current_app.logger.info('voter_persona_routes.py: GET /election-years')
     cursor = db.get_db().cursor()
+    # select all election years that have a winner (a.k.a that we have result data for)
     cursor.execute('SELECT DISTINCT year\
                    FROM election e\
+                   WHERE winnerId IS NOT NULL\
                    ORDER BY year DESC')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))

@@ -36,7 +36,7 @@ def get_swing_states():
     cursor.execute(' \
         SELECT DISTINCT stateAbbr, stateName, popularVoteRatio, partyRepresentative, numElectoralVotes, year \
         FROM election e JOIN stateResult s ON e.electionID=s.electionId \
-        WHERE e.year > 1984 AND s.popularVoteRatio > 0.40 AND s.popularVoteRatio < 0.60')
+        WHERE e.year > 1984 AND s.popularVoteRatio > 0.49 AND s.popularVoteRatio < 0.52')
 
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
@@ -102,7 +102,7 @@ def get_campaign_ids():
 @campaign_manager.route('/election-years', methods=['GET'])
 def get_election_years():
     current_app.logger.info('GET /election-years')
-    query = 'SELECT year FROM election'  
+    query = 'SELECT year FROM election ORDER BY year DESC'  
     cursor = db.get_db().cursor()
     cursor.execute(query)
     election_years = cursor.fetchall()
