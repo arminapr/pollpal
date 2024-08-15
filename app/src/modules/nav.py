@@ -29,6 +29,9 @@ def VoterTurnoutNav():
 def VoterDemographicsNav():
     st.sidebar.page_link("pages/12_Demographics.py", label="Voter Demographics", icon='🛜')
 
+def VotingCenter():
+   st.sidebar.page_link("pages/17_Voting_Center.py", label="Voting Center", icon='🏢')
+
 def SurveyNav():
     st.sidebar.page_link("pages/13_Voter_Survey.py", label="Voter Survey", icon='📖')
 
@@ -86,7 +89,8 @@ def SideBarLinks(show_home=False):
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state['role'] == 'voter':
             VoterTurnoutNav()
-            VoterDemographicsNav() 
+            VoterDemographicsNav()
+            VotingCenter()
             SurveyNav()
             PolicyNav()
             VoterFeedbackNav()
