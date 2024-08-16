@@ -1,8 +1,6 @@
 import logging
 logger = logging.getLogger(__name__)
-
 import streamlit as st
-# TODO: implement SideBarLinks
 from modules.nav import SideBarLinks
 import requests
 
@@ -13,6 +11,7 @@ SideBarLinks()
 
 st.title('Candidate Policy Stances')
 
+# getting info about candidates
 response = requests.get('http://api:4000/v/all-candidate-names')
 if response.status_code == 200:
     candidate_info = response.json()
@@ -33,13 +32,15 @@ selected_candidate_id = None
 if selected_candidate_name:
     selected_candidate_id = int(selected_candidate_name.split()[0])
 
+# getting policies of a particular candidate
 candidate_data = {} 
 try:
   candidate_data = requests.get(f'http://api:4000/v/policies/{selected_candidate_id}').json()
 except:
   st.write("**Important**: Could not connect to sample api, so using dummy data.")
   candidate_data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
-  
+
+# displaying candidate policy info
 st.header("**Policies and Stances:**")
 for policy in candidate_data:
     st.write(f"**Policy Name:** {policy['policyName']}")

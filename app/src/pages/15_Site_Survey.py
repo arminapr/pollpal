@@ -1,15 +1,13 @@
 import logging
 logger = logging.getLogger(__name__)
-
 import streamlit as st
-# TODO: implement SideBarLinks
 from modules.nav import SideBarLinks
 import requests
 
 st.set_page_config(layout = 'wide')
 
+# getting voter ID
 response = requests.get('http://api:4000/v/voter-id')
-
 if response.status_code == 200:
     voter_ids_dict = response.json() 
     voterIds = sorted([item['voterId'] for item in voter_ids_dict])
@@ -22,6 +20,7 @@ SideBarLinks()
 
 st.title('Site Feedback')
 
+# creating site feedback form for voter
 with st.form(key='feedback_form'):
   voterId = st.selectbox("Select Voter ID", voterIds)
   foundVotingCenter = st.radio("Did you find a voting center through PollPal?", ('Yes', 'No'))
@@ -39,7 +38,8 @@ if submitted:
   data['foundNeededInfo'] = isDataUseful
   data['informedAboutCandidate'] = informedAboutCandidate
   data['discoveredWhere'] = discoveredWhere
-  
+
+  # inserting data into voter survey table
   requests.post('http://api:4000/v/voter-site-survey', json=data)
   if response.status_code == 200:
     st.success('Voter Feedback survey response submitted!')

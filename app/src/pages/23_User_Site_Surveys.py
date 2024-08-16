@@ -17,6 +17,7 @@ st.title('Site Survey Responses Page')
 Voter responses
 """
 
+# allowing user to view data description
 show_voter_index = st.checkbox("Show Voter Response Column Descriptions")
 
 if show_voter_index:
@@ -49,9 +50,10 @@ visualize_voter = st.checkbox("Show Voter Response Visualization")
 if 'foundNeededInfo' in voter_df.columns and 'isUserFriendly' in voter_df.columns:
     voter_df['foundNeededInfo'] = pd.to_numeric(voter_df['foundNeededInfo'], errors='coerce')
     voter_df['isUserFriendly'] = pd.to_numeric(voter_df['isUserFriendly'], errors='coerce')
-
     avg_found_needed_info = voter_df['foundNeededInfo'].mean()
     avg_is_user_friendly = voter_df['isUserFriendly'].mean()
+
+    # displaying distribution of numerical responses
     if visualize_voter:
       user_friendly_chart = alt.Chart(voter_df).mark_bar().encode(
         x=alt.X('isUserFriendly:Q', bin=alt.Bin(maxbins=10), title='Score'),
@@ -75,7 +77,7 @@ if 'foundNeededInfo' in voter_df.columns and 'isUserFriendly' in voter_df.column
     # creating columns to make st.writes side by side
     # https://docs.streamlit.io/develop/api-reference/layout/st.columns
     col1, col2 = st.columns(2)
-
+    # displaying average rating for foundNeededInfo and isUserFriendly categories
     with col1:
      st.write(f"**Average rating for 'foundNeededInfo':** {avg_found_needed_info:.2f}")
 
@@ -98,6 +100,7 @@ st.write('\n\n')
 Campaign manager responses
 """
 
+# allowing user to view data description
 show_campaign_index = st.checkbox("Show Campaign Manager Response Column Descriptions")
 
 if show_campaign_index:
@@ -126,6 +129,7 @@ ca_avg_found_needed_info = camp_df['foundNeededInfo'].mean()
 ca_avg_is_user_friendly = camp_df['isUserFriendly'].mean()
 camp_df = camp_df[['campaignSurveyId', 'campaignId', 'discoveredWhere', 'foundNeededInfo', 'isUserFriendly', 'isDataUseful', 'addAdditionalData', 'createdAt', 'updatedAt']]
 
+# allowing user to view bar chart distribution of numerical responses
 visualize_campaign = st.checkbox("Show Campaign Manager Response Visualization")
 
 if visualize_campaign:
@@ -148,7 +152,6 @@ if visualize_campaign:
   if 'foundNeededInfo' in camp_df.columns and 'isUserFriendly' in camp_df.columns:
       camp_df['foundNeededInfo'] = pd.to_numeric(camp_df['foundNeededInfo'], errors='coerce')
       camp_df['isUserFriendly'] = pd.to_numeric(camp_df['isUserFriendly'], errors='coerce')
-
       ca_avg_found_needed_info = camp_df['foundNeededInfo'].mean()
       ca_avg_is_user_friendly = camp_df['isUserFriendly'].mean()
 
@@ -156,6 +159,7 @@ if visualize_campaign:
       st.altair_chart(ca_user_friendly_chart, use_container_width=True)
 
       col3, col4 = st.columns(2)
+      # displaying average rating for foundNeededInfo and isUserFriendly categories
       with col3:
           st.write(f"**Average rating for 'foundNeededInfo':** {ca_avg_found_needed_info:.2f}")
 

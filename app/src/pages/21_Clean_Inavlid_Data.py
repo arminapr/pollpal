@@ -28,6 +28,8 @@ st.title('Removing Invalid Polling Data')
 """
 Polling Data
 """
+
+# gets the polling data input by the voter user
 def fetch_polling_data():
     try:
         polling_data = requests.get('http://api:4000/d/voter-info').json()
@@ -37,11 +39,11 @@ def fetch_polling_data():
         polling_data = {"a":{"b": "123", "c": "hello"}, "z": {"b": "456", "c": "goodbye"}}
 
 
-# Initialize session state if not already
+# initializing session state if not already
 if 'polling_data' not in st.session_state:
     st.session_state.polling_data = fetch_polling_data()
 
-
+# allowing user to delete polling data where age < 18
 if st.button('Delete polling data where age < 18', type='primary', use_container_width=True):
     try:
         response = requests.delete('http://api:4000/d/voter-info').json()
@@ -51,7 +53,7 @@ if st.button('Delete polling data where age < 18', type='primary', use_container
     except Exception as e:
         st.write("Could not connect to sample API to delete data")
 
-# Display the updated data
+# displaying cleaned data
 df = pd.DataFrame(st.session_state.polling_data)
 df = df[['voterId', 'age', 'votingCenterId', 'state', 'county', 'gender', 'politicalAffiliation']]
 df.rename(columns={
