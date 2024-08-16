@@ -82,6 +82,9 @@ choices = {
     12: ['The way people talk needs to change a lot','The way people talk needs to change a little','People are a little too easily offended','People are much too easily offended'],
     13: ['Never','Rarely','Occasionally','Fairly often','Very often'],
     15: ['Yes','No'],
+    16: list(range(1, 101)),
+    17: list(range(1, 101)),
+    18: list(range(1, 101)),
     19: ['Not important at all', 'A little important', 'Moderatly important', 'Very important', 'Extremely important'],
     20: ['Favor','Oppose'],
     21: ['For','Against'],
@@ -104,12 +107,6 @@ numeric_questions = [14,16,17,18]
 encoder = OneHotEncoder()
 model = RandomForestClassifier()
 
-with open('/appcode/pages/model_files/encoder.pkl', 'wb') as f:
-    pickle.dump(encoder, f)
-
-with open('/appcode/pages/model_files/model.pkl', 'wb') as f:
-    pickle.dump(model, f)
-
 st.title("Political Party Predictor")
 
 st.write("Please answer the following questions:")
@@ -120,7 +117,7 @@ for q_id, question in questions.items():
     if q_id in radio_questions:
         selected_option = st.radio(
             question,
-            options=["Choose one of the following"] + choices.get(q_id, []),
+            options=choices.get(q_id, []),
             key=f"q{q_id}"
         )
     elif q_id in dropdown_questions:
@@ -135,6 +132,8 @@ for q_id, question in questions.items():
             key=f"q{q_id}",
             value="" 
         )
+
+        user_input_value = int(input_text) if input_text.isdigit() else None
     
     if q_id in choice_values and selected_option in choices.get(q_id, []):
         user_input_value = choice_values[q_id][choices[q_id].index(selected_option)]
@@ -151,23 +150,22 @@ if st.button("Predict"):
     num_questions = len(questions)
     user_input_df = pd.DataFrame([user_input], columns=[f'Q{i+1}' for i in range(num_questions)])
 
-
-    with open('/appcode/pages/model_files/encoder.pkl', 'rb') as f:
-        encoder = pickle.load(f)
-    with open('/appcode/pages/model_files/model.pkl', 'rb') as f:
-        model = pickle.load(f)
-    
-    user_input_encoded = encoder.fit(user_input_df)
-    prediction_code = model.predict(user_input_encoded)[0]
-    
-    party_name = party_mapping.get(prediction_code, "Unknown")
-
     if len(user_input) == 28:
-        query = f'http://web-api:4000/m/ml_models/1/{var_01}/{var_02}/{var_03}/{var_04}/{var_05}/{var_06}/{var_07}/{var_08}/{var_09}/{var_10}/{var_11}/{var_12}/{var_13}/{var_14}/{var_15}/{var_16}/{var_17}/{var_18}/{var_19}/{var_20}/{var_21}/{var_22}/{var_23}/{var_24}/{var_25}/{var_26}/{var_27}/{var_28}'
+        st.write(user_input)
+        query = f'http://web-api:4000/ml_model/' + '/'.join(map(str, user_input))
 
     else:
-        raise ValueError("list must contiand 28.")
-    
-    results = requests.get(query).json()
+        raise ValueError("Input list must contain 28 items.")
 
-    st.write(f'Predicted Party: {results}')
+    response = requests.get(query)
+
+    if response.status_code == 200:
+        try:
+            results = response.json()
+            st.write(f'Predicted Party: {results.get("result", "Unknown")}')
+        except requests.exceptions.JSONDecodeError:
+            st.error("Failed to decode JSON response")
+            st.write("Response content:", response.text)
+    else:
+        st.error(f"Request failed with status code: {response.status_code}")
+        st.write("Response content:", response.text)
