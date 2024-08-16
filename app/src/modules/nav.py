@@ -54,10 +54,6 @@ def DemographicDataNav():
 def SurveyResponsesNav():
     st.sidebar.page_link("pages/23_User_Site_Surveys.py", label="User Feedback", icon='🧐')
 
-#### ------------------------ System Admin Role ------------------------
-def SystemAdminNav():
-    st.sidebar.page_link("pages/40_SysAdmin.py", label="Admin Dashboard", icon='🔧')
-
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False, home_breadcrumb=False):
     """

@@ -3,7 +3,7 @@ from backend.db_connection import db
 
 campaign_manager = Blueprint('campaign_manager', __name__)
 
-# Return a realtime ratio of voters to candidates for the current election g
+# Return a realtime ratio of voters to candidates for the current election 
 @campaign_manager.route('/polling-data/<year>', methods=['GET'])
 def get_voter_to_candidate_ratio(year):
     current_app.logger.info(f'campaign_persona_routes.py: GET /polling-data/{year}')
