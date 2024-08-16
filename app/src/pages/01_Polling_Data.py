@@ -14,10 +14,10 @@ st.header('Polling Data')
 response = requests.get('http://api:4000/c/election-years').json()
 years = [item['year'] for item in response]
 
-# Allow user to select a year
+# allowing user to select from a given set of years
 selected_year = st.selectbox('Select Election Year', years)
 
-# Fetch and display data for the selected year
+# getting and displaying data for the selected year
 if selected_year != None:
     if st.button(f'View polling data from {selected_year}',
                  type='primary',
@@ -26,14 +26,14 @@ if selected_year != None:
         df = pd.DataFrame(voter_data)
         df['fullName'] = df['firstName'] + ' ' + df['lastName']
 
-        # Set up the color mapping
+        # setting up color mapping for legend
         color_mapping = {
             'Democrat': 'blue',
             'Republican': 'red',
             'Independent': 'yellow'
         }
 
-        # Create the bar chart using Altair
+        # initializing bar chart using Altair
         chart = alt.Chart(df).mark_bar().encode(
             y=alt.Y('votes:Q', title='Votes'),
             x=alt.X('fullName:N', title='Candidate Name'),
@@ -44,5 +44,5 @@ if selected_year != None:
             title=f'Votes per Candidate in {selected_year}'
         )
 
-        # Display the Altair chart
+        # displaying bar chart
         st.altair_chart(chart, use_container_width=True)

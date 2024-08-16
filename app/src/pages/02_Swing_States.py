@@ -9,6 +9,7 @@ SideBarLinks()
 # set up the page
 st.header("Identify Swing States")
 st.write("The data below reflects swing states since 1984")
+# getting data
 response = requests.get('http://api:4000/c/swing-state')
 
 # dictionary for state coordinates
@@ -65,6 +66,7 @@ state_coordinates = {
     'wyoming': (42.755966, -107.302490)
 }
 
+# converting json data to dataframe
 if response.status_code == 200:
     if response.content:
         data = response.json()

@@ -10,12 +10,15 @@ import requests
 SideBarLinks()
 st.title("Campaign Analysis")
 
+# getting data with api
 response = requests.get('http://api:4000/c/campaign-ids').json()
+# getting list of campaign ids
 campaign_ids = [item['campaignId'] for item in response]
 
 # dropdown for choosing the campaign id
 selected_campaign_id = st.selectbox('Select Campaign ID', campaign_ids)
 
+# filtering data based on selected campaign ID
 if selected_campaign_id is not None:
     if st.button(f'View campaign data for ID {selected_campaign_id}',
                  type='primary',
@@ -62,5 +65,5 @@ if selected_campaign_id is not None:
             width=alt.Step(80) 
         )
 
-        # chart
+        # displaying chart
         st.altair_chart(bar_chart, use_container_width=True)
