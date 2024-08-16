@@ -11,6 +11,9 @@ Given the needs of these entities, the intended users include campaign managers,
 
 Note: All data used in this app relies on mock data. 
 
+## Demo
+Watch the demo [here](https://youtu.be/1poJbeGhcqM)
+
 ## Features
 
 - User-friendly platform for voters to stay informed on many things election-related
