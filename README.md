@@ -25,15 +25,15 @@ Watch the demo [here](https://youtu.be/1poJbeGhcqM)
 ## Running the Project
 To run the project the user should first make a copy of the ```.env.template``` file and call it ```.env```. The user should change the ```DB_NAME``` to ```fontevote```. If you are planning to connect to our project's database docker container, make sure to set the ```MYSQL_ROOT_PASSWORD``` to your password of choice since that will be used to connect to the database through DataGrip. 
 
-After setting up your ```.env```, the project can be run using:
+After setting up your ```.env```, the project can be run using the following command:
 - ```docker compose up -d```
 
-Use  ```docker compose down```  to stop the containers.
+Run  ```docker compose down```  to stop the containers.
 
-If there any issues while running this action should be run:
+If there are any issues while running, run the following command:
 - ```docker compose build --no-cache```
 
-Use  ```docker compose up -d```  bring the containers back up.
+Run  ```docker compose up -d```  bring the containers back up.
 
 ## Project Directory
 
