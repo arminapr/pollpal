@@ -4,6 +4,7 @@ from backend.db_connection import db
 
 voter_persona = Blueprint('voter_persona', __name__)
 
+# selecting voter turnout per state in a particular year
 @voter_persona.route('/state-voters/<year>', methods=['GET'])
 def get_voter_turnout(year):
     current_app.logger.info('voter_persona_routes.py: GET /state-voters/<year>')
@@ -65,6 +66,7 @@ def get_voter_age_info():
     the_response.mimetype = 'application/json'
     return the_response
 
+# Insert statement into voter table
 @voter_persona.route('/voter-info', methods=['POST'])
 def add_voter():
     current_app.logger.info('POST /voter-info route')
@@ -88,6 +90,7 @@ def add_voter():
     db.get_db().commit()
     return 'voter added!'
 
+# Update voter information
 @voter_persona.route('/voter-info/<voterId>', methods=['PUT'])
 def update_customer(voterId):
     current_app.logger.info('PUT /voter-info/{0}'.format(voterId))
@@ -109,6 +112,7 @@ def update_customer(voterId):
     db.get_db().commit()
     return 'voter updated!'
 
+# Input voter feedback
 @voter_persona.route('/voter-site-survey', methods=['POST'])
 def add_voter_site_survey():
     current_app.logger.info('POST /voter-site-survey route')
@@ -129,6 +133,7 @@ def add_voter_site_survey():
     db.get_db().commit()
     return 'voter site survey response added!'
 
+# View policies by candidate
 @voter_persona.route('/policies/<candidateId>', methods=['GET'])
 def get_customer(candidateId):
     current_app.logger.info('GET /policies/<candidateId>')

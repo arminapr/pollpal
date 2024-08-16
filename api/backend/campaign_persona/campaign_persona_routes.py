@@ -24,7 +24,7 @@ def get_voter_to_candidate_ratio(year):
     return the_response
 
 
-# Return swing states based on the state’s popular vote ratio across a period of years (from 2.
+# Return swing states based on the state’s popular vote ratio across a period of years 
 @campaign_manager.route('/swing-state', methods=['GET'])
 def get_swing_states():
     current_app.logger.info('campaign_persona_routes.py: GET /swing-states')
