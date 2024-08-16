@@ -14,7 +14,7 @@ if st.button('Train model',type='primary'):
     the_response = requests.get(f'http://web-api:4000/m/ml_models/train')
     logger.info(f'res = {the_response}')
     if the_response.status_code == 200:
-        st.write('sucsess')
+        st.write('success')
     else:
         st.write(the_response.status_code)
         st.write('fail')
