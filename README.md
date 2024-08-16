@@ -20,14 +20,17 @@ Note: All data used in this app relies on mock data.
 - Role-based access control for different user roles, including voter, campaign manager, and data analyst.
 
 ## Running the Project
-To run the project or run it after completing any changes the two following actions should be run in the terminal:
-- ```docker compose down ```
-- ```docker compose up -d ```
+To run the project the user should first make a copy of the ```.env.template``` file and call it ```.env```. The user should change the ```DB_NAME``` to ```fontevote```. If you are planning to connect to our project's database docker container, make sure to set the ```MYSQL_ROOT_PASSWORD``` to your password of choice since that will be used to connect to the database through DataGrip. 
 
-  
+After setting up your ```.env```, the project can be run using:
+- ```docker compose up -d```
+
+Use  ```docker compose down```  to stop the containers.
+
 If there any issues while running this action should be run:
-- ```docker compose build --no-cache ```
-and after that ``` docker compose up - d ``` to run the project again
+- ```docker compose build --no-cache```
+
+Use  ```docker compose up -d```  bring the containers back up.
 
 ## Project Directory
 
