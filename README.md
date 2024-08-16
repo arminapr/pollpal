@@ -1,5 +1,8 @@
 # PollPal
 
+## Creators
+Armina Parvaresh Rizi, Nalika Palayoor, Niki Anand, Celia Burrington & Sriya Vuppala
+
 ## About
 
 As election season comes upon us, many voters face the difficult decision of choosing a presidential candidate who will best represent their values and address the pressing issues faced by our nation. Campaign offices also face the challenge of understanding opponents’ strategies and accessing detailed voter demographics. Data analysts, meanwhile, often struggle with sifting through vast amounts of information and finding unbiased sources to inform their analyses. 
