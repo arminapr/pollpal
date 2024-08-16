@@ -128,16 +128,11 @@ for q_id, question in questions.items():
             key=f"q{q_id}"
         )
     elif q_id in numeric_questions:
-        input_text = st.text_input(
+        user_input_value = st.number_input(
             question,
             key=f"q{q_id}",
-            value="" 
+            value=0  
         )
-        
-        if input_text.isdigit():  
-            user_input_value = int(input_text)
-
-        user_input_value = int(input_text) if input_text.isdigit() else None
     
     if q_id in choice_values and selected_option in choices.get(q_id, []):
         user_input_value = choice_values[q_id][choices[q_id].index(selected_option)]
@@ -157,7 +152,7 @@ if st.button("Predict"):
 
     if len(user_input) == 28:
         st.write(user_input)
-        query = f'http://web-api:4000/ml_model/' + '/'.join(map(str, user_input))
+        query = f'http://web-api:4000/m/ml_model/' + '/'.join(map(str, user_input))
 
     else:
         raise ValueError("Input list must contain 28 items.")
