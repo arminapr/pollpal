@@ -1,10 +1,5 @@
-########################################################
-# Sample customers blueprint of endpoints
-# Remove this file if you are not using it in your project
-########################################################
 from datetime import datetime
 from flask import Blueprint, request, jsonify, make_response, current_app
-import json
 from backend.db_connection import db
 
 voter_persona = Blueprint('voter_persona', __name__)
@@ -23,7 +18,6 @@ def get_voter_turnout(year):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
 
 # Get voter info by demographics
 @voter_persona.route('/voter-info-ethnicity', methods=['GET'])
@@ -126,7 +120,9 @@ def add_voter_site_survey():
     informed = 1 if site_survey['informedAboutCandidate'] else 0
     where = site_survey['discoveredWhere']
     
-    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, informedAboutCandidate, discoveredWhere, voterId) VALUES (%s, %s, %s, %s, %s, %s)'
+    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, \
+                informedAboutCandidate, discoveredWhere, voterId) \
+            VALUES (%s, %s, %s, %s, %s, %s)'
     data = (foundCenter, isFriendly, neededInfo, informed, where, voterId)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
@@ -150,8 +146,7 @@ def get_customer(candidateId):
     the_response.mimetype = 'application/json'
     return the_response
 
-
-# TODO: ask about including this in the api matrix
+# Routes used to populate dropdown options
 @voter_persona.route('/voter-id', methods=['GET'])
 def get_campaign_ids():
     current_app.logger.info('GET /voter-id')

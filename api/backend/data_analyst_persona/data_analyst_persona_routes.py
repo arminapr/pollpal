@@ -1,9 +1,4 @@
-########################################################
-# Sample customers blueprint of endpoints
-# Remove this file if you are not using it in your project
-########################################################
-from flask import Blueprint, request, jsonify, make_response, current_app
-import json
+from flask import Blueprint, jsonify, make_response, current_app
 from backend.db_connection import db
 
 data_analyst = Blueprint('data_analyst', __name__)
@@ -89,6 +84,3 @@ def delete_invalid_data():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
-
-

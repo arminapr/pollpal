@@ -1,5 +1,4 @@
 from flask import Blueprint, request, jsonify, make_response, current_app
-import json
 from backend.db_connection import db
 
 campaign_manager = Blueprint('campaign_manager', __name__)
@@ -25,9 +24,7 @@ def get_voter_to_candidate_ratio(year):
     return the_response
 
 
-
 # Return swing states based on the state’s popular vote ratio across a period of years (from 2.
-
 @campaign_manager.route('/swing-state', methods=['GET'])
 def get_swing_states():
     current_app.logger.info('campaign_persona_routes.py: GET /swing-states')
@@ -68,7 +65,6 @@ def get_campaign_details(campaignId):
 
 
 # Adding campaign manager feedback onto the website.
-
 @campaign_manager.route('/campaign-site-survey', methods=['POST'])
 def add_campaign_feedback():
     current_app.logger.info('POST /campaign-site-survey')
@@ -89,7 +85,7 @@ def add_campaign_feedback():
     db.get_db().commit()
     return 'campaign survey response submitted!'
 
-# TODO: ask about including this in the api matrix
+# Routes to populate dropdown options
 @campaign_manager.route('/campaign-ids', methods=['GET'])
 def get_campaign_ids():
     current_app.logger.info('GET /campaign-ids')
@@ -98,6 +94,7 @@ def get_campaign_ids():
     cursor.execute(query)
     campaign_ids = cursor.fetchall()
     return jsonify(campaign_ids)
+
 
 @campaign_manager.route('/election-years', methods=['GET'])
 def get_election_years():
