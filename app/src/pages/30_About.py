@@ -12,7 +12,7 @@ st.markdown (
     Founded by Armina Parvaresh Rizi, Nalika Palayoor, Niki Anand, Celia Burrington & Sriya Vuppala.
 
     The goal of this application is to help users stay informed on current
-    election information and make informed decisions for managing campaings. 
+    election information and make informed decisions for managing campaigns. 
     This application relies on three users who take on the roles of campaign manager,
     voter, and data analyst. Note that this application only uses mock data and 
     should not be used for actual election information. 

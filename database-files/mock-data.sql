@@ -516,41 +516,364 @@ insert into advocatesFor (policyId, candidateId) values ('22', '8');
 insert into advocatesFor (policyId, candidateId) values ('34', '10');
 insert into advocatesFor (policyId, candidateId) values ('11', '7');
 
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (1, '342 Beilfuss Alley', 'Meadowbrook', 'NY', '39646');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (2, '49637 Ronald Regan Park', 'Woodland Hills', 'TX', '05556');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (3, '5 Oakridge Point', 'Brookside', 'NY', '01204');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (4, '7 Trailsway Street', 'Lakeview', 'TX', '88437');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (5, '7 Meadow Vale Terrace', 'Meadowbrook', 'AZ', '25416');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (6, '529 Erie Park', 'Pleasant Valley', 'TX', '83541');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (7, '933 Melby Park', 'Silver Springs', 'CO', '07942');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (8, '79 Algoma Court', 'Pleasant Valley', 'AZ', '23262');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (9, '59795 Artisan Hill', 'Riverdale', 'TX', '85525');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (10, '5 Weeping Birch Crossing', 'Oakdale', 'KS', '37966');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (11, '109 East Plaza', 'Clearwater', 'NY', '23486');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (12, '71 Pierstorff Park', 'Windsor Park', 'CA', '70024');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (13, '93323 Forster Hill', 'Pine Valley', 'FL', '93332');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (14, '6527 Cascade Center', 'Sunnydale', 'TX', '48705');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (15, '9 Hollow Ridge Avenue', 'Hickory Hills', 'CA', '69528');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (16, '75 Florence Way', 'Cedar Ridge', 'TX', '13264');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (17, '5 Mockingbird Way', 'Fairview', 'KY', '79219');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (18, '6251 Sheridan Drive', 'Hickory Hills', 'IN', '89877');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (19, '9447 Graceland Terrace', 'Windsor Park', 'GA', '11977');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (20, '391 Golf Junction', 'Pine Valley', 'OH', '04931');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (21, '91 Cody Place', 'Valley Forge', 'LA', '24830');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (22, '75821 Armistice Avenue', 'Lakeview', 'DC', '00332');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (23, '434 Forest Run Plaza', 'Briarwood', 'SC', '54762');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (24, '6 Mockingbird Park', 'Greenwood', 'AZ', '10343');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (25, '792 Knutson Lane', 'Brookside', 'OK', '50842');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (26, '81 Toban Point', 'Sunset Hills', 'MN', '29307');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (27, '44 Grasskamp Junction', 'Briarwood', 'CT', '54515');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (28, '97 Pearson Drive', 'Hillcrest', 'MI', '29849');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (29, '3153 Westridge Junction', 'Springfield', 'NY', '46715');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (30, '10536 Little Fleur Place', 'Meadowbrook', 'LA', '68400');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (31, '9 Hintze Point', 'Oakdale', 'LA', '04229');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (32, '6857 Blue Bill Park Pass', 'Clearwater', 'NY', '05227');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (33, '51 Tony Place', 'Chestnut Ridge', 'FL', '90406');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (34, '9733 Cherokee Pass', 'Golden Grove', 'DC', '85320');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (35, '355 Bobwhite Circle', 'Oakdale', 'NY', '45594');
+-- Alabama
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (1, '123 Magnolia Lane', 'Montgomery', 'AL', '36104');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (2, '789 River Road', 'Birmingham', 'AL', '35203');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (3, '456 Pine Street', 'Mobile', 'AL', '36602');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (4, '101 Oakwood Avenue', 'Huntsville', 'AL', '35801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (5, '987 Sunset Boulevard', 'Tuscaloosa', 'AL', '35401');
+
+
+-- Alaska
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (6, '342 Glacier Avenue', 'Anchorage', 'AK', '99501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (7, '567 Tundra Way', 'Fairbanks', 'AK', '99701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (8, '234 Aurora Lane', 'Juneau', 'AK', '99801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (9, '890 Northern Lights Boulevard', 'Sitka', 'AK', '99835');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (10, '112 Bering Street', 'Kodiak', 'AK', '99615');
+
+
+-- Arizona
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (11, '75 Florence Way', 'Cedar Ridge', 'AZ', '13264');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (12, '7 Meadow Vale Terrace', 'Meadowbrook', 'AZ', '25416');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (13, '8 Algoma Court', 'Pleasant Valley', 'AZ', '23262');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (14, '6 Mockingbird Park', 'Greenwood', 'AZ', '10343');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (15, '79 Algoma Court', 'Pleasant Valley', 'AZ', '23262');
+
+
+-- Arkansas
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (16, '654 Delta Drive', 'Little Rock', 'AR', '72201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (17, '321 Cottonwood Avenue', 'Fayetteville', 'AR', '72701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (18, '789 Ozark Lane', 'Hot Springs', 'AR', '71901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (19, '213 Riverfront Road', 'Fort Smith', 'AR', '72901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (20, '876 Piney Point Drive', 'Jonesboro', 'AR', '72401');
+
+
+-- California
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (21, '71 Pierstorff Park', 'Windsor Park', 'CA', '70024');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (22, '9 Hollow Ridge Avenue', 'Hickory Hills', 'CA', '69528');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (23, '452 Palm Street', 'Los Angeles', 'CA', '90001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (24, '5 Oak Lane', 'San Francisco', 'CA', '94103');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (25, '789 Beach Avenue', 'San Diego', 'CA', '92101');
+
+
+-- Colorado
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (26, '123 Mountain Road', 'Denver', 'CO', '80202');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (27, '567 Pine Tree Lane', 'Colorado Springs', 'CO', '80903');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (28, '456 Canyon Boulevard', 'Boulder', 'CO', '80301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (29, '789 Aspen Street', 'Aspen', 'CO', '81611');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (30, '101 Snowflake Avenue', 'Vail', 'CO', '81657');
+
+
+-- Connecticut
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (31, '342 Constitution Drive', 'Hartford', 'CT', '06103');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (32, '567 Nutmeg Lane', 'New Haven', 'CT', '06510');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (33, '234 Harbor Street', 'Stamford', 'CT', '06902');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (34, '890 Pequot Avenue', 'Bridgeport', 'CT', '06604');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (35, '112 Mystic Drive', 'Norwich', 'CT', '06360');
+
+
+-- Delaware
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (36, '342 First State Boulevard', 'Wilmington', 'DE', '19801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (37, '567 Dover Drive', 'Dover', 'DE', '19901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (38, '234 Brandywine Street', 'Newark', 'DE', '19702');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (39, '890 Rehoboth Avenue', 'Rehoboth Beach', 'DE', '19971');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (40, '112 Seaford Lane', 'Seaford', 'DE', '19973');
+
+
+-- Florida
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (41, '93323 Forster Hill', 'Pine Valley', 'FL', '93332');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (42, '51 Tony Place', 'Chestnut Ridge', 'FL', '90406');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (43, '342 Ocean Boulevard', 'Miami', 'FL', '33101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (44, '456 Orange Avenue', 'Orlando', 'FL', '32801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (45, '789 Sunset Way', 'Tampa', 'FL', '33602');
+
+
+-- Georgia
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (46, '9447 Graceland Terrace', 'Windsor Park', 'GA', '11977');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (47, '123 Peach Street', 'Atlanta', 'GA', '30303');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (48, '789 River Road', 'Savannah', 'GA', '31401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (49, '456 Garden Avenue', 'Augusta', 'GA', '30901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (50, '101 Stone Mountain Drive', 'Stone Mountain', 'GA', '30083');
+
+
+-- Hawaii
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (51, '123 Aloha Lane', 'Honolulu', 'HI', '96801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (52, '456 Coconut Drive', 'Hilo', 'HI', '96720');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (53, '789 Pineapple Street', 'Kailua', 'HI', '96734');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (54, '101 Beach Avenue', 'Waipahu', 'HI', '96797');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (55, '234 Volcano Road', 'Lahaina', 'HI', '96761');
+
+
+-- Idaho
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (56, '567 Clearwater Lane', 'Boise', 'ID', '83701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (57, '890 River Street', 'Nampa', 'ID', '83651');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (58, '342 Pine Avenue', 'Idaho Falls', 'ID', '83401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (59, '456 Gem Street', 'Pocatello', 'ID', '83201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (60, '789 Mountain Road', 'Caldwell', 'ID', '83605');
+
+
+-- Illinois
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (61, '101 Lake Shore Drive', 'Chicago', 'IL', '60601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (62, '234 Oak Park Avenue', 'Naperville', 'IL', '60540');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (63, '567 Prairie Lane', 'Springfield', 'IL', '62701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (64, '890 Lincoln Avenue', 'Peoria', 'IL', '61602');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (65, '342 River Road', 'Rockford', 'IL', '61101');
+
+
+-- Indiana
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (66, '112 Monument Circle', 'Indianapolis', 'IN', '46204');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (67, '654 Hoosier Drive', 'Fort Wayne', 'IN', '46802');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (68, '789 Canal Street', 'South Bend', 'IN', '46601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (69, '123 Notre Dame Avenue', 'Evansville', 'IN', '47708');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (70, '456 Tippecanoe Street', 'Lafayette', 'IN', '47901');
+
+
+-- Iowa
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (71, '234 Corn Street', 'Des Moines', 'IA', '50309');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (72, '567 Riverfront Drive', 'Cedar Rapids', 'IA', '52401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (73, '890 Great Plains Avenue', 'Davenport', 'IA', '52801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (74, '101 Hawkeye Lane', 'Sioux City', 'IA', '51101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (75, '789 Prairie Street', 'Iowa City', 'IA', '52240');
+
+
+-- Kansas
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (76, '5 Weeping Birch Crossing', 'Oakdale', 'KS', '37966');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (77, '456 Sunflower Road', 'Topeka', 'KS', '66603');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (78, '234 Kaw Drive', 'Wichita', 'KS', '67202');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (79, '789 Jayhawk Boulevard', 'Lawrence', 'KS', '66044');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (80, '101 Flint Hills Street', 'Manhattan', 'KS', '66502');
+
+
+-- Kentucky
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (81, '5 Mockingbird Way', 'Fairview', 'KY', '79219');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (82, '567 Bourbon Street', 'Louisville', 'KY', '40202');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (83, '890 Bluegrass Avenue', 'Lexington', 'KY', '40507');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (84, '101 Derby Drive', 'Bowling Green', 'KY', '42101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (85, '234 Cardinal Lane', 'Frankfort', 'KY', '40601');
+
+
+-- Louisiana
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (86, '10536 Little Fleur Place', 'Meadowbrook', 'LA', '68400');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (87, '91 Cody Place', 'Valley Forge', 'LA', '24830');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (88, '123 Bayou Street', 'New Orleans', 'LA', '70112');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (89, '789 Creole Avenue', 'Baton Rouge', 'LA', '70802');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (90, '456 Pelican Drive', 'Shreveport', 'LA', '71101');
+
+
+-- Maine
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (91, '112 Lighthouse Lane', 'Portland', 'ME', '04101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (92, '234 Pine Street', 'Augusta', 'ME', '04330');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (93, '567 River Road', 'Bangor', 'ME', '04401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (94, '890 Ocean Avenue', 'Bar Harbor', 'ME', '04609');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (95, '101 Mountain Drive', 'Lewiston', 'ME', '04240');
+
+
+-- Maryland
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (96, '342 Chesapeake Lane', 'Baltimore', 'MD', '21201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (97, '456 Capitol Street', 'Annapolis', 'MD', '21401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (98, '789 Ocean Drive', 'Ocean City', 'MD', '21842');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (99, '101 Crab Lane', 'Frederick', 'MD', '21701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (100, '234 Colonial Drive', 'Rockville', 'MD', '20850');
+
+
+-- Massachusetts
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (101, '342 Freedom Trail', 'Boston', 'MA', '02108');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (102, '456 Harvard Square', 'Cambridge', 'MA', '02138');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (103, '789 Seaport Boulevard', 'Springfield', 'MA', '01103');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (104, '101 Beacon Street', 'Worcester', 'MA', '01608');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (105, '234 Bay Road', 'Lowell', 'MA', '01850');
+
+
+-- Michigan
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (106, '567 Motor City Drive', 'Detroit', 'MI', '48201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (107, '789 Great Lakes Street', 'Grand Rapids', 'MI', '49503');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (108, '101 Wolverine Avenue', 'Ann Arbor', 'MI', '48104');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (109, '234 Spartan Road', 'Lansing', 'MI', '48933');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (110, '456 Cherry Street', 'Flint', 'MI', '48502');
+
+
+-- Minnesota
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (111, '789 North Star Lane', 'Minneapolis', 'MN', '55401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (112, '101 Twin Cities Boulevard', 'Saint Paul', 'MN', '55101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (113, '234 Boundary Waters Road', 'Duluth', 'MN', '55802');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (114, '456 Lakeside Avenue', 'Rochester', 'MN', '55901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (115, '567 Viking Drive', 'Bloomington', 'MN', '55420');
+
+
+-- Mississippi
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (116, '101 Magnolia Street', 'Jackson', 'MS', '39201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (117, '234 Delta Avenue', 'Gulfport', 'MS', '39501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (118, '456 Blues Highway', 'Hattiesburg', 'MS', '39401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (119, '789 River Road', 'Biloxi', 'MS', '39530');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (120, '567 University Drive', 'Oxford', 'MS', '38655');
+
+
+-- Missouri
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (121, '789 Gateway Arch Boulevard', 'Saint Louis', 'MO', '63101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (122, '101 Truman Road', 'Kansas City', 'MO', '64106');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (123, '234 Show-Me Street', 'Springfield', 'MO', '65806');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (124, '456 Riverfront Avenue', 'Columbia', 'MO', '65201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (125, '567 Pony Express Way', 'Saint Joseph', 'MO', '64501');
+
+
+-- Montana
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (126, '234 Big Sky Lane', 'Billings', 'MT', '59101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (127, '456 Glacier Road', 'Missoula', 'MT', '59801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (128, '789 Yellowstone Avenue', 'Great Falls', 'MT', '59401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (129, '101 Montana Avenue', 'Bozeman', 'MT', '59715');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (130, '567 Pioneer Street', 'Helena', 'MT', '59601');
+
+
+-- Nebraska
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (131, '789 Cornhusker Road', 'Omaha', 'NE', '68102');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (132, '101 Capital Avenue', 'Lincoln', 'NE', '68508');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (133, '234 Platte River Drive', 'Bellevue', 'NE', '68005');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (134, '456 Frontier Street', 'Grand Island', 'NE', '68801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (135, '567 Prairie Avenue', 'Kearney', 'NE', '68847');
+
+
+-- Nevada
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (136, '101 Las Vegas Boulevard', 'Las Vegas', 'NV', '89101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (137, '234 Silver State Road', 'Reno', 'NV', '89501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (138, '456 Fremont Street', 'Henderson', 'NV', '89002');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (139, '789 Carson Avenue', 'Carson City', 'NV', '89701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (140, '567 Lake Tahoe Drive', 'Sparks', 'NV', '89431');
+
+
+-- New Hampshire
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (141, '234 Granite Street', 'Manchester', 'NH', '03101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (142, '456 Merrimack River Road', 'Nashua', 'NH', '03060');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (143, '789 White Mountains Avenue', 'Concord', 'NH', '03301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (144, '101 Seacoast Street', 'Portsmouth', 'NH', '03801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (145, '567 Dartmouth Drive', 'Dover', 'NH', '03820');
+
+
+-- New Jersey
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (146, '789 Boardwalk Street', 'Atlantic City', 'NJ', '08401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (147, '101 Garden State Avenue', 'Newark', 'NJ', '07102');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (148, '234 Liberty Road', 'Jersey City', 'NJ', '07302');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (149, '456 Princeton Street', 'Princeton', 'NJ', '08540');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (150, '567 Shore Drive', 'Toms River', 'NJ', '08753');
+
+
+-- New Mexico
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (151, '789 Sandia Street', 'Albuquerque', 'NM', '87101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (152, '101 Rio Grande Avenue', 'Santa Fe', 'NM', '87501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (153, '234 Mesa Drive', 'Las Cruces', 'NM', '88001');
+
+
+-- New York
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (154, '789 Broadway Avenue', 'New York', 'NY', '10001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (155, '101 Empire State Plaza', 'Albany', 'NY', '12207');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (156, '234 Niagara Falls Boulevard', 'Buffalo', 'NY', '14201');
+
+
+-- North Carolina
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (157, '789 Research Triangle Parkway', 'Raleigh', 'NC', '27601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (158, '101 Carolina Avenue', 'Charlotte', 'NC', '28201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (159, '234 Piedmont Drive', 'Greensboro', 'NC', '27401');
+
+
+-- North Dakota
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (160, '789 Prairie Avenue', 'Fargo', 'ND', '58102');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (161, '101 Dakota Drive', 'Bismarck', 'ND', '58501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (162, '234 Rough Rider Road', 'Minot', 'ND', '58701');
+
+
+-- Ohio
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (163, '789 Buckeye Boulevard', 'Columbus', 'OH', '43201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (164, '101 Rock and Roll Road', 'Cleveland', 'OH', '44101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (165, '234 Queen City Avenue', 'Cincinnati', 'OH', '45201');
+
+
+-- Oklahoma
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (166, '789 Sooner Street', 'Oklahoma City', 'OK', '73101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (167, '101 Route 66', 'Tulsa', 'OK', '74101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (168, '234 Red Earth Drive', 'Norman', 'OK', '73069');
+
+
+-- Oregon
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (169, '789 Cascade Avenue', 'Portland', 'OR', '97201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (170, '101 Beaver Boulevard', 'Salem', 'OR', '97301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (171, '234 Columbia Drive', 'Eugene', 'OR', '97401');
+
+
+-- Pennsylvania
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (172, '789 Liberty Street', 'Philadelphia', 'PA', '19101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (173, '101 Steel City Avenue', 'Pittsburgh', 'PA', '15201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (174, '234 Keystone Road', 'Harrisburg', 'PA', '17101');
+
+
+-- Rhode Island
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (175, '789 Ocean Drive', 'Providence', 'RI', '02901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (176, '101 Narragansett Street', 'Warwick', 'RI', '02886');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (177, '234 Newport Avenue', 'Newport', 'RI', '02840');
+
+
+-- South Carolina
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (178, '789 Palmetto Avenue', 'Columbia', 'SC', '29201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (179, '101 Charleston Drive', 'Charleston', 'SC', '29401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (180, '234 Myrtle Beach Road', 'Myrtle Beach', 'SC', '29577');
+
+
+-- South Dakota
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (181, '789 Mount Rushmore Lane', 'Sioux Falls', 'SD', '57101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (182, '101 Prairie Avenue', 'Rapid City', 'SD', '57701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (183, '234 Black Hills Drive', 'Aberdeen', 'SD', '57401');
+
+
+-- Tennessee
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (184, '789 Music City Way', 'Nashville', 'TN', '37201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (185, '101 Volunteer Road', 'Memphis', 'TN', '38101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (186, '234 Smoky Mountain Drive', 'Knoxville', 'TN', '37901');
+
+
+-- Texas
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (187, '789 Lone Star Lane', 'Houston', 'TX', '77001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (188, '101 Alamo Street', 'San Antonio', 'TX', '78201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (189, '234 Longhorn Drive', 'Dallas', 'TX', '75201');
+
+
+-- Utah
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (190, '789 Wasatch Way', 'Salt Lake City', 'UT', '84101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (191, '101 Zion Avenue', 'Provo', 'UT', '84601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (192, '234 Bonneville Drive', 'Ogden', 'UT', '84401');
+
+
+-- Vermont
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (193, '789 Green Mountain Road', 'Burlington', 'VT', '05401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (194, '101 Lake Champlain Drive', 'Montpelier', 'VT', '05601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (195, '234 Maple Street', 'Stowe', 'VT', '05672');
+
+
+-- Virginia
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (196, '789 Old Dominion Road', 'Richmond', 'VA', '23218');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (197, '101 Colonial Avenue', 'Virginia Beach', 'VA', '23450');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (198, '234 Shenandoah Drive', 'Charlottesville', 'VA', '22902');
+
+
+-- Washington
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (199, '789 Evergreen Street', 'Seattle', 'WA', '98101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (200, '101 Cascade Drive', 'Spokane', 'WA', '99201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (201, '234 Puget Sound Road', 'Tacoma', 'WA', '98401');
+
+
+-- West Virginia
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (202, '789 Appalachian Avenue', 'Charleston', 'WV', '25301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (203, '101 Mountain State Drive', 'Huntington', 'WV', '25701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (204, '234 Coal River Road', 'Morgantown', 'WV', '26501');
+
+
+-- Wisconsin
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (205, '789 Badger Street', 'Milwaukee', 'WI', '53201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (206, '101 Dairyland Drive', 'Madison', 'WI', '53701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (207, '234 Great Lakes Road', 'Green Bay', 'WI', '54301');
+
+
+-- Wyoming
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (208, '789 Frontier Avenue', 'Cheyenne', 'WY', '82001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (209, '101 Cowboy Street', 'Casper', 'WY', '82601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (210, '234 Prairie Road', 'Jackson', 'WY', '83001');
 
 insert into voter (voterId, politicalAffiliation, state, county, age, incomeLevel, ethnicity, gender, candidateId, votingCenterId) values (1, 'Democrat', 'California', 'Greenwood County', 36, '$58.000 - $94.000', 'White', 'Male', '19', '25');
 insert into voter (voterId, politicalAffiliation, state, county, age, incomeLevel, ethnicity, gender, candidateId, votingCenterId) values (2, 'Independent', 'Texas', 'Clearwater County', 78, '< $30.000', 'Hispanic or Latino', 'Male', '16', '22');
