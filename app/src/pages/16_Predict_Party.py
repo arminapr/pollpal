@@ -147,25 +147,17 @@ for q_id, question in questions.items():
  var_21, var_22, var_23, var_24, var_25, var_26, var_27, var_28) = user_input
 
 if st.button("Predict"):
-    num_questions = len(questions)
-    user_input_df = pd.DataFrame([user_input], columns=[f'Q{i+1}' for i in range(num_questions)])
-
     if len(user_input) == 28:
-        st.write(user_input)
         query = f'http://web-api:4000/m/ml_model/' + '/'.join(map(str, user_input))
+        response = requests.get(query)
 
+        if response.status_code == 200:
+            try:
+                results = response.json()
+                st.write(f'Predicted Party: {results.get("result", "Unknown")}')
+            except requests.exceptions.JSONDecodeError:
+                st.error("Failed to decode JSON response")
+        else:
+            st.error(f"Request failed with status code: {response.status_code}")
     else:
-        raise ValueError("Input list must contain 28 items.")
-
-    response = requests.get(query)
-
-    if response.status_code == 200:
-        try:
-            results = response.json()
-            st.write(f'Predicted Party: {results.get("result", "Unknown")}')
-        except requests.exceptions.JSONDecodeError:
-            st.error("Failed to decode JSON response")
-            st.write("Response content:", response.text)
-    else:
-        st.error(f"Request failed with status code: {response.status_code}")
-        st.write("Response content:", response.text)
+        st.error("Input list must contain 28 items.")
