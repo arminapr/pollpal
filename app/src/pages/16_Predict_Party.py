@@ -114,6 +114,7 @@ st.write("Please answer the following questions:")
 user_input = []
 for q_id, question in questions.items():
     selected_option = None 
+    user_input_value = None
     if q_id in radio_questions:
         selected_option = st.radio(
             question,
@@ -132,15 +133,19 @@ for q_id, question in questions.items():
             key=f"q{q_id}",
             value="" 
         )
+        
+        if input_text.isdigit():  
+            user_input_value = int(input_text)
 
         user_input_value = int(input_text) if input_text.isdigit() else None
     
     if q_id in choice_values and selected_option in choices.get(q_id, []):
         user_input_value = choice_values[q_id][choices[q_id].index(selected_option)]
-    else:
-        user_input_value = None  
 
-    user_input.append(user_input_value)
+    if user_input_value is not None:
+        user_input.append(user_input_value)
+    else:
+        user_input.append(None)
 
 (var_01, var_02, var_03, var_04, var_05, var_06, var_07, var_08, var_09, var_10,
  var_11, var_12, var_13, var_14, var_15, var_16, var_17, var_18, var_19, var_20,
