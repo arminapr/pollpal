@@ -21,6 +21,7 @@ Watch the demo [here](https://youtu.be/1poJbeGhcqM)
 - Real-time updates of voter opinion through surveys
 - Geographical data visualization through map features
 - Role-based access control for different user roles, including voter, campaign manager, and data analyst.
+- Machine Learning model to predict someone's political affiliation (PENDING... IN PROGRESS)
 
 ## Running the Project
 To run the project the user should first make a copy of the ```.env.template``` file and call it ```.env```. The user should change the ```DB_NAME``` to ```fontevote```. If you are planning to connect to our project's database docker container, make sure to set the ```MYSQL_ROOT_PASSWORD``` to your password of choice since that will be used to connect to the database through DataGrip. 
