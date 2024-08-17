@@ -1,6 +1,5 @@
 import logging
 logger = logging.getLogger(__name__)
-
 import streamlit as st
 from modules.nav import SideBarLinks
 import requests
@@ -14,6 +13,7 @@ st.title('Site Feedback')
 
 response = requests.get('http://api:4000/c/campaign-ids')
 
+# getting list of campaign IDs
 if response.status_code == 200:
     campaign_ids_dict = response.json() 
     campaignIds = sorted([item['campaignId'] for item in campaign_ids_dict])
@@ -21,6 +21,7 @@ else:
     st.error(f"Failed to retrieve campaign IDs. Status code: {response.status_code}")
     campaignIds = []
 
+# creating form to record user input
 with st.form(key='input_form'):
   campaignId = st.selectbox("Select Campaign ID", campaignIds)
   discoveredWhere = st.text_input("Where did you discover our page?")
@@ -38,8 +39,8 @@ if submitted:
   data['isDataUseful'] = isDataUseful
   data['foundNeededInfo'] = foundNeededInfo
   data['isUserFriendly'] = isUserFriendly
-  st.write(data)
-  
+
+# submitting the survey by storing in database
   response = requests.post('http://api:4000/c/campaign-site-survey', json=data)
   if response.status_code == 200:
     st.success('Campaign survey response submitted!')

@@ -1,20 +1,16 @@
-########################################################
-# Sample customers blueprint of endpoints
-# Remove this file if you are not using it in your project
-########################################################
 from datetime import datetime
 from flask import Blueprint, request, jsonify, make_response, current_app
-import json
 from backend.db_connection import db
 
 voter_persona = Blueprint('voter_persona', __name__)
 
+# selecting voter turnout per state in a particular year
 @voter_persona.route('/state-voters/<year>', methods=['GET'])
 def get_voter_turnout(year):
     current_app.logger.info('voter_persona_routes.py: GET /state-voters/<year>')
     current_app.logger.info(f'year = {year}')
     cursor = db.get_db().cursor()
-    # selecting voter turnout per state in a particular year (for heatmap)
+    # selecting voter turnout per state in a particular year
     cursor.execute('SELECT stateName, round((voterTurnout * 100),2) as voterTurnout from stateResult sR \
         JOIN election e ON sR.electionId = e.electionId \
         WHERE year = {0}'.format(year))
@@ -23,7 +19,6 @@ def get_voter_turnout(year):
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
 
 # Get voter info by demographics
 @voter_persona.route('/voter-info-ethnicity', methods=['GET'])
@@ -71,6 +66,7 @@ def get_voter_age_info():
     the_response.mimetype = 'application/json'
     return the_response
 
+# Insert statement into voter table
 @voter_persona.route('/voter-info', methods=['POST'])
 def add_voter():
     current_app.logger.info('POST /voter-info route')
@@ -94,6 +90,7 @@ def add_voter():
     db.get_db().commit()
     return 'voter added!'
 
+# Update voter information
 @voter_persona.route('/voter-info/<voterId>', methods=['PUT'])
 def update_customer(voterId):
     current_app.logger.info('PUT /voter-info/{0}'.format(voterId))
@@ -115,6 +112,7 @@ def update_customer(voterId):
     db.get_db().commit()
     return 'voter updated!'
 
+# Input voter feedback
 @voter_persona.route('/voter-site-survey', methods=['POST'])
 def add_voter_site_survey():
     current_app.logger.info('POST /voter-site-survey route')
@@ -126,13 +124,16 @@ def add_voter_site_survey():
     informed = 1 if site_survey['informedAboutCandidate'] else 0
     where = site_survey['discoveredWhere']
     
-    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, informedAboutCandidate, discoveredWhere, voterId) VALUES (%s, %s, %s, %s, %s, %s)'
+    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, \
+                informedAboutCandidate, discoveredWhere, voterId) \
+            VALUES (%s, %s, %s, %s, %s, %s)'
     data = (foundCenter, isFriendly, neededInfo, informed, where, voterId)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'voter site survey response added!'
 
+# View policies by candidate
 @voter_persona.route('/policies/<candidateId>', methods=['GET'])
 def get_customer(candidateId):
     current_app.logger.info('GET /policies/<candidateId>')
@@ -150,8 +151,7 @@ def get_customer(candidateId):
     the_response.mimetype = 'application/json'
     return the_response
 
-
-# TODO: ask about including this in the api matrix
+# Routes used to populate dropdown options
 @voter_persona.route('/voter-id', methods=['GET'])
 def get_campaign_ids():
     current_app.logger.info('GET /voter-id')
@@ -193,8 +193,10 @@ def get_all_candidate_names():
 def get_election_year():
     current_app.logger.info('voter_persona_routes.py: GET /election-years')
     cursor = db.get_db().cursor()
+    # select all election years that have a winner (a.k.a that we have result data for)
     cursor.execute('SELECT DISTINCT year\
                    FROM election e\
+                   WHERE winnerId IS NOT NULL\
                    ORDER BY year DESC')
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))

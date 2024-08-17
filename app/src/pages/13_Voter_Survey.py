@@ -10,6 +10,7 @@ SideBarLinks()
 
 st.write("# Voter Demographic Survey")
 
+# getting data on candidates
 candidateResponse = requests.get('http://api:4000/v/candidate-names')
 if candidateResponse.status_code == 200:
     candidate_info = candidateResponse.json()
@@ -17,7 +18,8 @@ if candidateResponse.status_code == 200:
 else:
     st.error(f"Failed to retrieve candidate info. Status code: {candidateResponse.status_code}")
     candidate_names = []
-    
+
+# getting voter id of voters last response to survey
 def get_last_voter_id():
     response = requests.get('http://api:4000/v/last-voter-id')
     if response.status_code == 200:
@@ -36,13 +38,14 @@ state_names = ["Alaska", "Alabama", "Arkansas", "Arizona", "California", "Colora
 st.write("## Returning User?")
 voter_id = st.text_input("Enter your PollPal Voter ID if you have one")
 
+# creating voter form
 with st.form(key='feedback_form'):
   politicalAffiliaton = st.selectbox("Which party do you affiliate with?", ('Democrat', 'Republican', 'Independent'))
   state = st.selectbox("Which state are you a resident of?", state_names)
   county = st.text_input("Which county do you reside in?")
   age = st.text_input("How old are you?")
   incomeLevel = st.selectbox("What is your approximate income level?", ('0-$30,000', '$30,000-$58,000', '$58,000-$94,000', '$94,000-$153,000', '> $153,000'))
-  ethnicity = st.selectbox("Which ethnicity do you identifiy by?", ('Native American or Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', 'White', 'Hispanic or Latino'))
+  ethnicity = st.selectbox("Which ethnicity do you identify by?", ('Native American or Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', 'White', 'Hispanic or Latino'))
   gender= st.selectbox("Which gender do you identify by?", ('Male', 'Female', 'Other'))
   candidateId = st.radio("Who are you voting for?", candidate_names)
   submitted = st.form_submit_button("Submit")
@@ -57,8 +60,8 @@ if submitted:
   data['ethnicity'] = ethnicity
   data['gender'] = gender
   data['candidateId'] = candidateId.split(" ")[0]
-  st.write(data)
-  
+
+  # checking if previous response has been made or not
   if voter_id:
         update_response = requests.put(f'http://api:4000/v/voter-info/{voter_id}', json=data)
         if update_response.status_code == 200:
@@ -71,4 +74,4 @@ if submitted:
           last_voter_id = get_last_voter_id()
           st.success(f"Thank you for submitting the survey! Your PollPal Voter ID is {last_voter_id}. Please save this ID for future updates.")
       else:
-          st.error(f"Failed to submit the survey. Status code: {create_response.status_code}")
+          st.error(f"Failed to submit the survey. Make sure that you've answered all questions. Status code: {create_response.status_code}")

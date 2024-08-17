@@ -1,10 +1,9 @@
 from flask import Blueprint, request, jsonify, make_response, current_app
-import json
 from backend.db_connection import db
 
 campaign_manager = Blueprint('campaign_manager', __name__)
 
-# Return a realtime ratio of voters to candidates for the current election g
+# Return a realtime ratio of voters to candidates for the current election 
 @campaign_manager.route('/polling-data/<year>', methods=['GET'])
 def get_voter_to_candidate_ratio(year):
     current_app.logger.info(f'campaign_persona_routes.py: GET /polling-data/{year}')
@@ -25,9 +24,7 @@ def get_voter_to_candidate_ratio(year):
     return the_response
 
 
-
-# Return swing states based on the state’s popular vote ratio across a period of years (from 2.
-
+# Return swing states based on the state’s popular vote ratio across a period of years 
 @campaign_manager.route('/swing-state', methods=['GET'])
 def get_swing_states():
     current_app.logger.info('campaign_persona_routes.py: GET /swing-states')
@@ -36,7 +33,7 @@ def get_swing_states():
     cursor.execute(' \
         SELECT DISTINCT stateAbbr, stateName, popularVoteRatio, partyRepresentative, numElectoralVotes, year \
         FROM election e JOIN stateResult s ON e.electionID=s.electionId \
-        WHERE e.year > 1984 AND s.popularVoteRatio > 0.40 AND s.popularVoteRatio < 0.60')
+        WHERE e.year > 1984 AND s.popularVoteRatio > 0.49 AND s.popularVoteRatio < 0.52')
 
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
@@ -68,7 +65,6 @@ def get_campaign_details(campaignId):
 
 
 # Adding campaign manager feedback onto the website.
-
 @campaign_manager.route('/campaign-site-survey', methods=['POST'])
 def add_campaign_feedback():
     current_app.logger.info('POST /campaign-site-survey')
@@ -89,7 +85,7 @@ def add_campaign_feedback():
     db.get_db().commit()
     return 'campaign survey response submitted!'
 
-# TODO: ask about including this in the api matrix
+# Routes to populate dropdown options
 @campaign_manager.route('/campaign-ids', methods=['GET'])
 def get_campaign_ids():
     current_app.logger.info('GET /campaign-ids')
@@ -99,10 +95,11 @@ def get_campaign_ids():
     campaign_ids = cursor.fetchall()
     return jsonify(campaign_ids)
 
+
 @campaign_manager.route('/election-years', methods=['GET'])
 def get_election_years():
     current_app.logger.info('GET /election-years')
-    query = 'SELECT year FROM election'  
+    query = 'SELECT year FROM election ORDER BY year DESC'  
     cursor = db.get_db().cursor()
     cursor.execute(query)
     election_years = cursor.fetchall()

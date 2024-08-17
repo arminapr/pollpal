@@ -10,8 +10,7 @@ SideBarLinks()
 
 st.write("# Opinion Data by Voter Demographic")
 
-# add a button to use the values entered into the number field to send to the 
-# prediction function via the REST API
+# creates pie chart
 def create_pie_chart(data, labels, title):
     fig, ax = plt.subplots()
     ax.pie(data, labels=labels, autopct='%1.1f%%', startangle=90)
@@ -24,6 +23,7 @@ selected_affiliation = st.selectbox("Select Political Affiliation", political_af
 
 show_visualization = st.checkbox("Show Visualization", value=True)
 
+# getting voter data related to demographic
 eResults = requests.get('http://api:4000/v/voter-info-ethnicity').json()
 gResults = requests.get('http://api:4000/v/voter-info-gender').json()
 aResults = requests.get('http://api:4000/v/voter-info-age').json()

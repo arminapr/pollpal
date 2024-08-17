@@ -1,273 +1,383 @@
 use fontevote;
 
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (1, 'Thekla', 'Dillinton', 'Democrat', 'Female', 38, 'Post Graduate', 'Georgia');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (2, 'Brit', 'Hallard', 'Democrat', 'Female', 42, 'No Education', 'New York');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (3, 'Benoite', 'Tattersall', 'Republican', 'Female', 46, 'High School', 'New York');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (4, 'Riobard', 'Barroux', 'Republican', 'Male', 75, 'College', 'Indiana');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (5, 'Aggi', 'Krolak', 'Republican', 'Female', 65, 'No Education', 'Pennsylvania');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (6, 'Sanderson', 'Moens', 'Independent', 'Male', 48, 'Post Graduate', 'Indiana');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (7, 'Vasili', 'Guerro', 'Republican', 'Male', 40, 'No Education', 'Washington');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (8, 'Giordano', 'Mowatt', 'Republican', 'Male', 78, 'Post Graduate', 'Kansas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (9, 'Lauralee', 'Caslake', 'Independent', 'Female', 45, 'No Education', 'Texas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (10, 'Hendrik', 'Metzke', 'Independent', 'Male', 56, 'High School', 'Florida');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (11, 'Erin', 'Birdsall', 'Republican', 'Male', 69, 'College', 'Texas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (12, 'Townsend', 'Skechley', 'Republican', 'Male', 47, 'Post Graduate', 'Delaware');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (13, 'Beryle', 'Acutt', 'Independent', 'Female', 86, 'No Education', 'California');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (14, 'Chevy', 'Pennetti', 'Republican', 'Male', 61, 'No Education', 'Florida');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (15, 'Shawn', 'Aldin', 'Independent', 'Female', 66, 'College', 'Florida');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (16, 'Rosabelle', 'Ponnsett', 'Republican', 'Female', 64, 'No Education', 'Georgia');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (17, 'Berk', 'Gostage', 'Democrat', 'Male', 64, 'High School', 'New Mexico');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (2, 'Berk', 'Gostage', 'Democrat', 'Male', 64, 'High School', 'New Mexico');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (3, 'Weylin', 'Cock', 'Democrat', 'Male', 72, 'College', 'Florida');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (4, 'Gaven', 'Vivers', 'Democrat', 'Male', 43, 'Post Graduate', 'Pennsylvania');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (5, 'Abra', 'Mallatratt', 'Democrat', 'Female', 82, 'Post Graduate', 'Virginia');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (6, 'Beryle', 'Acutt', 'Democrat', 'Female', 86, 'No Education', 'California');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (7, 'Gussie', 'Farries', 'Democrat', 'Female', 84, 'Post Graduate', 'Texas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (8, 'Brit', 'Hallard', 'Democrat', 'Female', 42, 'No Education', 'New York');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (9, 'Marshall', 'Darcey', 'Democrat', 'Male', 81, 'High School', 'Arizona');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (10, 'Shawn', 'Aldin', 'Democrat', 'Female', 66, 'College', 'Florida');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (11, 'Dominik', 'Skylett', 'Democrat', 'Male', 62, 'High School', 'Texas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (12, 'Riobard', 'Barroux', 'Republican', 'Male', 75, 'College', 'Indiana');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (13, 'Aggi', 'Krolak', 'Republican', 'Female', 65, 'No Education', 'Pennsylvania');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (14, 'Vasili', 'Guerro', 'Republican', 'Male', 40, 'No Education', 'Washington');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (15, 'Giordano', 'Mowatt', 'Republican', 'Male', 78, 'Post Graduate', 'Kansas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (16, 'Erin', 'Birdsall', 'Republican', 'Male', 69, 'College', 'Texas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (17, 'Townsend', 'Skechley', 'Republican', 'Male', 47, 'Post Graduate', 'Delaware');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (18, 'Wanda', 'Livard', 'Republican', 'Female', 39, 'No Education', 'North Carolina');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (19, 'Hedvig', 'Denisovich', 'Republican', 'Female', 35, 'Post Graduate', 'New York');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (20, 'Dominik', 'Skylett', 'Independent', 'Male', 62, 'High School', 'Texas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (21, 'Debby', 'McWilliams', 'Independent', 'Female', 64, 'College', 'Texas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (22, 'Gussie', 'Fillon', 'Independent', 'Female', 51, 'Post Graduate', 'California');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (23, 'Marshall', 'Darcey', 'Democrat', 'Male', 81, 'High School', 'Arizona');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (24, 'Oliy', 'Yusupov', 'Republican', 'Female', 93, 'No Education', 'Pennsylvania');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (25, 'Cordy', 'Canaan', 'Independent', 'Female', 42, 'College', 'Texas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (20, 'Grissel', 'Gruszecki', 'Republican', 'Female', 94, 'High School', 'Florida');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (21, 'Marnia', 'Ible', 'Republican', 'Female', 70, 'High School', 'Maryland');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (22, 'Oliy', 'Yusupov', 'Republican', 'Female', 93, 'No Education', 'Pennsylvania');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (23, 'Sanderson', 'Moens', 'Independent', 'Male', 48, 'Post Graduate', 'Indiana');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (24, 'Lauralee', 'Caslake', 'Independent', 'Female', 45, 'No Education', 'Texas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (25, 'Debby', 'McWilliams', 'Independent', 'Female', 64, 'College', 'Texas');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (26, 'Donielle', 'Hassall', 'Independent', 'Female', 86, 'Post Graduate', 'California');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (27, 'Arlen', 'Cantu', 'Independent', 'Male', 58, 'High School', 'District of Columbia');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (28, 'Grissel', 'Gruszecki', 'Republican', 'Female', 94, 'High School', 'Florida');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (29, 'Marnia', 'Ible', 'Republican', 'Female', 70, 'High School', 'Maryland');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (30, 'Weylin', 'Cock', 'Democrat', 'Male', 72, 'College', 'Florida');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (31, 'Gaven', 'Vivers', 'Democrat', 'Male', 43, 'Post Graduate', 'Pennsylvania');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (28, 'Gussie', 'Fillon', 'Independent', 'Female', 51, 'Post Graduate', 'California');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (29, 'Rafferty', 'Jenney', 'Independent', 'Male', 74, 'High School', 'Delaware');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (30, 'Cordy', 'Canaan', 'Independent', 'Female', 42, 'College', 'Texas');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (31, 'Benoite', 'Tattersall', 'Independent', 'Female', 46, 'High School', 'New York');
 insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (32, 'Gussie', 'Farries', 'Independent', 'Female', 84, 'Post Graduate', 'Texas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (33, 'Ellynn', 'Sweet', 'Republican', 'Female', 92, 'Post Graduate', 'Texas');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (34, 'Rafferty', 'Jenney', 'Independent', 'Male', 74, 'High School', 'Delaware');
-insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (35, 'Abra', 'Mallatratt', 'Democrat', 'Female', 82, 'Post Graduate', 'Virginia');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (33, 'Rosabelle', 'Ponnsett', 'Independent', 'Female', 64, 'No Education', 'Georgia');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (34, 'Jordan', 'Blake', 'Democrat', 'Male', 36, 'College', 'Vermont');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (35, 'David', 'Thompson', 'Independent', 'Male', 46, 'High School', 'Indiana');
+insert into candidate (candidateId, firstName, lastName, politicalAffiliation, gender, age, educationLevel, homeState) values (36, 'Alexandra', 'Rivera', 'Republican', 'Female', 84, 'Post Graduate', 'Arizona');
 
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (1, 1888, '19', 320, 2);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (2, 1892, '25', 531, 228);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (3, 1896, '27', 370, 14);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (4, 1900, '12', 387, 87);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (5, 1904, '3', 151, 528);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (6, 1908, '26', 119, 301);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (7, 1912, '31', 507, 267);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (8, 1916, '28', 455, 425);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (9, 1920, '20', 135, 34);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (10, 1924, '17', 475, 144);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (11, 1928, '10', 284, 197);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (12, 1932, '2', 74, 264);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (13, 1936, '13', 124, 63);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (14, 1940, '15', 454, 248);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (15, 1944, '7', 331, 436);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (16, 1948, '23', 218, 209);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (17, 1952, '29', 231, 128);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (18, 1956, '32', 252, 138);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (19, 1960, '16', 453, 65);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (20, 1964, '8', 243, 352);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (21, 1968, '5', 253, 75);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (22, 1972, '1', 156, 36);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (23, 1976, '14', 181, 124);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (24, 1980, '21', 62, 459);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (25, 1984, '33', 85, 131);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (26, 1988, '11', 208, 2);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (27, 1992, '9', 526, 28);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (28, 1996, '22', 520, 442);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (29, 2000, '30', 14, 370);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (30, 2004, '18', 312, 190);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (31, 2008, '35', 266, 27);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (32, 2012, '24', 31, 60);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (33, 2016, '4', 107, 450);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (34, 2020, '6', 421, 167);
-insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (35, 2024, NULL, NULL, NULL);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (1, 1900, 21, 346, 55.83);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (2, 1904, 14, 281, 56.29);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (3, 1908, 2, 295, 53.17);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (4, 1912, 33, 511, 55.26);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (5, 1916, 27, 487, 59.88);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (6, 1920, 19, 492, 51.98);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (7, 1924, 30, 275, 52.74);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (8, 1928, 25, 284, 54.43);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (9, 1932, 7, 338, 58.93);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (10, 1936, 20, 491, 59.02);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (11, 1940, 16, 277, 55.62);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (12, 1944, 8, 309, 56.44);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (13, 1948, 5, 281, 50.78);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (14, 1952, 12, 295, 57.67);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (15, 1956, 24, 360, 59.33);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (16, 1960, 4, 290, 52.61);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (17, 1964, 28, 487, 57.84);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (18, 1968, 9, 485, 55.29);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (19, 1972, 13, 330, 53.45);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (20, 1976, 31, 500, 58.94);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (21, 1980, 11, 278, 50.57);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (22, 1984, 22, 290, 56.23);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (23, 1988, 2, 319, 52.89);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (24, 1992, 32, 325, 51.78);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (25, 1996, 1, 332, 58.41);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (26, 2000, 1, 310, 54.26);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (27, 2004, 18, 289, 56.12);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (28, 2008, 23, 295, 51.47);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (29, 2012, 15, 278, 53.89);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (30, 2016, 6, 321, 57.75);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (31, 2020, 17, 483, 54.59);
+insert into election (electionId, year, winnerId, electoralVoteDifference, popularVoteDifference) values (32, 2024, NULL, NULL, NULL);
 
-insert into ranIn (electionId, candidateId) values ('18', '35');
-insert into ranIn (electionId, candidateId) values ('3', '6');
-insert into ranIn (electionId, candidateId) values ('7', '4');
-insert into ranIn (electionId, candidateId) values ('32', '27');
-insert into ranIn (electionId, candidateId) values ('26', '19');
-insert into ranIn (electionId, candidateId) values ('19', '11');
-insert into ranIn (electionId, candidateId) values ('17', '11');
-insert into ranIn (electionId, candidateId) values ('15', '32');
-insert into ranIn (electionId, candidateId) values ('20', '34');
-insert into ranIn (electionId, candidateId) values ('23', '21');
-insert into ranIn (electionId, candidateId) values ('14', '31');
-insert into ranIn (electionId, candidateId) values ('22', '26');
-insert into ranIn (electionId, candidateId) values ('12', '9');
-insert into ranIn (electionId, candidateId) values ('8', '24');
-insert into ranIn (electionId, candidateId) values ('25', '12');
-insert into ranIn (electionId, candidateId) values ('2', '14');
-insert into ranIn (electionId, candidateId) values ('10', '23');
-insert into ranIn (electionId, candidateId) values ('35', '5');
-insert into ranIn (electionId, candidateId) values ('11', '18');
-insert into ranIn (electionId, candidateId) values ('30', '8');
-insert into ranIn (electionId, candidateId) values ('1', '20');
-insert into ranIn (electionId, candidateId) values ('13', '3');
-insert into ranIn (electionId, candidateId) values ('33', '2');
-insert into ranIn (electionId, candidateId) values ('24', '29');
-insert into ranIn (electionId, candidateId) values ('21', '10');
-insert into ranIn (electionId, candidateId) values ('16', '30');
-insert into ranIn (electionId, candidateId) values ('5', '15');
-insert into ranIn (electionId, candidateId) values ('28', '33');
-insert into ranIn (electionId, candidateId) values ('4', '28');
-insert into ranIn (electionId, candidateId) values ('6', '25');
-insert into ranIn (electionId, candidateId) values ('9', '13');
-insert into ranIn (electionId, candidateId) values ('31', '1');
-insert into ranIn (electionId, candidateId) values ('34', '16');
-insert into ranIn (electionId, candidateId) values ('29', '22');
-insert into ranIn (electionId, candidateId) values ('27', '17');
-insert into ranIn (electionId, candidateId) values ('17', '21');
-insert into ranIn (electionId, candidateId) values ('8', '3');
-insert into ranIn (electionId, candidateId) values ('26', '26');
-insert into ranIn (electionId, candidateId) values ('23', '13');
-insert into ranIn (electionId, candidateId) values ('11', '10');
-insert into ranIn (electionId, candidateId) values ('13', '18');
-insert into ranIn (electionId, candidateId) values ('14', '30');
-insert into ranIn (electionId, candidateId) values ('10', '20');
-insert into ranIn (electionId, candidateId) values ('18', '2');
-insert into ranIn (electionId, candidateId) values ('6', '11');
-insert into ranIn (electionId, candidateId) values ('30', '32');
-insert into ranIn (electionId, candidateId) values ('20', '6');
-insert into ranIn (electionId, candidateId) values ('31', '14');
-insert into ranIn (electionId, candidateId) values ('32', '5');
-insert into ranIn (electionId, candidateId) values ('5', '25');
-insert into ranIn (electionId, candidateId) values ('19', '7');
-insert into ranIn (electionId, candidateId) values ('28', '1');
-insert into ranIn (electionId, candidateId) values ('33', '35');
-insert into ranIn (electionId, candidateId) values ('24', '15');
-insert into ranIn (electionId, candidateId) values ('1', '12');
-insert into ranIn (electionId, candidateId) values ('34', '8');
-insert into ranIn (electionId, candidateId) values ('7', '9');
-insert into ranIn (electionId, candidateId) values ('15', '16');
-insert into ranIn (electionId, candidateId) values ('16', '31');
-insert into ranIn (electionId, candidateId) values ('21', '17');
-insert into ranIn (electionId, candidateId) values ('25', '19');
-insert into ranIn (electionId, candidateId) values ('22', '24');
-insert into ranIn (electionId, candidateId) values ('3', '4');
-insert into ranIn (electionId, candidateId) values ('4', '23');
-insert into ranIn (electionId, candidateId) values ('12', '28');
-insert into ranIn (electionId, candidateId) values ('35', '22');
-insert into ranIn (electionId, candidateId) values ('27', '33');
-insert into ranIn (electionId, candidateId) values ('2', '29');
-insert into ranIn (electionId, candidateId) values ('29', '34');
-insert into ranIn (electionId, candidateId) values ('9', '27');
-insert into ranIn (electionId, candidateId) values ('28', '28');
-insert into ranIn (electionId, candidateId) values ('3', '22');
-insert into ranIn (electionId, candidateId) values ('27', '1');
-insert into ranIn (electionId, candidateId) values ('34', '34');
-insert into ranIn (electionId, candidateId) values ('21', '35');
-insert into ranIn (electionId, candidateId) values ('4', '15');
-insert into ranIn (electionId, candidateId) values ('23', '19');
-insert into ranIn (electionId, candidateId) values ('7', '24');
-insert into ranIn (electionId, candidateId) values ('5', '30');
-insert into ranIn (electionId, candidateId) values ('20', '20');
-insert into ranIn (electionId, candidateId) values ('17', '9');
-insert into ranIn (electionId, candidateId) values ('18', '7');
-insert into ranIn (electionId, candidateId) values ('9', '6');
-insert into ranIn (electionId, candidateId) values ('13', '29');
-insert into ranIn (electionId, candidateId) values ('15', '13');
-insert into ranIn (electionId, candidateId) values ('31', '4');
-insert into ranIn (electionId, candidateId) values ('14', '21');
-insert into ranIn (electionId, candidateId) values ('22', '5');
-insert into ranIn (electionId, candidateId) values ('24', '32');
-insert into ranIn (electionId, candidateId) values ('1', '33');
-insert into ranIn (electionId, candidateId) values ('26', '8');
-insert into ranIn (electionId, candidateId) values ('6', '3');
-insert into ranIn (electionId, candidateId) values ('12', '26');
-insert into ranIn (electionId, candidateId) values ('25', '27');
-insert into ranIn (electionId, candidateId) values ('16', '14');
-insert into ranIn (electionId, candidateId) values ('10', '11');
-insert into ranIn (electionId, candidateId) values ('30', '31');
-insert into ranIn (electionId, candidateId) values ('35', '10');
-insert into ranIn (electionId, candidateId) values ('2', '2');
-insert into ranIn (electionId, candidateId) values ('11', '16');
-insert into ranIn (electionId, candidateId) values ('8', '18');
-insert into ranIn (electionId, candidateId) values ('29', '12');
-insert into ranIn (electionId, candidateId) values ('33', '25');
-insert into ranIn (electionId, candidateId) values ('19', '23');
-insert into ranIn (electionId, candidateId) values ('32', '17');
-insert into ranIn (electionId, candidateId) values ('33', '9');
-insert into ranIn (electionId, candidateId) values ('6', '13');
-insert into ranIn (electionId, candidateId) values ('26', '22');
-insert into ranIn (electionId, candidateId) values ('11', '31');
-insert into ranIn (electionId, candidateId) values ('17', '7');
-insert into ranIn (electionId, candidateId) values ('21', '7');
-insert into ranIn (electionId, candidateId) values ('18', '15');
-insert into ranIn (electionId, candidateId) values ('29', '20');
-insert into ranIn (electionId, candidateId) values ('3', '27');
-insert into ranIn (electionId, candidateId) values ('7', '32');
-insert into ranIn (electionId, candidateId) values ('31', '10');
-insert into ranIn (electionId, candidateId) values ('32', '18');
-insert into ranIn (electionId, candidateId) values ('15', '34');
-insert into ranIn (electionId, candidateId) values ('25', '14');
-insert into ranIn (electionId, candidateId) values ('30', '24');
-insert into ranIn (electionId, candidateId) values ('13', '6');
-insert into ranIn (electionId, candidateId) values ('24', '12');
-insert into ranIn (electionId, candidateId) values ('34', '25');
-insert into ranIn (electionId, candidateId) values ('19', '21');
-insert into ranIn (electionId, candidateId) values ('9', '8');
-insert into ranIn (electionId, candidateId) values ('10', '26');
-insert into ranIn (electionId, candidateId) values ('8', '11');
-insert into ranIn (electionId, candidateId) values ('12', '29');
-insert into ranIn (electionId, candidateId) values ('35', '28');
-insert into ranIn (electionId, candidateId) values ('28', '2');
-insert into ranIn (electionId, candidateId) values ('1', '23');
-insert into ranIn (electionId, candidateId) values ('23', '16');
-insert into ranIn (electionId, candidateId) values ('5', '29');
-insert into ranIn (electionId, candidateId) values ('20', '19');
-insert into ranIn (electionId, candidateId) values ('22', '33');
-insert into ranIn (electionId, candidateId) values ('14', '5');
-insert into ranIn (electionId, candidateId) values ('2', '4');
-insert into ranIn (electionId, candidateId) values ('16', '35');
-insert into ranIn (electionId, candidateId) values ('4', '1');
-insert into ranIn (electionId, candidateId) values ('27', '3');
-insert into ranIn (electionId, candidateId) values ('26', '20');
-insert into ranIn (electionId, candidateId) values ('27', '35');
-insert into ranIn (electionId, candidateId) values ('31', '19');
-insert into ranIn (electionId, candidateId) values ('23', '17');
-insert into ranIn (electionId, candidateId) values ('18', '4');
-insert into ranIn (electionId, candidateId) values ('15', '24');
-insert into ranIn (electionId, candidateId) values ('5', '23');
-insert into ranIn (electionId, candidateId) values ('28', '13');
-insert into ranIn (electionId, candidateId) values ('3', '16');
-insert into ranIn (electionId, candidateId) values ('10', '24');
+insert into ranIn (electionId, candidateId) values (1, 21); -- R
+insert into ranIn (electionId, candidateId) values (1, 23); -- I
+insert into ranIn (electionId, candidateId) values (1, 2);  -- D
+insert into ranIn (electionId, candidateId) values (2, 14); -- R
+insert into ranIn (electionId, candidateId) values (2, 25); -- I
+insert into ranIn (electionId, candidateId) values (2, 8);  -- D
+insert into ranIn (electionId, candidateId) values (3, 2);  -- D
+insert into ranIn (electionId, candidateId) values (3, 30); -- I
+insert into ranIn (electionId, candidateId) values (3, 12); -- R
+insert into ranIn (electionId, candidateId) values (4, 33); -- I
+insert into ranIn (electionId, candidateId) values (4, 12); -- R
+insert into ranIn (electionId, candidateId) values (4, 7);  -- D
+insert into ranIn (electionId, candidateId) values (5, 27); -- I
+insert into ranIn (electionId, candidateId) values (5, 2);  -- D
+insert into ranIn (electionId, candidateId) values (5, 12); -- R
+insert into ranIn (electionId, candidateId) values (6, 19); -- R
+insert into ranIn (electionId, candidateId) values (6, 25); -- I
+insert into ranIn (electionId, candidateId) values (6, 1);  -- D
+insert into ranIn (electionId, candidateId) values (7, 30); -- I
+insert into ranIn (electionId, candidateId) values (7, 8);  -- D
+insert into ranIn (electionId, candidateId) values (7, 16); -- R
+insert into ranIn (electionId, candidateId) values (8, 25); -- I
+insert into ranIn (electionId, candidateId) values (8, 8);  -- D
+insert into ranIn (electionId, candidateId) values (8, 20); -- R
+insert into ranIn (electionId, candidateId) values (9, 7);  -- D
+insert into ranIn (electionId, candidateId) values (9, 33); -- I
+insert into ranIn (electionId, candidateId) values (9, 16); -- R
+insert into ranIn (electionId, candidateId) values (10, 20); -- R
+insert into ranIn (electionId, candidateId) values (10, 27); -- I
+insert into ranIn (electionId, candidateId) values (10, 6);  -- D
+insert into ranIn (electionId, candidateId) values (11, 16); -- R
+insert into ranIn (electionId, candidateId) values (11, 2);  -- D
+insert into ranIn (electionId, candidateId) values (11, 33); -- I
+insert into ranIn (electionId, candidateId) values (12, 8);  -- D
+insert into ranIn (electionId, candidateId) values (12, 24); -- I
+insert into ranIn (electionId, candidateId) values (12, 20); -- R
+insert into ranIn (electionId, candidateId) values (13, 5);  -- D
+insert into ranIn (electionId, candidateId) values (13, 30); -- I
+insert into ranIn (electionId, candidateId) values (13, 20); -- R
+insert into ranIn (electionId, candidateId) values (14, 12); -- R
+insert into ranIn (electionId, candidateId) values (14, 1);  -- D
+insert into ranIn (electionId, candidateId) values (14, 30); -- I
+insert into ranIn (electionId, candidateId) values (15, 24); -- I
+insert into ranIn (electionId, candidateId) values (15, 11); -- D
+insert into ranIn (electionId, candidateId) values (15, 13); -- R
+insert into ranIn (electionId, candidateId) values (16, 4);  -- D
+insert into ranIn (electionId, candidateId) values (16, 27); -- I
+insert into ranIn (electionId, candidateId) values (16, 20); -- R
+insert into ranIn (electionId, candidateId) values (17, 28); -- I
+insert into ranIn (electionId, candidateId) values (17, 4);  -- D
+insert into ranIn (electionId, candidateId) values (17, 16); -- R
+insert into ranIn (electionId, candidateId) values (18, 9);  -- D
+insert into ranIn (electionId, candidateId) values (18, 13); -- R
+insert into ranIn (electionId, candidateId) values (18, 30); -- I
+insert into ranIn (electionId, candidateId) values (19, 13); -- R
+insert into ranIn (electionId, candidateId) values (19, 7);  -- D
+insert into ranIn (electionId, candidateId) values (19, 30); -- I
+insert into ranIn (electionId, candidateId) values (20, 31); -- I
+insert into ranIn (electionId, candidateId) values (20, 11); -- D
+insert into ranIn (electionId, candidateId) values (20, 16); -- R
+insert into ranIn (electionId, candidateId) values (21, 11); -- D
+insert into ranIn (electionId, candidateId) values (21, 12); -- R
+insert into ranIn (electionId, candidateId) values (21, 27); -- I
+insert into ranIn (electionId, candidateId) values (22, 22); -- R
+insert into ranIn (electionId, candidateId) values (22, 2);  -- D
+insert into ranIn (electionId, candidateId) values (22, 30); -- I
+insert into ranIn (electionId, candidateId) values (23, 2);  -- D
+insert into ranIn (electionId, candidateId) values (23, 15); -- R
+insert into ranIn (electionId, candidateId) values (23, 24); -- I
+insert into ranIn (electionId, candidateId) values (24, 32); -- I
+insert into ranIn (electionId, candidateId) values (24, 1);  -- D
+insert into ranIn (electionId, candidateId) values (24, 20); -- R
+insert into ranIn (electionId, candidateId) values (25, 1);  -- D
+insert into ranIn (electionId, candidateId) values (25, 27); -- I
+insert into ranIn (electionId, candidateId) values (25, 23); -- R
+insert into ranIn (electionId, candidateId) values (26, 1);  -- D
+insert into ranIn (electionId, candidateId) values (26, 18); -- R
+insert into ranIn (electionId, candidateId) values (26, 24); -- I
+insert into ranIn (electionId, candidateId) values (27, 18); -- R
+insert into ranIn (electionId, candidateId) values (27, 25); -- I
+insert into ranIn (electionId, candidateId) values (27, 4);  -- D
+insert into ranIn (electionId, candidateId) values (28, 23); -- I
+insert into ranIn (electionId, candidateId) values (28, 1);  -- D
+insert into ranIn (electionId, candidateId) values (28, 12); -- R
+insert into ranIn (electionId, candidateId) values (29, 15); -- R
+insert into ranIn (electionId, candidateId) values (29, 2);  -- D
+insert into ranIn (electionId, candidateId) values (29, 24); -- I
+insert into ranIn (electionId, candidateId) values (30, 6);  -- D
+insert into ranIn (electionId, candidateId) values (30, 17); -- R
+insert into ranIn (electionId, candidateId) values (30, 29); -- I
+insert into ranIn (electionId, candidateId) values (31, 17); -- I
+insert into ranIn (electionId, candidateId) values (31, 6);  -- D
+insert into ranIn (electionId, candidateId) values (31, 12); -- R
+insert into ranIn (electionId, candidateId) values (32, 29); -- I
+insert into ranIn (electionId, candidateId) values (32, 4);  -- D
+insert into ranIn (electionId, candidateId) values (32, 22); -- R
 
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('34', 'NC', 'North Carolina', 11, 0.842, 0.433, 'Ly Griffey');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('20', 'PA', 'Pennsylvania', 13, 0.831, 0.608, 'Luigi Coen');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('8', 'CA', 'California', 27, 0.539, 0.485, 'Debera Chant');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('4', 'OH', 'Ohio', 2, 0.329, 0.61, 'Stanton Milkeham');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('2', 'FL', 'Florida', 19, 0.065, 0.258, 'Dulcea Jenteau');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('16', 'DC', 'District of Columbia', 12, 0.742, 0.62, 'Gonzalo Garriock');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('15', 'CA', 'California', 4, 0.904, 0.262, 'Roseline Cosbey');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('31', 'TX', 'Texas', 14, 0.747, 0.757, 'Jeremy Middup');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('23', 'PA', 'Pennsylvania', 1, 0.935, 0.971, 'Marleah Latimer');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('11', 'FL', 'Florida', 14, 0.505, 0.982, 'Ginger Anthiftle');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('32', 'TX', 'Texas', 17, 0.547, 0.07, 'Brigit Tozer');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('24', 'FL', 'Florida', 8, 0.15, 0.027, 'Larisa Wiltsher');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('25', 'CA', 'California', 27, 0.605, 0.349, 'Ferguson Marini');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('17', 'DC', 'District of Columbia', 8, 0.931, 0.396, 'Ashlie Sings');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('28', 'MI', 'Michigan', 14, 0.819, 0.544, 'Anne Noorwood');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('26', 'FL', 'Florida', 26, 0.299, 0.665, 'Urson Smaling');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('22', 'TX', 'Texas', 24, 0.586, 0.176, 'Vale Prescot');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('13', 'TX', 'Texas', 2, 0.395, 0.832, 'Juli Devitt');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('3', 'PA', 'Pennsylvania', 18, 0.954, 0.005, 'Adolphe Norwich');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('5', 'VA', 'Virginia', 25, 0.484, 0.271, 'Jessee Peters');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('19', 'IL', 'Illinois', 4, 0.088, 0.077, 'Myra Bentinck');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('7', 'CA', 'California', 20, 0.527, 0.027, 'Gaven Stithe');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('29', 'TX', 'Texas', 5, 0.46, 0.824, 'Nowell Dalligan');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('18', 'TX', 'Texas', 22, 0.001, 0.31, 'Brigit Beiderbeck');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('14', 'DC', 'District of Columbia', 14, 0.23, 0.338, 'Camella Tombleson');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('30', 'TX', 'Texas', 27, 0.864, 0.288, 'Yolane Jowitt');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('21', 'TX', 'Texas', 16, 0.609, 0.831, 'Bonnibelle Fenelow');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('35', 'IA', 'Iowa', 15, 0.096, 0.985, 'Daniel Muffitt');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('1', 'DC', 'District of Columbia', 13, 0.628, 0.181, 'Marcos Summerfield');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('6', 'GA', 'Georgia', 17, 0.019, 0.802, 'Skyler Pywell');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('12', 'FL', 'Florida', 29, 0.901, 0.419, 'Sena Kenryd');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('10', 'DC', 'District of Columbia', 6, 0.189, 0.238, 'Carree Groarty');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('9', 'CA', 'California', 13, 0.918, 0.024, 'Kelly Latimer');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('33', 'GA', 'Georgia', 16, 0.921, 0.176, 'Jason Ollington');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('27', 'CA', 'California', 2, 0.925, 0.052, 'Wallie Picford');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('20', 'NC', 'North Carolina', 28, 0.058, 0.074, 'Corrianne Caulliere');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('3', 'ND', 'North Dakota', 22, 0.258, 0.996, 'Grace Matkovic');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('31', 'OR', 'Oregon', 0, 0.624, 0.723, 'Kandace Straughan');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('34', 'CA', 'California', 5, 0.555, 0.093, 'Carol Dutnall');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('3', 'NC', 'North Carolina', 26, 0.77, 0.619, 'Orly Sammons');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('17', 'CA', 'California', 11, 0.267, 0.19, 'Blaine Reddyhoff');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('2', 'SC', 'South Carolina', 28, 0.804, 0.009, 'Rocky Thrustle');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('11', 'IN', 'Indiana', 25, 0.278, 0.662, 'Nial Rooney');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('30', 'IL', 'Illinois', 24, 0.301, 0.037, 'Kathlin Mantle');
-insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values ('32', 'MN', 'Minnesota', 4, 0.871, 0.825, 'Erick Humm');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (1, 'CA', 'California', 54, 0.6017, 0.4698, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (1, 'TX', 'Texas', 40, 0.5349, 0.7021, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (1, 'FL', 'Florida', 30, 0.5881, 0.5723, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (1, 'NY', 'New York', 28, 0.6413, 0.6655, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (1, 'IL', 'Illinois', 19, 0.5629, 0.5221, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (2, 'CA', 'California', 54, 0.6934, 0.6762, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (2, 'TX', 'Texas', 40, 0.5635, 0.7468, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (2, 'FL', 'Florida', 30, 0.6481, 0.4021, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (2, 'NY', 'New York', 28, 0.5782, 0.6837, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (2, 'IL', 'Illinois', 19, 0.6634, 0.4931, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (3, 'CA', 'California', 54, 0.6067, 0.4385, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (3, 'TX', 'Texas', 40, 0.5522, 0.5829, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (3, 'FL', 'Florida', 30, 0.6376, 0.4516, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (3, 'NY', 'New York', 28, 0.5248, 0.6350, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (3, 'IL', 'Illinois', 19, 0.6549, 0.5438, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (4, 'CA', 'California', 54, 0.5764, 0.7140, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (4, 'TX', 'Texas', 40, 0.5175, 0.7362, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (4, 'FL', 'Florida', 30, 0.6653, 0.7821, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (4, 'NY', 'New York', 28, 0.5912, 0.6573, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (4, 'IL', 'Illinois', 19, 0.6582, 0.5392, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (5, 'CA', 'California', 54, 0.5456, 0.4485, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (5, 'TX', 'Texas', 40, 0.6378, 0.4527, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (5, 'FL', 'Florida', 30, 0.5694, 0.3955, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (5, 'NY', 'New York', 28, 0.6802, 0.6867, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (5, 'IL', 'Illinois', 19, 0.6986, 0.6222, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (6, 'CA', 'California', 54, 0.5542, 0.4915, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (6, 'TX', 'Texas', 40, 0.6348, 0.7353, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (6, 'FL', 'Florida', 30, 0.5698, 0.4279, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (6, 'NY', 'New York', 28, 0.5321, 0.6021, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (6, 'IL', 'Illinois', 19, 0.6489, 0.6464, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (7, 'CA', 'California', 54, 0.5842, 0.7105, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (7, 'TX', 'Texas', 40, 0.6637, 0.7593, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (7, 'FL', 'Florida', 30, 0.6516, 0.4835, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (7, 'NY', 'New York', 28, 0.5938, 0.7406, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (7, 'IL', 'Illinois', 19, 0.5839, 0.4219, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (8, 'CA', 'California', 54, 0.6609, 0.8702, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (8, 'TX', 'Texas', 40, 0.6031, 0.8350, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (8, 'FL', 'Florida', 30, 0.5915, 0.4165, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (8, 'NY', 'New York', 28, 0.6984, 0.6557, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (8, 'IL', 'Illinois', 19, 0.5149, 0.4523, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (9, 'CA', 'California', 54, 0.4859, 0.7730, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (9, 'TX', 'Texas', 40, 0.6089, 0.7898, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (9, 'FL', 'Florida', 30, 0.5773, 0.6144, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (9, 'NY', 'New York', 28, 0.5376, 0.4931, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (9, 'IL', 'Illinois', 19, 0.5635, 0.7837, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (10, 'CA', 'California', 54, 0.6280, 0.7201, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (10, 'TX', 'Texas', 40, 0.6815, 0.4887, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (10, 'FL', 'Florida', 30, 0.5424, 0.6095, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (10, 'NY', 'New York', 28, 0.6647, 0.5704, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (10, 'IL', 'Illinois', 19, 0.6721, 0.7463, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (11, 'CA', 'California', 54, 0.6349, 0.5984, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (11, 'TX', 'Texas', 40, 0.5486, 0.7529, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (11, 'FL', 'Florida', 30, 0.6872, 0.4867, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (11, 'NY', 'New York', 28, 0.5924, 0.5572, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (11, 'IL', 'Illinois', 19, 0.6853, 0.5624, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (12, 'CA', 'California', 54, 0.5979, 0.7739, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (12, 'TX', 'Texas', 40, 0.6228, 0.6117, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (12, 'FL', 'Florida', 30, 0.6960, 0.4947, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (12, 'NY', 'New York', 28, 0.5249, 0.6529, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (12, 'IL', 'Illinois', 19, 0.6469, 0.7328, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (13, 'CA', 'California', 54, 0.5829, 0.6404, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (13, 'TX', 'Texas', 40, 0.6190, 0.3905, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (13, 'FL', 'Florida', 30, 0.5271, 0.6749, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (13, 'NY', 'New York', 28, 0.6608, 0.6001, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (13, 'IL', 'Illinois', 19, 0.5320, 0.6602, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (14, 'CA', 'California', 54, 0.6054, 0.8353, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (14, 'TX', 'Texas', 40, 0.5952, 0.4015, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (14, 'FL', 'Florida', 30, 0.6807, 0.5571, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (14, 'NY', 'New York', 28, 0.6574, 0.7325, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (14, 'IL', 'Illinois', 19, 0.6159, 0.7612, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (15, 'CA', 'California', 54, 0.6880, 0.7675, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (15, 'TX', 'Texas', 40, 0.4943, 0.5462, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (15, 'FL', 'Florida', 30, 0.6489, 0.3784, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (15, 'NY', 'New York', 28, 0.5142, 0.4063, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (15, 'IL', 'Illinois', 19, 0.6488, 0.4685, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (16, 'CA', 'California', 54, 0.5454, 0.7240, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (16, 'TX', 'Texas', 40, 0.6219, 0.4073, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (16, 'FL', 'Florida', 30, 0.5686, 0.7072, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (16, 'NY', 'New York', 28, 0.6904, 0.5873, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (16, 'IL', 'Illinois', 19, 0.6931, 0.7260, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (17, 'CA', 'California', 54, 0.7520, 0.7281, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (17, 'TX', 'Texas', 40, 0.4890, 0.4532, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (17, 'FL', 'Florida', 30, 0.6271, 0.6205, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (17, 'NY', 'New York', 28, 0.5432, 0.7318, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (17, 'IL', 'Illinois', 19, 0.6907, 0.5153, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (18, 'CA', 'California', 54, 0.7881, 0.6225, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (18, 'TX', 'Texas', 40, 0.6078, 0.6931, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (18, 'FL', 'Florida', 30, 0.5253, 0.5457, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (18, 'NY', 'New York', 28, 0.6115, 0.3886, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (18, 'IL', 'Illinois', 19, 0.5299, 0.7264, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (19, 'CA', 'California', 54, 0.6633, 0.6728, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (19, 'TX', 'Texas', 40, 0.6835, 0.4702, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (19, 'FL', 'Florida', 30, 0.5321, 0.7018, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (19, 'NY', 'New York', 28, 0.6402, 0.4673, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (19, 'IL', 'Illinois', 19, 0.5203, 0.6962, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (20, 'CA', 'California', 54, 0.7148, 0.7824, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (20, 'TX', 'Texas', 40, 0.6286, 0.6415, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (20, 'FL', 'Florida', 30, 0.6869, 0.4870, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (20, 'NY', 'New York', 28, 0.4956, 0.6184, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (20, 'IL', 'Illinois', 19, 0.5403, 0.5736, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (21, 'CA', 'California', 54, 0.5081, 0.7387, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (21, 'TX', 'Texas', 40, 0.6890, 0.4916, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (21, 'FL', 'Florida', 30, 0.5174, 0.4202, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (21, 'NY', 'New York', 28, 0.6849, 0.3668, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (21, 'IL', 'Illinois', 19, 0.5481, 0.7531, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (22, 'CA', 'California', 54, 0.6118, 0.8360, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (22, 'TX', 'Texas', 40, 0.5914, 0.3654, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (22, 'FL', 'Florida', 30, 0.6102, 0.6651, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (22, 'NY', 'New York', 28, 0.5916, 0.6077, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (22, 'IL', 'Illinois', 19, 0.6605, 0.6835, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (23, 'CA', 'California', 54, 0.6184, 0.7435, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (23, 'TX', 'Texas', 40, 0.6493, 0.4778, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (23, 'FL', 'Florida', 30, 0.5034, 0.5943, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (23, 'NY', 'New York', 28, 0.4847, 0.7390, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (23, 'IL', 'Illinois', 19, 0.6935, 0.7557, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (24, 'CA', 'California', 54, 0.6901, 0.7703, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (24, 'TX', 'Texas', 40, 0.5675, 0.4286, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (24, 'FL', 'Florida', 30, 0.6270, 0.7074, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (24, 'NY', 'New York', 28, 0.5151, 0.3945, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (24, 'IL', 'Illinois', 19, 0.6284, 0.6153, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (25, 'CA', 'California', 54, 0.8182, 0.6521, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (25, 'TX', 'Texas', 40, 0.5568, 0.3776, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (25, 'FL', 'Florida', 30, 0.6107, 0.5379, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (25, 'NY', 'New York', 28, 0.6272, 0.3880, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (25, 'IL', 'Illinois', 19, 0.5421, 0.7468, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (26, 'CA', 'California', 54, 0.6398, 0.7260, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (26, 'TX', 'Texas', 40, 0.5852, 0.4071, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (26, 'FL', 'Florida', 30, 0.6019, 0.3614, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (26, 'NY', 'New York', 28, 0.5659, 0.7163, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (26, 'IL', 'Illinois', 19, 0.5223, 0.5387, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'CA', 'California', 54, 0.6349, 0.4514, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'TX', 'Texas', 40, 0.5661, 0.7413, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'FL', 'Florida', 30, 0.6247, 0.7324, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'NY', 'New York', 28, 0.5408, 0.5099, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'IL', 'Illinois', 19, 0.4963, 0.7332, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'OH', 'Ohio', 20, 0.6342, 0.9085, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'PA', 'Pennsylvania', 21, 0.4956, 0.7824, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'MI', 'Michigan', 17, 0.5064, 0.7900, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'VA', 'Virginia', 13, 0.6210, 0.8055, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'WI', 'Wisconsin', 10, 0.4997, 0.7742, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'NC', 'North Carolina', 15, 0.5112, 0.7420, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'MO', 'Missouri', 11, 0.6208, 0.7654, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'CO', 'Colorado', 9, 0.4865, 0.6982, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (27, 'OR', 'Oregon', 7, 0.4954, 0.7231, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (28, 'CA', 'California', 54, 0.7963, 0.4134, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (28, 'TX', 'Texas', 40, 0.6149, 0.6342, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (28, 'FL', 'Florida', 30, 0.5226, 0.7490, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (28, 'NY', 'New York', 28, 0.4854, 0.4637, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (28, 'IL', 'Illinois', 19, 0.6563, 0.5031, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (29, 'CA', 'California', 54, 0.6524, 0.6043, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (29, 'TX', 'Texas', 40, 0.6673, 0.4147, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (29, 'FL', 'Florida', 30, 0.5720, 0.6575, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (29, 'NY', 'New York', 28, 0.6132, 0.4827, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (29, 'IL', 'Illinois', 19, 0.6014, 0.7054, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (30, 'CA', 'California', 54, 0.5762, 0.7164, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (30, 'TX', 'Texas', 40, 0.6867, 0.4608, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (30, 'FL', 'Florida', 30, 0.6187, 0.4186, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (30, 'NY', 'New York', 28, 0.5214, 0.6567, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (30, 'IL', 'Illinois', 19, 0.6294, 0.6440, 'Republican');
+-- Full 50 state data for the 2020 election.
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MN', 'Minnesota', 10, 0.518, 0.748, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'ME', 'Maine', 4, 0.531, 0.742, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NH', 'New Hampshire', 4, 0.526, 0.722, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'WI', 'Wisconsin', 10, 0.537, 0.719, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'VT', 'Vermont', 3, 0.661, 0.718, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MT', 'Montana', 3, 0.586, 0.709, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'CO', 'Colorado', 9, 0.648, 0.709, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MI', 'Michigan', 16, 0.624, 0.704, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'OR', 'Oregon', 7, 0.586, 0.697, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'IA', 'Iowa', 6, 0.639, 0.693, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'PA', 'Pennsylvania', 20, 0.512, 0.679, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'WA', 'Washington', 12, 0.694, 0.673, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NC', 'North Carolina', 16, 0.482, 0.663, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'VA', 'Virginia', 13, 0.546, 0.663, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NJ', 'New Jersey', 14, 0.538, 0.654, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MA', 'Massachusetts', 11, 0.661, 0.652, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'AK', 'Alaska', 3, 0.564, 0.652, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'OH', 'Ohio', 18, 0.535, 0.648, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NE', 'Nebraska', 5, 0.556, 0.647, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'DE', 'Delaware', 3, 0.618, 0.645, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'CT', 'Connecticut', 7, 0.657, 0.642, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MD', 'Maryland', 10, 0.699, 0.642, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'UT', 'Utah', 6, 0.535, 0.635, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MO', 'Missouri', 10, 0.570, 0.631, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'FL', 'Florida', 29, 0.511, 0.631, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'ID', 'Idaho', 4, 0.596, 0.627, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'SD', 'South Dakota', 3, 0.676, 0.626, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'ND', 'North Dakota', 3, 0.671, 0.619, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'WY', 'Wyoming', 3, 0.674, 0.618, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'KY', 'Kentucky', 8, 0.655, 0.614, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'IL', 'Illinois', 20, 0.605, 0.614, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'SC', 'South Carolina', 9, 0.689, 0.611, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'AL', 'Alabama', 9, 0.667, 0.615, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'GA', 'Georgia', 16, 0.527, 0.605, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'RI', 'Rhode Island', 4, 0.636, 0.604, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'KS', 'Kansas', 6, 0.423, 0.600, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'DC', 'District of Columbia', 3, 0.848, 0.592, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'AZ', 'Arizona', 11, 0.495, 0.584, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'LA', 'Louisiana', 8, 0.585, 0.582, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'IN', 'Indiana', 11, 0.674, 0.582, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'MS', 'Mississippi', 6, 0.590, 0.576, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NV', 'Nevada', 6, 0.492, 0.573, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'CA', 'California', 55, 0.672, 0.568, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'TN', 'Tennessee', 11, 0.647, 0.566, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NM', 'New Mexico', 5, 0.550, 0.565, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'NY', 'New York', 29, 0.663, 0.559, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'WV', 'West Virginia', 5, 0.641, 0.559, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'AR', 'Arkansas', 6, 0.698, 0.523, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'HI', 'Hawaii', 4, 0.674, 0.515, 'Democrat');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'OK', 'Oklahoma', 7, 0.528, 0.515, 'Republican');
+insert into stateResult (electionId, stateAbbr, stateName, numElectoralVotes, popularVoteRatio, voterTurnout, partyRepresentative) values (31, 'TX', 'Texas', 40, 0.482, 0.513, 'Republican');
 
 insert into policy (policyId, policyName, stance) values (1, 'Auto Insurance Policy', 'Advocates for affordable auto insurance with comprehensive coverage.');
 insert into policy (policyId, policyName, stance) values (2, 'Travel Insurance Policy', 'Supports mandatory travel insurance for international trips to protect travelers.');
@@ -406,41 +516,364 @@ insert into advocatesFor (policyId, candidateId) values ('22', '8');
 insert into advocatesFor (policyId, candidateId) values ('34', '10');
 insert into advocatesFor (policyId, candidateId) values ('11', '7');
 
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (1, '342 Beilfuss Alley', 'Meadowbrook', 'NY', '39646');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (2, '49637 Ronald Regan Park', 'Woodland Hills', 'TX', '05556');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (3, '5 Oakridge Point', 'Brookside', 'NY', '01204');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (4, '7 Trailsway Street', 'Lakeview', 'TX', '88437');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (5, '7 Meadow Vale Terrace', 'Meadowbrook', 'AZ', '25416');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (6, '529 Erie Park', 'Pleasant Valley', 'TX', '83541');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (7, '933 Melby Park', 'Silver Springs', 'CO', '07942');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (8, '79 Algoma Court', 'Pleasant Valley', 'AZ', '23262');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (9, '59795 Artisan Hill', 'Riverdale', 'TX', '85525');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (10, '5 Weeping Birch Crossing', 'Oakdale', 'KS', '37966');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (11, '109 East Plaza', 'Clearwater', 'NY', '23486');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (12, '71 Pierstorff Park', 'Windsor Park', 'CA', '70024');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (13, '93323 Forster Hill', 'Pine Valley', 'FL', '93332');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (14, '6527 Cascade Center', 'Sunnydale', 'TX', '48705');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (15, '9 Hollow Ridge Avenue', 'Hickory Hills', 'CA', '69528');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (16, '75 Florence Way', 'Cedar Ridge', 'TX', '13264');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (17, '5 Mockingbird Way', 'Fairview', 'KY', '79219');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (18, '6251 Sheridan Drive', 'Hickory Hills', 'IN', '89877');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (19, '9447 Graceland Terrace', 'Windsor Park', 'GA', '11977');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (20, '391 Golf Junction', 'Pine Valley', 'OH', '04931');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (21, '91 Cody Place', 'Valley Forge', 'LA', '24830');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (22, '75821 Armistice Avenue', 'Lakeview', 'DC', '00332');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (23, '434 Forest Run Plaza', 'Briarwood', 'SC', '54762');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (24, '6 Mockingbird Park', 'Greenwood', 'AZ', '10343');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (25, '792 Knutson Lane', 'Brookside', 'OK', '50842');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (26, '81 Toban Point', 'Sunset Hills', 'MN', '29307');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (27, '44 Grasskamp Junction', 'Briarwood', 'CT', '54515');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (28, '97 Pearson Drive', 'Hillcrest', 'MI', '29849');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (29, '3153 Westridge Junction', 'Springfield', 'NY', '46715');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (30, '10536 Little Fleur Place', 'Meadowbrook', 'LA', '68400');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (31, '9 Hintze Point', 'Oakdale', 'LA', '04229');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (32, '6857 Blue Bill Park Pass', 'Clearwater', 'NY', '05227');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (33, '51 Tony Place', 'Chestnut Ridge', 'FL', '90406');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (34, '9733 Cherokee Pass', 'Golden Grove', 'DC', '85320');
-insert into votingCenter (votingCenterId, street, city, state, zipcode) values (35, '355 Bobwhite Circle', 'Oakdale', 'NY', '45594');
+-- Alabama
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (1, '123 Magnolia Lane', 'Montgomery', 'AL', '36104');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (2, '789 River Road', 'Birmingham', 'AL', '35203');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (3, '456 Pine Street', 'Mobile', 'AL', '36602');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (4, '101 Oakwood Avenue', 'Huntsville', 'AL', '35801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (5, '987 Sunset Boulevard', 'Tuscaloosa', 'AL', '35401');
+
+
+-- Alaska
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (6, '342 Glacier Avenue', 'Anchorage', 'AK', '99501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (7, '567 Tundra Way', 'Fairbanks', 'AK', '99701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (8, '234 Aurora Lane', 'Juneau', 'AK', '99801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (9, '890 Northern Lights Boulevard', 'Sitka', 'AK', '99835');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (10, '112 Bering Street', 'Kodiak', 'AK', '99615');
+
+
+-- Arizona
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (11, '75 Florence Way', 'Cedar Ridge', 'AZ', '13264');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (12, '7 Meadow Vale Terrace', 'Meadowbrook', 'AZ', '25416');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (13, '8 Algoma Court', 'Pleasant Valley', 'AZ', '23262');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (14, '6 Mockingbird Park', 'Greenwood', 'AZ', '10343');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (15, '79 Algoma Court', 'Pleasant Valley', 'AZ', '23262');
+
+
+-- Arkansas
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (16, '654 Delta Drive', 'Little Rock', 'AR', '72201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (17, '321 Cottonwood Avenue', 'Fayetteville', 'AR', '72701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (18, '789 Ozark Lane', 'Hot Springs', 'AR', '71901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (19, '213 Riverfront Road', 'Fort Smith', 'AR', '72901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (20, '876 Piney Point Drive', 'Jonesboro', 'AR', '72401');
+
+
+-- California
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (21, '71 Pierstorff Park', 'Windsor Park', 'CA', '70024');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (22, '9 Hollow Ridge Avenue', 'Hickory Hills', 'CA', '69528');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (23, '452 Palm Street', 'Los Angeles', 'CA', '90001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (24, '5 Oak Lane', 'San Francisco', 'CA', '94103');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (25, '789 Beach Avenue', 'San Diego', 'CA', '92101');
+
+
+-- Colorado
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (26, '123 Mountain Road', 'Denver', 'CO', '80202');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (27, '567 Pine Tree Lane', 'Colorado Springs', 'CO', '80903');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (28, '456 Canyon Boulevard', 'Boulder', 'CO', '80301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (29, '789 Aspen Street', 'Aspen', 'CO', '81611');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (30, '101 Snowflake Avenue', 'Vail', 'CO', '81657');
+
+
+-- Connecticut
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (31, '342 Constitution Drive', 'Hartford', 'CT', '06103');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (32, '567 Nutmeg Lane', 'New Haven', 'CT', '06510');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (33, '234 Harbor Street', 'Stamford', 'CT', '06902');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (34, '890 Pequot Avenue', 'Bridgeport', 'CT', '06604');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (35, '112 Mystic Drive', 'Norwich', 'CT', '06360');
+
+
+-- Delaware
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (36, '342 First State Boulevard', 'Wilmington', 'DE', '19801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (37, '567 Dover Drive', 'Dover', 'DE', '19901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (38, '234 Brandywine Street', 'Newark', 'DE', '19702');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (39, '890 Rehoboth Avenue', 'Rehoboth Beach', 'DE', '19971');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (40, '112 Seaford Lane', 'Seaford', 'DE', '19973');
+
+
+-- Florida
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (41, '93323 Forster Hill', 'Pine Valley', 'FL', '93332');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (42, '51 Tony Place', 'Chestnut Ridge', 'FL', '90406');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (43, '342 Ocean Boulevard', 'Miami', 'FL', '33101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (44, '456 Orange Avenue', 'Orlando', 'FL', '32801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (45, '789 Sunset Way', 'Tampa', 'FL', '33602');
+
+
+-- Georgia
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (46, '9447 Graceland Terrace', 'Windsor Park', 'GA', '11977');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (47, '123 Peach Street', 'Atlanta', 'GA', '30303');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (48, '789 River Road', 'Savannah', 'GA', '31401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (49, '456 Garden Avenue', 'Augusta', 'GA', '30901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (50, '101 Stone Mountain Drive', 'Stone Mountain', 'GA', '30083');
+
+
+-- Hawaii
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (51, '123 Aloha Lane', 'Honolulu', 'HI', '96801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (52, '456 Coconut Drive', 'Hilo', 'HI', '96720');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (53, '789 Pineapple Street', 'Kailua', 'HI', '96734');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (54, '101 Beach Avenue', 'Waipahu', 'HI', '96797');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (55, '234 Volcano Road', 'Lahaina', 'HI', '96761');
+
+
+-- Idaho
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (56, '567 Clearwater Lane', 'Boise', 'ID', '83701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (57, '890 River Street', 'Nampa', 'ID', '83651');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (58, '342 Pine Avenue', 'Idaho Falls', 'ID', '83401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (59, '456 Gem Street', 'Pocatello', 'ID', '83201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (60, '789 Mountain Road', 'Caldwell', 'ID', '83605');
+
+
+-- Illinois
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (61, '101 Lake Shore Drive', 'Chicago', 'IL', '60601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (62, '234 Oak Park Avenue', 'Naperville', 'IL', '60540');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (63, '567 Prairie Lane', 'Springfield', 'IL', '62701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (64, '890 Lincoln Avenue', 'Peoria', 'IL', '61602');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (65, '342 River Road', 'Rockford', 'IL', '61101');
+
+
+-- Indiana
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (66, '112 Monument Circle', 'Indianapolis', 'IN', '46204');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (67, '654 Hoosier Drive', 'Fort Wayne', 'IN', '46802');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (68, '789 Canal Street', 'South Bend', 'IN', '46601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (69, '123 Notre Dame Avenue', 'Evansville', 'IN', '47708');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (70, '456 Tippecanoe Street', 'Lafayette', 'IN', '47901');
+
+
+-- Iowa
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (71, '234 Corn Street', 'Des Moines', 'IA', '50309');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (72, '567 Riverfront Drive', 'Cedar Rapids', 'IA', '52401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (73, '890 Great Plains Avenue', 'Davenport', 'IA', '52801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (74, '101 Hawkeye Lane', 'Sioux City', 'IA', '51101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (75, '789 Prairie Street', 'Iowa City', 'IA', '52240');
+
+
+-- Kansas
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (76, '5 Weeping Birch Crossing', 'Oakdale', 'KS', '37966');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (77, '456 Sunflower Road', 'Topeka', 'KS', '66603');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (78, '234 Kaw Drive', 'Wichita', 'KS', '67202');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (79, '789 Jayhawk Boulevard', 'Lawrence', 'KS', '66044');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (80, '101 Flint Hills Street', 'Manhattan', 'KS', '66502');
+
+
+-- Kentucky
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (81, '5 Mockingbird Way', 'Fairview', 'KY', '79219');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (82, '567 Bourbon Street', 'Louisville', 'KY', '40202');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (83, '890 Bluegrass Avenue', 'Lexington', 'KY', '40507');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (84, '101 Derby Drive', 'Bowling Green', 'KY', '42101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (85, '234 Cardinal Lane', 'Frankfort', 'KY', '40601');
+
+
+-- Louisiana
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (86, '10536 Little Fleur Place', 'Meadowbrook', 'LA', '68400');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (87, '91 Cody Place', 'Valley Forge', 'LA', '24830');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (88, '123 Bayou Street', 'New Orleans', 'LA', '70112');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (89, '789 Creole Avenue', 'Baton Rouge', 'LA', '70802');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (90, '456 Pelican Drive', 'Shreveport', 'LA', '71101');
+
+
+-- Maine
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (91, '112 Lighthouse Lane', 'Portland', 'ME', '04101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (92, '234 Pine Street', 'Augusta', 'ME', '04330');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (93, '567 River Road', 'Bangor', 'ME', '04401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (94, '890 Ocean Avenue', 'Bar Harbor', 'ME', '04609');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (95, '101 Mountain Drive', 'Lewiston', 'ME', '04240');
+
+
+-- Maryland
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (96, '342 Chesapeake Lane', 'Baltimore', 'MD', '21201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (97, '456 Capitol Street', 'Annapolis', 'MD', '21401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (98, '789 Ocean Drive', 'Ocean City', 'MD', '21842');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (99, '101 Crab Lane', 'Frederick', 'MD', '21701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (100, '234 Colonial Drive', 'Rockville', 'MD', '20850');
+
+
+-- Massachusetts
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (101, '342 Freedom Trail', 'Boston', 'MA', '02108');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (102, '456 Harvard Square', 'Cambridge', 'MA', '02138');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (103, '789 Seaport Boulevard', 'Springfield', 'MA', '01103');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (104, '101 Beacon Street', 'Worcester', 'MA', '01608');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (105, '234 Bay Road', 'Lowell', 'MA', '01850');
+
+
+-- Michigan
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (106, '567 Motor City Drive', 'Detroit', 'MI', '48201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (107, '789 Great Lakes Street', 'Grand Rapids', 'MI', '49503');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (108, '101 Wolverine Avenue', 'Ann Arbor', 'MI', '48104');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (109, '234 Spartan Road', 'Lansing', 'MI', '48933');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (110, '456 Cherry Street', 'Flint', 'MI', '48502');
+
+
+-- Minnesota
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (111, '789 North Star Lane', 'Minneapolis', 'MN', '55401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (112, '101 Twin Cities Boulevard', 'Saint Paul', 'MN', '55101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (113, '234 Boundary Waters Road', 'Duluth', 'MN', '55802');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (114, '456 Lakeside Avenue', 'Rochester', 'MN', '55901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (115, '567 Viking Drive', 'Bloomington', 'MN', '55420');
+
+
+-- Mississippi
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (116, '101 Magnolia Street', 'Jackson', 'MS', '39201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (117, '234 Delta Avenue', 'Gulfport', 'MS', '39501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (118, '456 Blues Highway', 'Hattiesburg', 'MS', '39401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (119, '789 River Road', 'Biloxi', 'MS', '39530');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (120, '567 University Drive', 'Oxford', 'MS', '38655');
+
+
+-- Missouri
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (121, '789 Gateway Arch Boulevard', 'Saint Louis', 'MO', '63101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (122, '101 Truman Road', 'Kansas City', 'MO', '64106');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (123, '234 Show-Me Street', 'Springfield', 'MO', '65806');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (124, '456 Riverfront Avenue', 'Columbia', 'MO', '65201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (125, '567 Pony Express Way', 'Saint Joseph', 'MO', '64501');
+
+
+-- Montana
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (126, '234 Big Sky Lane', 'Billings', 'MT', '59101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (127, '456 Glacier Road', 'Missoula', 'MT', '59801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (128, '789 Yellowstone Avenue', 'Great Falls', 'MT', '59401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (129, '101 Montana Avenue', 'Bozeman', 'MT', '59715');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (130, '567 Pioneer Street', 'Helena', 'MT', '59601');
+
+
+-- Nebraska
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (131, '789 Cornhusker Road', 'Omaha', 'NE', '68102');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (132, '101 Capital Avenue', 'Lincoln', 'NE', '68508');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (133, '234 Platte River Drive', 'Bellevue', 'NE', '68005');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (134, '456 Frontier Street', 'Grand Island', 'NE', '68801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (135, '567 Prairie Avenue', 'Kearney', 'NE', '68847');
+
+
+-- Nevada
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (136, '101 Las Vegas Boulevard', 'Las Vegas', 'NV', '89101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (137, '234 Silver State Road', 'Reno', 'NV', '89501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (138, '456 Fremont Street', 'Henderson', 'NV', '89002');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (139, '789 Carson Avenue', 'Carson City', 'NV', '89701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (140, '567 Lake Tahoe Drive', 'Sparks', 'NV', '89431');
+
+
+-- New Hampshire
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (141, '234 Granite Street', 'Manchester', 'NH', '03101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (142, '456 Merrimack River Road', 'Nashua', 'NH', '03060');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (143, '789 White Mountains Avenue', 'Concord', 'NH', '03301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (144, '101 Seacoast Street', 'Portsmouth', 'NH', '03801');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (145, '567 Dartmouth Drive', 'Dover', 'NH', '03820');
+
+
+-- New Jersey
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (146, '789 Boardwalk Street', 'Atlantic City', 'NJ', '08401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (147, '101 Garden State Avenue', 'Newark', 'NJ', '07102');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (148, '234 Liberty Road', 'Jersey City', 'NJ', '07302');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (149, '456 Princeton Street', 'Princeton', 'NJ', '08540');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (150, '567 Shore Drive', 'Toms River', 'NJ', '08753');
+
+
+-- New Mexico
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (151, '789 Sandia Street', 'Albuquerque', 'NM', '87101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (152, '101 Rio Grande Avenue', 'Santa Fe', 'NM', '87501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (153, '234 Mesa Drive', 'Las Cruces', 'NM', '88001');
+
+
+-- New York
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (154, '789 Broadway Avenue', 'New York', 'NY', '10001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (155, '101 Empire State Plaza', 'Albany', 'NY', '12207');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (156, '234 Niagara Falls Boulevard', 'Buffalo', 'NY', '14201');
+
+
+-- North Carolina
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (157, '789 Research Triangle Parkway', 'Raleigh', 'NC', '27601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (158, '101 Carolina Avenue', 'Charlotte', 'NC', '28201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (159, '234 Piedmont Drive', 'Greensboro', 'NC', '27401');
+
+
+-- North Dakota
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (160, '789 Prairie Avenue', 'Fargo', 'ND', '58102');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (161, '101 Dakota Drive', 'Bismarck', 'ND', '58501');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (162, '234 Rough Rider Road', 'Minot', 'ND', '58701');
+
+
+-- Ohio
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (163, '789 Buckeye Boulevard', 'Columbus', 'OH', '43201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (164, '101 Rock and Roll Road', 'Cleveland', 'OH', '44101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (165, '234 Queen City Avenue', 'Cincinnati', 'OH', '45201');
+
+
+-- Oklahoma
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (166, '789 Sooner Street', 'Oklahoma City', 'OK', '73101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (167, '101 Route 66', 'Tulsa', 'OK', '74101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (168, '234 Red Earth Drive', 'Norman', 'OK', '73069');
+
+
+-- Oregon
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (169, '789 Cascade Avenue', 'Portland', 'OR', '97201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (170, '101 Beaver Boulevard', 'Salem', 'OR', '97301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (171, '234 Columbia Drive', 'Eugene', 'OR', '97401');
+
+
+-- Pennsylvania
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (172, '789 Liberty Street', 'Philadelphia', 'PA', '19101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (173, '101 Steel City Avenue', 'Pittsburgh', 'PA', '15201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (174, '234 Keystone Road', 'Harrisburg', 'PA', '17101');
+
+
+-- Rhode Island
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (175, '789 Ocean Drive', 'Providence', 'RI', '02901');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (176, '101 Narragansett Street', 'Warwick', 'RI', '02886');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (177, '234 Newport Avenue', 'Newport', 'RI', '02840');
+
+
+-- South Carolina
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (178, '789 Palmetto Avenue', 'Columbia', 'SC', '29201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (179, '101 Charleston Drive', 'Charleston', 'SC', '29401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (180, '234 Myrtle Beach Road', 'Myrtle Beach', 'SC', '29577');
+
+
+-- South Dakota
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (181, '789 Mount Rushmore Lane', 'Sioux Falls', 'SD', '57101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (182, '101 Prairie Avenue', 'Rapid City', 'SD', '57701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (183, '234 Black Hills Drive', 'Aberdeen', 'SD', '57401');
+
+
+-- Tennessee
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (184, '789 Music City Way', 'Nashville', 'TN', '37201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (185, '101 Volunteer Road', 'Memphis', 'TN', '38101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (186, '234 Smoky Mountain Drive', 'Knoxville', 'TN', '37901');
+
+
+-- Texas
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (187, '789 Lone Star Lane', 'Houston', 'TX', '77001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (188, '101 Alamo Street', 'San Antonio', 'TX', '78201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (189, '234 Longhorn Drive', 'Dallas', 'TX', '75201');
+
+
+-- Utah
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (190, '789 Wasatch Way', 'Salt Lake City', 'UT', '84101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (191, '101 Zion Avenue', 'Provo', 'UT', '84601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (192, '234 Bonneville Drive', 'Ogden', 'UT', '84401');
+
+
+-- Vermont
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (193, '789 Green Mountain Road', 'Burlington', 'VT', '05401');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (194, '101 Lake Champlain Drive', 'Montpelier', 'VT', '05601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (195, '234 Maple Street', 'Stowe', 'VT', '05672');
+
+
+-- Virginia
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (196, '789 Old Dominion Road', 'Richmond', 'VA', '23218');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (197, '101 Colonial Avenue', 'Virginia Beach', 'VA', '23450');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (198, '234 Shenandoah Drive', 'Charlottesville', 'VA', '22902');
+
+
+-- Washington
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (199, '789 Evergreen Street', 'Seattle', 'WA', '98101');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (200, '101 Cascade Drive', 'Spokane', 'WA', '99201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (201, '234 Puget Sound Road', 'Tacoma', 'WA', '98401');
+
+
+-- West Virginia
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (202, '789 Appalachian Avenue', 'Charleston', 'WV', '25301');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (203, '101 Mountain State Drive', 'Huntington', 'WV', '25701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (204, '234 Coal River Road', 'Morgantown', 'WV', '26501');
+
+
+-- Wisconsin
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (205, '789 Badger Street', 'Milwaukee', 'WI', '53201');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (206, '101 Dairyland Drive', 'Madison', 'WI', '53701');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (207, '234 Great Lakes Road', 'Green Bay', 'WI', '54301');
+
+
+-- Wyoming
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (208, '789 Frontier Avenue', 'Cheyenne', 'WY', '82001');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (209, '101 Cowboy Street', 'Casper', 'WY', '82601');
+insert into votingCenter (votingCenterId, street, city, state, zipcode) values (210, '234 Prairie Road', 'Jackson', 'WY', '83001');
 
 insert into voter (voterId, politicalAffiliation, state, county, age, incomeLevel, ethnicity, gender, candidateId, votingCenterId) values (1, 'Democrat', 'California', 'Greenwood County', 36, '$58.000 - $94.000', 'White', 'Male', '19', '25');
 insert into voter (voterId, politicalAffiliation, state, county, age, incomeLevel, ethnicity, gender, candidateId, votingCenterId) values (2, 'Independent', 'Texas', 'Clearwater County', 78, '< $30.000', 'Hispanic or Latino', 'Male', '16', '22');

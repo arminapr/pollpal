@@ -1,14 +1,9 @@
-########################################################
-# Sample customers blueprint of endpoints
-# Remove this file if you are not using it in your project
-########################################################
-from flask import Blueprint, request, jsonify, make_response, current_app
-import json
+from flask import Blueprint, jsonify, make_response, current_app
 from backend.db_connection import db
 
 data_analyst = Blueprint('data_analyst', __name__)
 
-# Get all campaign site surveys from the DB
+# view campaign site survey results
 @data_analyst.route('/campaign-site-survey', methods=['GET'])
 def get_campaign_site_survey():
     current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
@@ -20,6 +15,7 @@ def get_campaign_site_survey():
     the_response.mimetype = 'application/json'
     return the_response
 
+# view voter site survey results
 @data_analyst.route('/voter-site-survey', methods=['GET'])
 def get_voter_site_survey():
     current_app.logger.info('data_analyst_routes.py: GET /voter-site-survey')
@@ -32,6 +28,7 @@ def get_voter_site_survey():
     the_response.mimetype = 'application/json'
     return the_response
 
+# view voter demographics
 @data_analyst.route('/voter-info-ethnicity', methods=['GET'])
 def get_voter_ethnicity():
     current_app.logger.info('data_analyst_routes.py: GET /voter-info')
@@ -79,6 +76,7 @@ def get_invalid_data():
     the_response.mimetype = 'application/json'
     return the_response
 
+# Deleting invalid user data, voter ages below 18
 @data_analyst.route('/voter-info', methods=['DELETE'])
 def delete_invalid_data():
     current_app.logger.info('data_analyst_persona_routes.py: DELETE /voter-info')
@@ -89,6 +87,3 @@ def delete_invalid_data():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
-
-
-

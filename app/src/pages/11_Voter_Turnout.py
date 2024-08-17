@@ -10,8 +10,9 @@ st.set_page_config(layout = 'wide')
 
 # Display the appropriate sidebar links for the role of the logged in user
 SideBarLinks()
-
 st.title('Voter Turnout by Election Year')
+
+# getting election year data
 response = requests.get('http://api:4000/v/election-years')
 if response.status_code == 200:
     election_year_info = response.json()
@@ -21,12 +22,11 @@ else:
     year_options = []
     election_year_info= [] 
 
+# allowing user to select an election year
 year = st.selectbox('Select an election year', year_options, index=None)
 logger.info(f'var_01 = {year}')
-logger.info(f'Retrieved data: {year_options}')
 
-# add a button to use the values entered into the number field to send to the 
-# prediction function via the REST API
+# getting voter turn out based on selected year
 if year != None and st.button('View voter turnout',
              type='primary',
              use_container_width=True):
@@ -36,7 +36,7 @@ if year != None and st.button('View voter turnout',
  # Convert results to a DataFrame
   df = pd.DataFrame(results)
 
-    # Check if data is available
+  # Check if data is available and displaying bar chart
   if not df.empty:
     df.columns = ['State', 'Voter Turnout']
     st.bar_chart(df.set_index('State'), y_label='% turnout of voters', x_label='state')

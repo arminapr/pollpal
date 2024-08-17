@@ -1,9 +1,7 @@
 import logging
 logger = logging.getLogger(__name__)
-
 import streamlit as st
 from modules.nav import SideBarLinks
-
 st.set_page_config(layout = 'wide')
 
 # Show appropriate sidebar links for the role of the currently logged in user
@@ -33,16 +31,19 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
+# redirecting analyst to delete invalid data page
 if st.button('Delete Invalid Polling Data',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/21_Clean_Inavlid_Data.py')
 
+# redirecting analyst to view polling data by demographic page
 if st.button('View Polling Data By Demographic',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/22_Demographic_Data.py')
 
+# redirecting analyst to view user site responses page
 if st.button("View User Site Survey Responses",
              type='primary',
              use_container_width=True):
