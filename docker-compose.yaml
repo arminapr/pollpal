@@ -15,6 +15,7 @@ services:
     hostname: web-api
     volumes:
       - ./api:/apicode
+      - ./app/src/pages/model_files:/model_files
     ports:
       - 4000:4000
     networks:
