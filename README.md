@@ -36,6 +36,8 @@ If there are any issues while running, run the following command:
 
 Run  ```docker compose up -d```  bring the containers back up.
 
+The Streamlit app will then run on http://localhost:8501/.
+
 ## Project Directory
 
 - Streamlit App (in the `./app` directory)
