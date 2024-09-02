@@ -9,8 +9,8 @@ def get_campaign_site_survey():
     current_app.logger.info('data_analyst_routes.py: GET /campaign-site-survey')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT * FROM campaignManagerSiteSurvey')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -21,9 +21,9 @@ def get_voter_site_survey():
     current_app.logger.info('data_analyst_routes.py: GET /voter-site-survey')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT * FROM voterSiteSurvey')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
-    current_app.logger.info(theData)
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
+    current_app.logger.info(the_data)
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -35,8 +35,8 @@ def get_voter_ethnicity():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT ethnicity, COUNT(voterId) as userCount\
     FROM voter v GROUP BY ethnicity ORDER BY userCount ASC')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -47,8 +47,8 @@ def get_voter_age():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT age, COUNT(voterId) as userCount\
     FROM voter v GROUP BY age ORDER BY userCount ASC')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -59,8 +59,8 @@ def get_voter_gender():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT gender, COUNT(voterId) as userCount\
     FROM voter v GROUP BY gender ORDER BY userCount ASC')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -70,8 +70,8 @@ def get_invalid_data():
     current_app.logger.info('data_analyst_persona_routes.py: GET /voter-info')
     cursor = db.get_db().cursor()
     cursor.execute('SELECT * FROM voter ORDER BY age')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response

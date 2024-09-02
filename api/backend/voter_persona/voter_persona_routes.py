@@ -14,8 +14,8 @@ def get_voter_turnout(year):
     cursor.execute('SELECT stateName, round((voterTurnout * 100),2) as voterTurnout from stateResult sR \
         JOIN election e ON sR.electionId = e.electionId \
         WHERE year = {0}'.format(year))
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -27,11 +27,11 @@ def get_voter_ethnicity_info():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT v.politicalAffiliation, \
             v.ethnicity as voterEthnicity, \
-        COUNT(voterId) as numVotersByEthnicity \
-        FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
+        COUNT(voter_id) as numVotersByEthnicity \
+        FROM voter v JOIN candidate c ON v.candidate_id = c.candidate_id \
         GROUP BY politicalAffiliation, ethnicity')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -42,11 +42,11 @@ def get_voter_gen_info():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT v.politicalAffiliation, \
             v.gender as voterGender, \
-        COUNT(voterId) as numVotersByGender \
-        FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
+        COUNT(voter_id) as numVotersByGender \
+        FROM voter v JOIN candidate c ON v.candidate_id = c.candidate_id \
         GROUP BY v.politicalAffiliation, v.gender')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -57,11 +57,11 @@ def get_voter_age_info():
     cursor = db.get_db().cursor()
     cursor.execute('SELECT v.politicalAffiliation, \
             v.age as voterAge, \
-        COUNT(voterId) as numVotersByAge \
-        FROM voter v JOIN candidate c ON v.candidateId = c.candidateId \
+        COUNT(voter_id) as numVotersByAge \
+        FROM voter v JOIN candidate c ON v.candidate_id = c.candidate_id \
         GROUP BY v.politicalAffiliation, v.age')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -72,28 +72,28 @@ def add_voter():
     current_app.logger.info('POST /voter-info route')
     voter_info = request.json
     current_app.logger.info(voter_info)
-    poliAff = voter_info['politicalAffiliation']
+    poli_aff = voter_info['politicalAffiliation']
     state = voter_info['state']
     county = voter_info['county']
     age = voter_info['age']
     income = voter_info['incomeLevel']
     ethnicity = voter_info['ethnicity']
     gender = voter_info['gender']
-    candidateId = voter_info['candidateId']
+    candidate_id = voter_info['candidate_id']
 
     query = 'INSERT INTO voter (politicalAffiliation, state, county, age, incomeLevel, \
-                ethnicity, gender, candidateId) \
+                ethnicity, gender, candidate_id) \
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
-    data = (poliAff, state, county, age, income, ethnicity, gender, candidateId)
+    data = (poli_aff, state, county, age, income, ethnicity, gender, candidate_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'voter added!'
 
 # Update voter information
-@voter_persona.route('/voter-info/<voterId>', methods=['PUT'])
-def update_customer(voterId):
-    current_app.logger.info('PUT /voter-info/{0}'.format(voterId))
+@voter_persona.route('/voter-info/<voter_id>', methods=['PUT'])
+def update_customer(voter_id):
+    current_app.logger.info('PUT /voter-info/{0}'.format(voter_id))
     voter_info = request.json
     political_affiliation = voter_info['politicalAffiliation']
     state = voter_info['state']
@@ -102,11 +102,11 @@ def update_customer(voterId):
     income = voter_info['incomeLevel']
     ethnicity = voter_info['ethnicity']
     gender = voter_info['gender']
-    candidateId = voter_info['candidateId']
+    candidate_id = voter_info['candidate_id']
     query = 'UPDATE voter SET politicalAffiliation = %s, state = %s, county = %s, \
-        age = %s, incomeLevel = %s, ethnicity = %s, gender = %s, candidateId = %s \
-        WHERE voterId = %s'
-    data = (political_affiliation, state, county, age, income, ethnicity, gender, candidateId, voterId)
+        age = %s, incomeLevel = %s, ethnicity = %s, gender = %s, candidate_id = %s \
+        WHERE voter_id = %s'
+    data = (political_affiliation, state, county, age, income, ethnicity, gender, candidate_id, voter_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
@@ -117,36 +117,36 @@ def update_customer(voterId):
 def add_voter_site_survey():
     current_app.logger.info('POST /voter-site-survey route')
     site_survey = request.json
-    voterId = site_survey['voterId']
-    foundCenter = 1 if site_survey['foundVotingCenter'] else 0 
-    isFriendly = site_survey['isUserFriendly']
-    neededInfo = site_survey['foundNeededInfo']
+    voter_id = site_survey['voter_id']
+    found_center = 1 if site_survey['foundVotingCenter'] else 0 
+    is_friendly = site_survey['isUserFriendly']
+    needed_info = site_survey['foundNeeded_info']
     informed = 1 if site_survey['informedAboutCandidate'] else 0
     where = site_survey['discoveredWhere']
     
-    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeededInfo, \
-                informedAboutCandidate, discoveredWhere, voterId) \
+    query = 'INSERT INTO voterSiteSurvey (foundVotingCenter, isUserFriendly, foundNeeded_info, \
+                informedAboutCandidate, discoveredWhere, voter_id) \
             VALUES (%s, %s, %s, %s, %s, %s)'
-    data = (foundCenter, isFriendly, neededInfo, informed, where, voterId)
+    data = (found_center, is_friendly, needed_info, informed, where, voter_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
     return 'voter site survey response added!'
 
 # View policies by candidate
-@voter_persona.route('/policies/<candidateId>', methods=['GET'])
-def get_customer(candidateId):
-    current_app.logger.info('GET /policies/<candidateId>')
+@voter_persona.route('/policies/<candidate_id>', methods=['GET'])
+def get_customer(candidate_id):
+    current_app.logger.info('GET /policies/<candidate_id>')
     cursor = db.get_db().cursor()
     cursor.execute('''
             SELECT DISTINCT p.policyName, p.stance FROM policy p
             JOIN advocatesFor aF on aF.policyId = p.policyId
-            JOIN candidate c on c.candidateId = aF.candidateId
-            WHERE c.candidateId = %s
-        ''', (candidateId))
+            JOIN candidate c on c.candidate_id = aF.candidate_id
+            WHERE c.candidate_id = %s
+        ''', (candidate_id))
     
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -155,7 +155,7 @@ def get_customer(candidateId):
 @voter_persona.route('/voter-id', methods=['GET'])
 def get_campaign_ids():
     current_app.logger.info('GET /voter-id')
-    query = 'SELECT voterId FROM voter'  
+    query = 'SELECT voter_id FROM voter'  
     cursor = db.get_db().cursor()
     cursor.execute(query)
     voter_ids = cursor.fetchall()
@@ -166,13 +166,13 @@ def get_candidate_name():
     current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
     cursor = db.get_db().cursor()
     current_year = datetime.now().year
-    cursor.execute('SELECT firstName, lastName, c.candidateId \
+    cursor.execute('SELECT firstName, lastName, c.candidate_id \
         FROM candidate c \
-        JOIN ranIn r ON c.candidateId = r.candidateId \
+        JOIN ranIn r ON c.candidate_id = r.candidate_id \
         JOIN election e ON r.electionId = e.electionId \
         WHERE year = {0}'.format(current_year))
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -181,10 +181,10 @@ def get_candidate_name():
 def get_all_candidate_names():
     current_app.logger.info('voter_persona_routes.py: GET /candidate-names')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT firstName, lastName, c.candidateId \
+    cursor.execute('SELECT firstName, lastName, c.candidate_id \
         FROM candidate c')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -198,8 +198,8 @@ def get_election_year():
                    FROM election e\
                    WHERE winnerId IS NOT NULL\
                    ORDER BY year DESC')
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -208,9 +208,9 @@ def get_election_year():
 def get_last_voter_id():
     current_app.logger.info('GET /last-voter-id route')
     cursor = db.get_db().cursor()
-    cursor.execute('SELECT MAX(voterId) FROM voter')
+    cursor.execute('SELECT MAX(voter_id) FROM voter')
     last_id = cursor.fetchall()
-    return jsonify({'lastVoterId': last_id})
+    return jsonify({'lastVoter_id': last_id})
 
 @voter_persona.route('/voting-center', methods=['GET'])
 def get_voting_center():
@@ -220,8 +220,8 @@ def get_voting_center():
            c.city, \
            c.state, c.zipcode \
        FROM votingCenter c')
-   theData = cursor.fetchall()
-   the_response = make_response(jsonify(theData))
+   the_data = cursor.fetchall()
+   the_response = make_response(jsonify(the_data))
    the_response.status_code = 200
    the_response.mimetype = 'application/json'
    return the_response

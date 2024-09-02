@@ -17,8 +17,8 @@ def get_voter_to_candidate_ratio(year):
             WHERE e.year = {0} \
             GROUP BY candidateID'.format(year))
 
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -35,8 +35,8 @@ def get_swing_states():
         FROM election e JOIN stateResult s ON e.electionID=s.electionId \
         WHERE e.year > 1984 AND s.popularVoteRatio > 0.49 AND s.popularVoteRatio < 0.52')
 
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -57,8 +57,8 @@ def get_campaign_details(campaignId):
                JOIN rally r ON r.campaignId=c.campaignId \
                WHERE c.campaignId = {0}'.format(campaignId))
 
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    the_data = cursor.fetchall()
+    the_response = make_response(jsonify(the_data))
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
@@ -70,16 +70,16 @@ def add_campaign_feedback():
     current_app.logger.info('POST /campaign-site-survey')
     campaign_survey = request.json
     campaign_id = campaign_survey['campaignId']
-    discoveredWhere = campaign_survey['discoveredWhere']
-    addAdditionalData = campaign_survey['addAdditionalData']
-    isDataUseful = 1 if campaign_survey['isDataUseful'] == 'True' else 0    
-    foundNeededInfo = campaign_survey['foundNeededInfo']
-    isUserFriendly = campaign_survey['isUserFriendly']
+    discovered_where = campaign_survey['discovered_where']
+    add_additional_data = campaign_survey['add_additional_data']
+    is_data_useful = 1 if campaign_survey['is_data_useful'] == 'True' else 0    
+    found_needed_info = campaign_survey['found_needed_info']
+    is_user_friendly = campaign_survey['is_user_friendly']
     
-    query = ' INSERT INTO campaignManagerSiteSurvey(discoveredWhere, addAdditionalData, isDataUseful, foundNeededInfo, \
-                   isUserFriendly, campaignId) \
+    query = ' INSERT INTO campaignManagerSiteSurvey(discovered_where, add_additional_data, is_data_useful, found_needed_info, \
+                   is_user_friendly, campaignId) \
                     VALUES (%s, %s, %s, %s, %s, %s)'
-    data = (discoveredWhere, addAdditionalData, isDataUseful, foundNeededInfo, isUserFriendly, campaign_id)
+    data = (discovered_where, add_additional_data, is_data_useful, found_needed_info, is_user_friendly, campaign_id)
     cursor = db.get_db().cursor()
     r = cursor.execute(query, data)
     db.get_db().commit()
