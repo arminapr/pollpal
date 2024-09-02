@@ -25,7 +25,7 @@ def get_last_voter_id():
     if response.status_code == 200:
         response_data = response.json()
         if response_data:
-            last_id = response_data.get('lastVoterId')[0]['MAX(voterId)']
+            last_id = response_data.get('last_voter_id')[0]['MAX(voterId)']
         else:
             last_id = 0
         return last_id

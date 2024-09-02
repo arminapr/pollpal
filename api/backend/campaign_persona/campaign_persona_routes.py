@@ -70,14 +70,14 @@ def add_campaign_feedback():
     current_app.logger.info('POST /campaign-site-survey')
     campaign_survey = request.json
     campaign_id = campaign_survey['campaignId']
-    discovered_where = campaign_survey['discovered_where']
-    add_additional_data = campaign_survey['add_additional_data']
-    is_data_useful = 1 if campaign_survey['is_data_useful'] == 'True' else 0    
-    found_needed_info = campaign_survey['found_needed_info']
-    is_user_friendly = campaign_survey['is_user_friendly']
+    discovered_where = campaign_survey['discoveredWhere']
+    add_additional_data = campaign_survey['addAdditionalData']
+    is_data_useful = 1 if campaign_survey['isDataUseful'] == 'True' else 0    
+    found_needed_info = campaign_survey['foundNeededInfo']
+    is_user_friendly = campaign_survey['isUserFriendly']
     
-    query = ' INSERT INTO campaignManagerSiteSurvey(discovered_where, add_additional_data, is_data_useful, found_needed_info, \
-                   is_user_friendly, campaignId) \
+    query = ' INSERT INTO campaignManagerSiteSurvey(discoveredWhere, addAdditionalData, isDataUseful, foundNeededInfo, \
+                   isUserFriendly, campaignId) \
                     VALUES (%s, %s, %s, %s, %s, %s)'
     data = (discovered_where, add_additional_data, is_data_useful, found_needed_info, is_user_friendly, campaign_id)
     cursor = db.get_db().cursor()
